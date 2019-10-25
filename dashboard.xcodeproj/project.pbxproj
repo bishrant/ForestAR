@@ -7,6 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8558B3A5235E000600DA6119 /* PlayFavVideo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8558B3A4235E000600DA6119 /* PlayFavVideo.storyboard */; };
+		8558B3A7235E01CA00DA6119 /* PlayFavVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3A6235E01CA00DA6119 /* PlayFavVideoController.swift */; };
+		8558B3A9235F60EA00DA6119 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3A8235F60EA00DA6119 /* Database.swift */; };
+		8558B3AB235F656A00DA6119 /* FavouriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3AA235F656A00DA6119 /* FavouriteModel.swift */; };
+		8558B3B1235F809700DA6119 /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8558B3B0235F809700DA6119 /* Help.storyboard */; };
+		8558B3B4235F80EB00DA6119 /* HelpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3B3235F80EB00DA6119 /* HelpController.swift */; };
+		8558B3B7235F8A9700DA6119 /* HelpSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3B6235F8A9700DA6119 /* HelpSlide.swift */; };
+		8558B3B9235F8ABF00DA6119 /* HelpSlide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8558B3B8235F8ABF00DA6119 /* HelpSlide.xib */; };
+		8558B3BB2360947C00DA6119 /* ARDashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8558B3BA2360947C00DA6119 /* ARDashboard.storyboard */; };
+		8558B3BD236095EA00DA6119 /* ARDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3BC236095EA00DA6119 /* ARDashboardController.swift */; };
+		8558B3C12360986500DA6119 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8558B3BF2360986000DA6119 /* SceneKit.framework */; };
+		8558B3C5236098A300DA6119 /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8558B3C4236098A300DA6119 /* ARKit.framework */; };
+		8558B3CB2360A05B00DA6119 /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3C72360A05B00DA6119 /* JSONUtils.swift */; };
+		8558B3CC2360A05B00DA6119 /* DownloadUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3C82360A05B00DA6119 /* DownloadUtils.swift */; };
+		8558B3CD2360A05B00DA6119 /* ARImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3C92360A05B00DA6119 /* ARImageUtils.swift */; };
+		8558B3CE2360A05B00DA6119 /* AppUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3CA2360A05B00DA6119 /* AppUpdate.swift */; };
+		8558B3F82361DDC400DA6119 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8558B3F72361DDC300DA6119 /* GoogleService-Info.plist */; };
+		8558B425236340F000DA6119 /* VideoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B424236340F000DA6119 /* VideoUtils.swift */; };
+		857C87FB235A0C18005724C4 /* TreeID.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 857C87FA235A0C18005724C4 /* TreeID.sqlite */; };
+		857C87FD235A1E0E005724C4 /* Favourites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 857C87FC235A1E0E005724C4 /* Favourites.storyboard */; };
+		857C87FF235A245F005724C4 /* FavouritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C87FE235A245F005724C4 /* FavouritesController.swift */; };
 		85E16B992357BCE800907CFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E16B982357BCE800907CFF /* AppDelegate.swift */; };
 		85E16B9B2357BCE800907CFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E16B9A2357BCE800907CFF /* SceneDelegate.swift */; };
 		85E16B9D2357BCE800907CFF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E16B9C2357BCE800907CFF /* ViewController.swift */; };
@@ -16,7 +37,29 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		85E16B952357BCE800907CFF /* dashboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dashboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8558B3A4235E000600DA6119 /* PlayFavVideo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlayFavVideo.storyboard; sourceTree = "<group>"; };
+		8558B3A6235E01CA00DA6119 /* PlayFavVideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayFavVideoController.swift; sourceTree = "<group>"; };
+		8558B3A8235F60EA00DA6119 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		8558B3AA235F656A00DA6119 /* FavouriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteModel.swift; sourceTree = "<group>"; };
+		8558B3B0235F809700DA6119 /* Help.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
+		8558B3B3235F80EB00DA6119 /* HelpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpController.swift; sourceTree = "<group>"; };
+		8558B3B6235F8A9700DA6119 /* HelpSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpSlide.swift; sourceTree = "<group>"; };
+		8558B3B8235F8ABF00DA6119 /* HelpSlide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpSlide.xib; sourceTree = "<group>"; };
+		8558B3BA2360947C00DA6119 /* ARDashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ARDashboard.storyboard; sourceTree = "<group>"; };
+		8558B3BC236095EA00DA6119 /* ARDashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDashboardController.swift; sourceTree = "<group>"; };
+		8558B3BF2360986000DA6119 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
+		8558B3C4236098A300DA6119 /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
+		8558B3C72360A05B00DA6119 /* JSONUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONUtils.swift; sourceTree = "<group>"; };
+		8558B3C82360A05B00DA6119 /* DownloadUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadUtils.swift; sourceTree = "<group>"; };
+		8558B3C92360A05B00DA6119 /* ARImageUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARImageUtils.swift; sourceTree = "<group>"; };
+		8558B3CA2360A05B00DA6119 /* AppUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUpdate.swift; sourceTree = "<group>"; };
+		8558B3F72361DDC300DA6119 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8558B3F923622BD000DA6119 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8558B424236340F000DA6119 /* VideoUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUtils.swift; sourceTree = "<group>"; };
+		857C87FA235A0C18005724C4 /* TreeID.sqlite */ = {isa = PBXFileReference; lastKnownFileType = text; path = TreeID.sqlite; sourceTree = "<group>"; };
+		857C87FC235A1E0E005724C4 /* Favourites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favourites.storyboard; sourceTree = "<group>"; };
+		857C87FE235A245F005724C4 /* FavouritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesController.swift; sourceTree = "<group>"; };
+		85E16B952357BCE800907CFF /* forestar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = forestar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85E16B982357BCE800907CFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85E16B9A2357BCE800907CFF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		85E16B9C2357BCE800907CFF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -31,24 +74,90 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8558B3C5236098A300DA6119 /* ARKit.framework in Frameworks */,
+				8558B3C12360986500DA6119 /* SceneKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8558B3AC235F7BB100DA6119 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				8558B3AA235F656A00DA6119 /* FavouriteModel.swift */,
+				8558B3B6235F8A9700DA6119 /* HelpSlide.swift */,
+				8558B3A8235F60EA00DA6119 /* Database.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		8558B3AF235F808900DA6119 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				8558B3B8235F8ABF00DA6119 /* HelpSlide.xib */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		8558B3B2235F80C400DA6119 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				85E16B9C2357BCE800907CFF /* ViewController.swift */,
+				857C87FE235A245F005724C4 /* FavouritesController.swift */,
+				8558B3A6235E01CA00DA6119 /* PlayFavVideoController.swift */,
+				8558B3B3235F80EB00DA6119 /* HelpController.swift */,
+				8558B3BC236095EA00DA6119 /* ARDashboardController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		8558B3B5235F8A6100DA6119 /* designs */ = {
+			isa = PBXGroup;
+			children = (
+				85E16B9E2357BCE800907CFF /* Main.storyboard */,
+				8558B3A4235E000600DA6119 /* PlayFavVideo.storyboard */,
+				857C87FC235A1E0E005724C4 /* Favourites.storyboard */,
+				8558B3B0235F809700DA6119 /* Help.storyboard */,
+				8558B3BA2360947C00DA6119 /* ARDashboard.storyboard */,
+			);
+			path = designs;
+			sourceTree = "<group>";
+		};
+		8558B3BE2360986000DA6119 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8558B3C4236098A300DA6119 /* ARKit.framework */,
+				8558B3BF2360986000DA6119 /* SceneKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8558B3C62360A05B00DA6119 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8558B3C72360A05B00DA6119 /* JSONUtils.swift */,
+				8558B3C82360A05B00DA6119 /* DownloadUtils.swift */,
+				8558B3C92360A05B00DA6119 /* ARImageUtils.swift */,
+				8558B3CA2360A05B00DA6119 /* AppUpdate.swift */,
+				8558B424236340F000DA6119 /* VideoUtils.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		85E16B8C2357BCE800907CFF = {
 			isa = PBXGroup;
 			children = (
 				85E16B972357BCE800907CFF /* dashboard */,
 				85E16B962357BCE800907CFF /* Products */,
+				8558B3BE2360986000DA6119 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		85E16B962357BCE800907CFF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				85E16B952357BCE800907CFF /* dashboard.app */,
+				85E16B952357BCE800907CFF /* forestar.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -57,12 +166,18 @@
 			isa = PBXGroup;
 			children = (
 				85E16B982357BCE800907CFF /* AppDelegate.swift */,
+				8558B3F72361DDC300DA6119 /* GoogleService-Info.plist */,
 				85E16B9A2357BCE800907CFF /* SceneDelegate.swift */,
-				85E16B9C2357BCE800907CFF /* ViewController.swift */,
-				85E16B9E2357BCE800907CFF /* Main.storyboard */,
 				85E16BA12357BCEB00907CFF /* Assets.xcassets */,
+				8558B3F923622BD000DA6119 /* GoogleService-Info.plist */,
 				85E16BA32357BCEB00907CFF /* LaunchScreen.storyboard */,
 				85E16BA62357BCEB00907CFF /* Info.plist */,
+				8558B3B2235F80C400DA6119 /* controller */,
+				857C87FA235A0C18005724C4 /* TreeID.sqlite */,
+				8558B3B5235F8A6100DA6119 /* designs */,
+				8558B3AC235F7BB100DA6119 /* models */,
+				8558B3AF235F808900DA6119 /* views */,
+				8558B3C62360A05B00DA6119 /* Helpers */,
 			);
 			path = dashboard;
 			sourceTree = "<group>";
@@ -77,6 +192,7 @@
 				85E16B912357BCE800907CFF /* Sources */,
 				85E16B922357BCE800907CFF /* Frameworks */,
 				85E16B932357BCE800907CFF /* Resources */,
+				8558B3F62360E70B00DA6119 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -84,7 +200,7 @@
 			);
 			name = dashboard;
 			productName = dashboard;
-			productReference = 85E16B952357BCE800907CFF /* dashboard.app */;
+			productReference = 85E16B952357BCE800907CFF /* forestar.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -127,20 +243,60 @@
 			files = (
 				85E16BA52357BCEB00907CFF /* LaunchScreen.storyboard in Resources */,
 				85E16BA22357BCEB00907CFF /* Assets.xcassets in Resources */,
+				857C87FD235A1E0E005724C4 /* Favourites.storyboard in Resources */,
+				8558B3B9235F8ABF00DA6119 /* HelpSlide.xib in Resources */,
+				8558B3A5235E000600DA6119 /* PlayFavVideo.storyboard in Resources */,
 				85E16BA02357BCE800907CFF /* Main.storyboard in Resources */,
+				857C87FB235A0C18005724C4 /* TreeID.sqlite in Resources */,
+				8558B3F82361DDC400DA6119 /* GoogleService-Info.plist in Resources */,
+				8558B3BB2360947C00DA6119 /* ARDashboard.storyboard in Resources */,
+				8558B3B1235F809700DA6119 /* Help.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8558B3F62360E70B00DA6119 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		85E16B912357BCE800907CFF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8558B3B7235F8A9700DA6119 /* HelpSlide.swift in Sources */,
+				857C87FF235A245F005724C4 /* FavouritesController.swift in Sources */,
+				8558B3CB2360A05B00DA6119 /* JSONUtils.swift in Sources */,
+				8558B3BD236095EA00DA6119 /* ARDashboardController.swift in Sources */,
+				8558B425236340F000DA6119 /* VideoUtils.swift in Sources */,
 				85E16B9D2357BCE800907CFF /* ViewController.swift in Sources */,
 				85E16B992357BCE800907CFF /* AppDelegate.swift in Sources */,
+				8558B3CE2360A05B00DA6119 /* AppUpdate.swift in Sources */,
 				85E16B9B2357BCE800907CFF /* SceneDelegate.swift in Sources */,
+				8558B3CC2360A05B00DA6119 /* DownloadUtils.swift in Sources */,
+				8558B3AB235F656A00DA6119 /* FavouriteModel.swift in Sources */,
+				8558B3CD2360A05B00DA6119 /* ARImageUtils.swift in Sources */,
+				8558B3A9235F60EA00DA6119 /* Database.swift in Sources */,
+				8558B3B4235F80EB00DA6119 /* HelpController.swift in Sources */,
+				8558B3A7235E01CA00DA6119 /* PlayFavVideoController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,14 +441,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 7W4WBCL2B3;
 				INFOPLIST_FILE = dashboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.documentbrowser.dashboard;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tfs.forestarapp;
+				PRODUCT_NAME = forestar;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -303,14 +462,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 7W4WBCL2B3;
 				INFOPLIST_FILE = dashboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.documentbrowser.dashboard;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tfs.forestarapp;
+				PRODUCT_NAME = forestar;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
