@@ -69,7 +69,6 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate {
         
     }
     
-
     
         func setupVideo(videoURL: String) {
             let videoPlayer  = AVPlayer(url: URL(string: videoURL)!)
