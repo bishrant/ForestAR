@@ -62,5 +62,35 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app needs permission to store temporary photos of images scanned by you in your library to enable offline support.</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>instagram</string>
+		<string>fb</string>
+		<string>twitter</string>
+        <string>fbapi</string>
+        <string>fb-messenger-share-api</string>
+        <string>fbauth2</string>
+        <string>fbshareextension</string>
+        <string>fbapi20150629</string>
+	</array>
+    
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>fb525370658250771</string>
+        </array>
+      </dict>
+    </array>
+    <key>FacebookAppID</key>
+    <string>525370658250771</string>
+    <key>FacebookDisplayName</key>
+    <string>Forest AR</string>
+
 </dict>
 </plist>
