@@ -15,10 +15,10 @@ class FavouriteTableCell: UITableViewCell {
     init(frame: CGRect, title: String, id: Int) {
         
         super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
-        print(frame.width, "width of frame", self.frame.width)
+//        print(frame.width, "width of frame", self.frame.width)
         cellLabel = UILabel(frame: CGRect(x: 20, y: 10, width: frame.width-45, height: 40))
-        cellLabel.textColor = UIColor.black
-
+        cellLabel.textColor = UIColor.red
+        self.backgroundView?.backgroundColor = UIColor.white
         cellLabel.font = UIFont.systemFont(ofSize: 20)
         cellButton = FavouriteDeleteBtn(name: title, id: id);
         cellButton.frame =  CGRect(x: frame.width - 45, y: 10, width: 35, height: 25)

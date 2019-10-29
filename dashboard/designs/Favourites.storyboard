@@ -10,19 +10,22 @@
         <!--Favourites Controller-->
         <scene sceneID="rK1-7h-URC">
             <objects>
-                <viewController storyboardIdentifier="Favourites" id="Zq7-LG-aIo" customClass="FavouritesController" customModule="dashboard" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="awG-Aq-dCc">
+                <viewController storyboardIdentifier="Favourites" id="Zq7-LG-aIo" customClass="FavouritesController" customModule="forestar" sceneMemberID="viewController">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="awG-Aq-dCc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XLv-Gl-MFD">
                                 <rect key="frame" x="0.0" y="101" width="414" height="795"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="favCell" id="f9Z-nS-9AQ">
                                         <rect key="frame" x="0.0" y="28" width="414" height="64.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f9Z-nS-9AQ" id="aMI-km-id5">
+                                        <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f9Z-nS-9AQ" id="aMI-km-id5">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="64.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -40,6 +43,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstItem="cGy-D6-naD" firstAttribute="centerY" secondItem="aMI-km-id5" secondAttribute="centerY" id="6CF-EZ-pap"/>
@@ -53,6 +58,7 @@
                                                 <outletCollection property="gestureRecognizers" destination="E59-GB-apW" appends="YES" id="zv9-cq-Vhg"/>
                                             </connections>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="E59-GB-apW" appends="YES" id="2hU-oe-jCq"/>
@@ -67,6 +73,12 @@
                             </tableView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zxu-gB-iOS">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="Favourites" id="BPr-T2-y5r">
                                         <barButtonItem key="leftBarButtonItem" image="chevron.left" catalog="system" id="Z3c-H1-0jr">
@@ -78,7 +90,7 @@
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottomMargin" secondItem="XLv-Gl-MFD" secondAttribute="bottom" constant="-83" id="4L5-7A-3AF"/>
                             <constraint firstItem="Zxu-gB-iOS" firstAttribute="leading" secondItem="ga9-kW-sDq" secondAttribute="leading" id="E7N-QS-s9b"/>

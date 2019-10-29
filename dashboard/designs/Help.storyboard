@@ -10,7 +10,7 @@
         <!--Help Controller-->
         <scene sceneID="ev6-vf-gjG">
             <objects>
-                <viewController storyboardIdentifier="Help" id="2uE-bS-yoJ" customClass="HelpController" customModule="dashboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Help" id="2uE-bS-yoJ" customClass="HelpController" customModule="forestar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QQN-V4-03W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,6 +31,7 @@
                             </pageControl>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ntc-1o-1wn">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <barButtonItem style="plain" id="M8E-df-0p2">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zeK-TW-JLW">

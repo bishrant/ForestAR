@@ -18,6 +18,7 @@ class FavouritesController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        self.favTableView.backgroundColor = UIColor.white
         getAllFavourites();
     }
     
@@ -37,12 +38,12 @@ class FavouritesController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let fav = favouritesList[indexPath.row]
-        print(self.view.frame.width, "frame width from tableview")
         let cell = FavouriteTableCell(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40), title: fav.name!, id: fav.id)
         cell.cellLabel.text = favouritesList[indexPath.row].name!
         cell.cellButton.name = favouritesList[indexPath.row].name!
         cell.cellButton.id = favouritesList[indexPath.row].id
         cell.cellButton.addTarget(self, action: #selector(deleteFav), for: .touchUpInside)
+        cell.contentView.backgroundColor = UIColor.white
         return cell
     }
     

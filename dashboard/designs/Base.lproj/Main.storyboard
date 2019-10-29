@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="dashboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="forestar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,7 +58,7 @@
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="400" id="icy-jV-HHO"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frame_br" translatesAutoresizingMaskIntoConstraints="NO" id="kXt-wR-lUH">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frameBottomRight" translatesAutoresizingMaskIntoConstraints="NO" id="kXt-wR-lUH">
                                 <rect key="frame" x="246" y="484" width="109" height="74"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="109" id="bp8-Ms-Lcj"/>
@@ -71,7 +71,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frame_bl" translatesAutoresizingMaskIntoConstraints="NO" id="gHa-WV-Dou">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frameBottomLeft" translatesAutoresizingMaskIntoConstraints="NO" id="gHa-WV-Dou">
                                 <rect key="frame" x="20" y="484" width="109" height="74"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="74" id="DS7-M9-J1Z"/>
@@ -89,14 +89,14 @@
                                     <action selector="toggleMenu:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sjE-lc-TRl"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frame_tl" translatesAutoresizingMaskIntoConstraints="NO" id="PFp-p4-6A7">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frameTopLeft" translatesAutoresizingMaskIntoConstraints="NO" id="PFp-p4-6A7">
                                 <rect key="frame" x="20" y="124" width="109" height="74"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="109" id="1wf-1K-baq"/>
                                     <constraint firstAttribute="height" constant="74" id="xq4-9P-um6"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frame_tr" translatesAutoresizingMaskIntoConstraints="NO" id="66U-25-4xt">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frameTopRight" translatesAutoresizingMaskIntoConstraints="NO" id="66U-25-4xt">
                                 <rect key="frame" x="250" y="124" width="109" height="74"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="109" id="7nM-96-XFg"/>
@@ -222,10 +222,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="frame_bl" width="180" height="181"/>
-        <image name="frame_br" width="180" height="181"/>
-        <image name="frame_tl" width="180" height="181"/>
-        <image name="frame_tr" width="180" height="181"/>
+        <image name="frameBottomLeft" width="265" height="265"/>
+        <image name="frameBottomRight" width="265" height="265"/>
+        <image name="frameTopLeft" width="265" height="265"/>
+        <image name="frameTopRight" width="265" height="265"/>
         <image name="menu" width="240" height="240"/>
         <image name="tfslogo" width="300" height="81"/>
         <image name="xmark" catalog="system" width="64" height="56"/>

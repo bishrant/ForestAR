@@ -12,6 +12,26 @@ import SQLite3
 class SqliteDatabase {
     var db: OpaquePointer?
     
+    func initializeDB() -> Void {
+        let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("TreeID.sqlite")
+        if sqlite3_open(fileURL.path, &db) != SQLITE_OK {
+            print("error opening database");
+        } else {
+            print("database opened");
+            self.db = db!
+            createFavTable()
+        }
+    }
+    
+    func createFavTable() -> Void {
+        if sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS Favourites (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, link TEXT)", nil, nil, nil) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(self.db)!)
+            print("error creating table: \(errmsg)")
+        } else {
+            print("table created");
+        }
+    }
+    
     func openDB() -> Bool {
         let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("TreeID.sqlite")
 
@@ -20,6 +40,24 @@ class SqliteDatabase {
             return false;
         } else {
             return true;
+        }
+    }
+    
+    func insertIntoFavTable(name: String, link: String) {
+        var stmt: OpaquePointer?
+        let queryString = "INSERT INTO Favourites (name, link) VALUES (?, ?)"
+        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error preparing insert: \(errmsg)")
+            return
+        }
+        // binding the parameters
+        sqlite3_bind_text(stmt, 1, name, -1, nil);
+        sqlite3_bind_text(stmt, 2, link, -1, nil);
+        if sqlite3_step(stmt) != SQLITE_DONE {
+            print("failed to insert");
+        } else {
+            print ("saved to db");
         }
     }
     
