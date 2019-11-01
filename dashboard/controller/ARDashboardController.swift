@@ -30,14 +30,17 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate {
     private var videoPlayerNode: SKVideoNode?
     
     private var configuration: ARImageTrackingConfiguration!
-    private var arImageSet: Set<ARReferenceImage>!
     
+    
+    @IBOutlet weak var favBtn: UIButton!
     private var playerLayer: AVPlayerLayer = AVPlayerLayer()
     private var videoUtils: VideoUtils = VideoUtils()
     private var imageUtils: ImageUtils = ImageUtils()
     private var appUpdate: AppUpdate = AppUpdate()
     private var animationUtils: AnimationUtils = AnimationUtils()
     private var cameraControls: CameraControls = CameraControls()
+    private var database: SqliteDatabase = SqliteDatabase()
+    private var jsonUtils: JSONUtils = JSONUtils()
     private var appConfiguration: JSONUtils.photoId!
     @IBOutlet weak var overlayView: UIView!
     private var showHideControlsTask: DispatchWorkItem?
@@ -49,10 +52,6 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate {
         // Set the view's delegate
         sceneView.delegate = self
         self.appConfiguration = appUpdate.getAppJSON()
-        let arImageUtils: ARImageUtils = ARImageUtils()
-        self.arImageSet = arImageUtils.loadedImagesFromDirectoryContents()
-        
-        print(Service.sharedInstance.getAppUpdateSuccess())
         // spritekit and position
         self.spriteKitScene = SKScene(size: CGSize(width: 600, height: 300))
         self.spriteKitScene.scaleMode = .aspectFit
@@ -63,25 +62,20 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate {
     }
     
     @IBAction func closePlayingVideo(_ sender: UIButton) {
-        //        self.videoPlayerNode?.removeFromParent()
-        //        self.playerLayer.removeFromSuperlayer()
-        self.animationUtils.hideWithAnimation(myView: self.videoControlsView)
-        self.animationUtils.showWithAnimation(myView: self.scanningActiveView)
+        self.animationUtils.hideWithAnimation(myView: self.videoControlsView, delay: 0.2)
+        self.animationUtils.showWithAnimation(myView: self.scanningActiveView, delay: 0.2)
         self.imageAnchor = nil
         self.sceneView.session.run(self.configuration, options: [.removeExistingAnchors, .resetTracking])
         
         self.playerLayer.player?.pause() // 1. pause the player to stop it
         self.playerLayer.player = nil // 2. set the playerLayer's player to nil
-        self.playerLayer.removeFromSuperlayer() // 3 remove the playerLayer from it's superLayer
-        //        self.playerLayer.player = AVPlayer(playerItem: nil)
+        self.playerLayer.removeFromSuperlayer() // 3 remove the playerLayer from it's
         self.videoPlayerNode?.removeAllActions()
         self.videoPlayerNode?.removeAllChildren()
         self.imageNode.enumerateChildNodes(){
             (node, nil) in
             node.removeFromParentNode()
         }
-        //  self.imageNode.replaceChildNode(self.videoHolder, with: SCNNode())
-        
         self.videoPlayerNode?.removeFromParent()
     }
     
@@ -154,7 +148,7 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.configuration = ARImageTrackingConfiguration()
-        self.configuration.trackingImages = self.arImageSet
+        self.configuration.trackingImages = Service.sharedInstance.getARImageSet()
         self.configuration.maximumNumberOfTrackedImages = 1
         sceneView.session.run(self.configuration, options: [.resetTracking, .removeExistingAnchors])
     }
@@ -182,9 +176,9 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate {
     
     func addVideoToAnchor(imageAnchors: ARImageAnchor) {
         let imageName = imageAnchors.referenceImage.name
-        let jsonUtils = JSONUtils()
+        
         let serverURL = "https://txfipdev.tfs.tamu.edu/treeselector/"
-        let currentImgJson = jsonUtils.getImageDetailsFromJSON(json: self.appConfiguration, imageName: imageName!)
+        let currentImgJson = self.jsonUtils.getImageDetailsFromJSON(json: self.appConfiguration, imageName: imageName!)
         //        print(imageName!, "found");
         //        print(UIDevice().identifierForVendor?.uuidString ?? "", "Device name")
         self.setupVideo(videoURL: serverURL + currentImgJson.videoLink)
@@ -274,7 +268,12 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate {
         }
     }
     
-    
+    func checkIfVideoIsFavourited(imageName: String) {
+        if(self.database.getFavouritesCount(photoName: imageName + ".png") > 0) {
+            self.setBackgroundImage(button: self.favBtn, imageName: "favBtnActive")
+        }
+        
+    }
     
     func findImageAnchorsForVideo(anchor: ARAnchor) {
         if let imageAnchors = anchor as? ARImageAnchor {
@@ -285,21 +284,29 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate {
                 // @todo send to analytics server for countinng the number of times an image has been recognized by the app
                 self.imageAnchor?.setValue(imageAnchors.referenceImage.name, forKey: "name")
                 self.addVideoToAnchor(imageAnchors: self.imageAnchor)
-                self.animationUtils.hideWithAnimation(myView: self.scanningActiveView)
-                self.animationUtils.showWithAnimation(myView: self.videoControlsView)
+                self.animationUtils.hideWithAnimation(myView: self.scanningActiveView, delay: 0.5)
+                self.animationUtils.showWithAnimation(myView: self.videoControlsView, delay: 0.4)
+                
+                self.checkIfVideoIsFavourited(imageName: imageAnchors.referenceImage.name!)
+                
                 // self.forcefullyClosedVideo = false
                 //  self.isVideoPausedByUser = false
             }
         }
     }
-    @IBAction func favouriteVideoAction(_ sender: UIButton) {
-        if(sender.backgroundImage(for: UIControl.State.normal) == UIImage(named: "favBtn")) {
-            sender.setBackgroundImage(UIImage(named: "favBtnActive"), for: UIControl.State.normal)
-        } else {
-            sender.setBackgroundImage(UIImage(named: "favBtn"), for: UIControl.State.normal)
+    func setBackgroundImage(button: UIButton, imageName: String) {
+        DispatchQueue.main.async {
+            button.setBackgroundImage(UIImage(named: imageName), for: UIControl.State.normal)
         }
+    }
+    
+    @IBAction func favouriteVideoAction(_ sender: UIButton) {
+        let btnName = sender.backgroundImage(for: UIControl.State.normal) == UIImage(named: "favBtn") ? "favBtnActive": "favBtn"
+        self.setBackgroundImage(button: sender, imageName: btnName)
         
-        
+        let imageName = self.imageAnchor.referenceImage.name
+        let currentJson: JSONUtils.imagesEntry = self.jsonUtils.getImageDetailsFromJSON(json: self.appConfiguration, imageName: imageName!)
+        self.database.toggleFavEntry(n: currentJson.title, l: currentJson.url, p: currentJson.imageName, v: currentJson.videoLink)
     }
     
     @objc func togglePlaybackControlsVisibility(sender : UITapGestureRecognizer) {

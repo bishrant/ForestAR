@@ -18,11 +18,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if (!Service.sharedInstance.getAppUpdateSuccess()){
+            print("Error updating app")
+        }
         TrailingConstraint.constant = 300;
-//        print(Service.sharedInstance.getAppVersion())
-        
         //showARDashboard();
 //        showHelpPage();
+//        showUserFavouritesPageFunc()
+        showVideoPlayer()
 //        showFavouritesPageFunc()
     }
     
@@ -60,12 +63,25 @@ class ViewController: UIViewController {
 
     
     @IBAction func showFavouritesPage(_ sender: Any) {
-        showFavouritesPageFunc()
+        showUserFavouritesPageFunc()
+//        showFavouritesPageFunc()
     }
     
     func showFavouritesPageFunc() {
         let storyboard = UIStoryboard(name: "Favourites", bundle: Bundle.main)
         let destination1 = storyboard.instantiateViewController(withIdentifier: "Favourites") as! FavouritesController
+        navigationController?.pushViewController(destination1, animated: true)
+    }
+    
+    func showVideoPlayer() {
+        let storyboard = UIStoryboard(name: "VideoPlayer", bundle: Bundle.main)
+        let destination1 = storyboard.instantiateViewController(withIdentifier: "VideoPlayer") as! VideoPlayerController
+        navigationController?.pushViewController(destination1, animated: true)
+    }
+    
+    func showUserFavouritesPageFunc() {
+        let storyboard = UIStoryboard(name: "UserFavourites", bundle: Bundle.main)
+        let destination1 = storyboard.instantiateViewController(withIdentifier: "UserFavourites") as! UserFavouritesController
         navigationController?.pushViewController(destination1, animated: true)
     }
     
@@ -90,29 +106,6 @@ class ViewController: UIViewController {
     @IBAction func insertIntoTable(_ sender: Any) {
 //        self.database.insertIntoFavTable(name: randomString(length: 5), link: randomString(length: 5))
     }
-
-//    @IBAction func getFavourites(_ sender: Any) {
-//        let queryString = "SELECT * FROM Favourites"
-//
-//        //statement pointer
-//        var stmt:OpaquePointer?
-//
-//        //preparing the query
-//        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK{
-//            let errmsg = String(cString: sqlite3_errmsg(db)!)
-//            print("error preparing insert: \(errmsg)")
-//            return
-//        }
-//
-//        //traversing through all the records
-//        while(sqlite3_step(stmt) == SQLITE_ROW){
-//            let id = sqlite3_column_int(stmt, 0)
-//            let name = String(cString: sqlite3_column_text(stmt, 1))
-//            let powerrank = String(cString: sqlite3_column_text(stmt, 2))
-//
-//            print(id, name, powerrank)
-//        }
-//    }
     
     
 }

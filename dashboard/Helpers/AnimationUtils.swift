@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 class AnimationUtils {
-    func hideWithAnimation(myView: UIView) {
+    func hideWithAnimation(myView: UIView, delay: Float) {
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 1.2, animations: {
+            UIView.animate(withDuration: TimeInterval(delay), animations: {
                 myView.alpha = 0;
             }, completion: { _ in
                 myView.isHidden = true
@@ -20,9 +20,9 @@ class AnimationUtils {
         }
     }
     
-    func showWithAnimation(myView: UIView) {
+    func showWithAnimation(myView: UIView, delay: Float) {
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.2, animations: {
+            UIView.animate(withDuration: TimeInterval(delay), animations: {
                 myView.alpha = 100;
             }, completion: { _ in
                 myView.isHidden = false

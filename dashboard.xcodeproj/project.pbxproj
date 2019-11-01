@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		851CA502236B1EF500C28D4B /* UserFavourites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 851CA501236B1EF500C28D4B /* UserFavourites.storyboard */; };
+		851CA504236B1F2A00C28D4B /* UserFavouritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851CA503236B1F2A00C28D4B /* UserFavouritesController.swift */; };
+		851CA506236B72F000C28D4B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851CA505236B72F000C28D4B /* Color.swift */; };
+		851CA50A236C669600C28D4B /* ScaledHeightImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851CA509236C669600C28D4B /* ScaledHeightImageView.swift */; };
+		851CA50C236C6F1A00C28D4B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851CA50B236C6F1A00C28D4B /* GradientView.swift */; };
+		851CA513236C8DAD00C28D4B /* VideoPlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 851CA512236C8DAD00C28D4B /* VideoPlayer.storyboard */; };
+		851CA515236C8DEC00C28D4B /* VideoPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851CA514236C8DEC00C28D4B /* VideoPlayerController.swift */; };
 		8558B3A5235E000600DA6119 /* PlayFavVideo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8558B3A4235E000600DA6119 /* PlayFavVideo.storyboard */; };
 		8558B3A7235E01CA00DA6119 /* PlayFavVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3A6235E01CA00DA6119 /* PlayFavVideoController.swift */; };
 		8558B3A9235F60EA00DA6119 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3A8235F60EA00DA6119 /* Database.swift */; };
@@ -44,6 +51,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		851CA501236B1EF500C28D4B /* UserFavourites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserFavourites.storyboard; sourceTree = "<group>"; };
+		851CA503236B1F2A00C28D4B /* UserFavouritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavouritesController.swift; sourceTree = "<group>"; };
+		851CA505236B72F000C28D4B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		851CA509236C669600C28D4B /* ScaledHeightImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledHeightImageView.swift; sourceTree = "<group>"; };
+		851CA50B236C6F1A00C28D4B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		851CA50E236C772300C28D4B /* Segoe UI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI.ttf"; sourceTree = "<group>"; };
+		851CA50F236C772300C28D4B /* Segoe UI Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI Bold.ttf"; sourceTree = "<group>"; };
+		851CA510236C772300C28D4B /* Segoe UI Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI Bold Italic.ttf"; sourceTree = "<group>"; };
+		851CA511236C772300C28D4B /* Segoe UI Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI Italic.ttf"; sourceTree = "<group>"; };
+		851CA512236C8DAD00C28D4B /* VideoPlayer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VideoPlayer.storyboard; sourceTree = "<group>"; };
+		851CA514236C8DEC00C28D4B /* VideoPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerController.swift; sourceTree = "<group>"; };
 		8558B3A4235E000600DA6119 /* PlayFavVideo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlayFavVideo.storyboard; sourceTree = "<group>"; };
 		8558B3A6235E01CA00DA6119 /* PlayFavVideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayFavVideoController.swift; sourceTree = "<group>"; };
 		8558B3A8235F60EA00DA6119 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
@@ -96,6 +114,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		851CA50D236C770F00C28D4B /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				851CA510236C772300C28D4B /* Segoe UI Bold Italic.ttf */,
+				851CA50F236C772300C28D4B /* Segoe UI Bold.ttf */,
+				851CA511236C772300C28D4B /* Segoe UI Italic.ttf */,
+				851CA50E236C772300C28D4B /* Segoe UI.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		8558B3AC235F7BB100DA6119 /* models */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +151,8 @@
 				8558B3A6235E01CA00DA6119 /* PlayFavVideoController.swift */,
 				8558B3B3235F80EB00DA6119 /* HelpController.swift */,
 				8558B3BC236095EA00DA6119 /* ARDashboardController.swift */,
+				851CA503236B1F2A00C28D4B /* UserFavouritesController.swift */,
+				851CA514236C8DEC00C28D4B /* VideoPlayerController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -134,6 +165,8 @@
 				857C87FC235A1E0E005724C4 /* Favourites.storyboard */,
 				8558B3B0235F809700DA6119 /* Help.storyboard */,
 				8558B3BA2360947C00DA6119 /* ARDashboard.storyboard */,
+				851CA501236B1EF500C28D4B /* UserFavourites.storyboard */,
+				851CA512236C8DAD00C28D4B /* VideoPlayer.storyboard */,
 			);
 			path = designs;
 			sourceTree = "<group>";
@@ -161,6 +194,9 @@
 				8558B450236885BB00DA6119 /* ShareActivity.swift */,
 				8558B424236340F000DA6119 /* VideoUtils.swift */,
 				8558B4542368CE7500DA6119 /* AnimationUtils.swift */,
+				851CA505236B72F000C28D4B /* Color.swift */,
+				851CA509236C669600C28D4B /* ScaledHeightImageView.swift */,
+				851CA50B236C6F1A00C28D4B /* GradientView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -194,6 +230,7 @@
 		85E16B972357BCE800907CFF /* dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				851CA50D236C770F00C28D4B /* fonts */,
 				85E16B982357BCE800907CFF /* AppDelegate.swift */,
 				8558B3F72361DDC300DA6119 /* GoogleService-Info.plist */,
 				85E16B9A2357BCE800907CFF /* SceneDelegate.swift */,
@@ -279,8 +316,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				85E16BA52357BCEB00907CFF /* LaunchScreen.storyboard in Resources */,
+				851CA513236C8DAD00C28D4B /* VideoPlayer.storyboard in Resources */,
 				85E16BA22357BCEB00907CFF /* Assets.xcassets in Resources */,
 				857C87FD235A1E0E005724C4 /* Favourites.storyboard in Resources */,
+				851CA502236B1EF500C28D4B /* UserFavourites.storyboard in Resources */,
 				8558B3B9235F8ABF00DA6119 /* HelpSlide.xib in Resources */,
 				8558B3A5235E000600DA6119 /* PlayFavVideo.storyboard in Resources */,
 				85E16BA02357BCE800907CFF /* Main.storyboard in Resources */,
@@ -322,19 +361,24 @@
 				8558B44F236878E000DA6119 /* LoadingIndicator.swift in Sources */,
 				8558B3B7235F8A9700DA6119 /* HelpSlide.swift in Sources */,
 				857C87FF235A245F005724C4 /* FavouritesController.swift in Sources */,
+				851CA515236C8DEC00C28D4B /* VideoPlayerController.swift in Sources */,
 				8558B3CB2360A05B00DA6119 /* JSONUtils.swift in Sources */,
 				8558B4532368C79A00DA6119 /* CameraControls.swift in Sources */,
+				851CA506236B72F000C28D4B /* Color.swift in Sources */,
 				8558B3BD236095EA00DA6119 /* ARDashboardController.swift in Sources */,
 				8558B425236340F000DA6119 /* VideoUtils.swift in Sources */,
+				851CA50C236C6F1A00C28D4B /* GradientView.swift in Sources */,
 				85E16B9D2357BCE800907CFF /* ViewController.swift in Sources */,
 				85E16B992357BCE800907CFF /* AppDelegate.swift in Sources */,
 				8558B3CE2360A05B00DA6119 /* AppUpdate.swift in Sources */,
 				85E16B9B2357BCE800907CFF /* SceneDelegate.swift in Sources */,
 				8558B3CC2360A05B00DA6119 /* DownloadUtils.swift in Sources */,
+				851CA504236B1F2A00C28D4B /* UserFavouritesController.swift in Sources */,
 				8558B3AB235F656A00DA6119 /* FavouriteModel.swift in Sources */,
 				8558B4272363959600DA6119 /* CustomSlider.swift in Sources */,
 				8558B3CD2360A05B00DA6119 /* ARImageUtils.swift in Sources */,
 				8558B3A9235F60EA00DA6119 /* Database.swift in Sources */,
+				851CA50A236C669600C28D4B /* ScaledHeightImageView.swift in Sources */,
 				8558B451236885BB00DA6119 /* ShareActivity.swift in Sources */,
 				8558B4552368CE7500DA6119 /* AnimationUtils.swift in Sources */,
 				8558B44D2368710300DA6119 /* ImageUtils.swift in Sources */,
@@ -497,7 +541,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tfs.forestarapp;
 				PRODUCT_NAME = forestar;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -517,7 +561,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tfs.forestarapp;
 				PRODUCT_NAME = forestar;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

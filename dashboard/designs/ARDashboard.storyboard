@@ -72,7 +72,7 @@
                                                     <action selector="closePlayingVideo:" destination="j3t-7c-Dwv" eventType="touchUpInside" id="dpT-Le-4vZ"/>
                                                 </connections>
                                             </button>
-                                            <button clipsSubviews="YES" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K23-ui-2Dc" userLabel="favBtn">
+                                            <button clipsSubviews="YES" contentMode="scaleAspectFit" fixedFrame="YES" restorationIdentifier="favBtn" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K23-ui-2Dc" userLabel="favBtn">
                                                 <rect key="frame" x="89" y="12" width="60" height="60"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -86,6 +86,9 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="30"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="tag">
+                                                        <integer key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -258,6 +261,7 @@
                         <viewLayoutGuide key="safeArea" id="CZb-P3-FWY"/>
                     </view>
                     <connections>
+                        <outlet property="favBtn" destination="K23-ui-2Dc" id="74u-oO-ZFF"/>
                         <outlet property="overlayView" destination="DuJ-cJ-DeL" id="5xK-Rk-GIM"/>
                         <outlet property="scanningActiveView" destination="2Z3-mP-zDx" id="yL9-kq-ROl"/>
                         <outlet property="sceneView" destination="fED-63-4n9" id="e4U-J2-eNJ"/>

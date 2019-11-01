@@ -34,5 +34,12 @@ class ImageUtils {
         let uiImageObj = UIImage.init(contentsOfFile: photoPath.path)
         return uiImageObj!
     }
+    
+    func getImageFromFullFileName(name: String) -> UIImage {
+        let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let photoPath = documentsUrl.appendingPathComponent(name)
+        let uiImageObj = UIImage.init(contentsOfFile: photoPath.path)
+        return uiImageObj!
+    }
 
 }

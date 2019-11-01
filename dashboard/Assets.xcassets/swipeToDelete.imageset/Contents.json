@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "frame.png",
+      "filename" : "swipeToDelete.png",
       "scale" : "1x"
     },
     {

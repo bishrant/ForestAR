@@ -12,7 +12,7 @@ class FavouriteTableCell: UITableViewCell {
     var cellButton: FavouriteDeleteBtn!
     var cellLabel: UILabel!
 
-    init(frame: CGRect, title: String, id: Int) {
+    init(frame: CGRect, title: String, id: Int, photo: String, video: String) {
         
         super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
 //        print(frame.width, "width of frame", self.frame.width)
@@ -20,7 +20,7 @@ class FavouriteTableCell: UITableViewCell {
         cellLabel.textColor = UIColor.red
         self.backgroundView?.backgroundColor = UIColor.white
         cellLabel.font = UIFont.systemFont(ofSize: 20)
-        cellButton = FavouriteDeleteBtn(name: title, id: id);
+        cellButton = FavouriteDeleteBtn(name: title, id: id, photo: photo);
         cellButton.frame =  CGRect(x: frame.width - 45, y: 10, width: 35, height: 25)
         cellButton.setImage(UIImage(named: "trash"), for: UIControl.State.normal)
         cellButton.imageView?.contentMode = .scaleAspectFit
@@ -40,9 +40,11 @@ class FavouriteTableCell: UITableViewCell {
 class FavouriteDeleteBtn: UIButton {
     var name: String
     var id: Int
-    required init(name: String, id: Int) {
+    var photo: String
+    required init(name: String, id: Int, photo: String) {
         self.name = name
         self.id = id
+        self.photo = photo
         super.init(frame: .zero)
     }
     required init?(coder aDecoder: NSCoder) {
@@ -54,9 +56,13 @@ class FavouritesStruct {
     var id: Int
     var name: String?
     var link: String?
-    init(id: Int, name: String?, link: String?) {
+    var photo: String?
+    var video: String?
+    init(id: Int, name: String?, link: String?,  photo: String?, video: String?) {
         self.id = id
         self.name = name
         self.link = link
+        self.photo = photo
+        self.video = video
     }
 }

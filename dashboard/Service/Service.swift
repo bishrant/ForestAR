@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ARKit
 
 struct Service {
     private var appVersion: Int = 10
@@ -14,10 +15,13 @@ struct Service {
     private var database: SqliteDatabase = SqliteDatabase()
     static let sharedInstance = Service()
     private var appUpdateSuccess: Bool
+    private var arImageSet: Set<ARReferenceImage>!
     
     private init() {
         print("initializing singleton")
         self.appUpdateSuccess = self.appUpdate.checkAppUpdate()
+        let arImageUtils: ARImageUtils = ARImageUtils()
+        self.arImageSet = arImageUtils.loadedImagesFromDirectoryContents()
         self.appVersion = self.appVersion + 1
         self.database.initializeDB()
     }
@@ -28,6 +32,10 @@ struct Service {
     
     func getDatabase() -> SqliteDatabase {
         return self.database
+    }
+    
+    func getARImageSet() -> Set<ARReferenceImage> {
+        return self.arImageSet
     }
     
 }
