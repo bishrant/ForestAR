@@ -124,5 +124,15 @@ class CustomVideoPlayer {
         }
         self.isVideoPlaying.toggle()
     }
+    
+    func playVideo() {
+        self.player.play()
+        self.isVideoPlaying = true
+    }
+    
+    func pauseVideo() {
+        self.player.pause()
+        self.isVideoPlaying = false
+    }
 }
 

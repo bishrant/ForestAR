@@ -94,15 +94,16 @@ class SqliteDatabase {
     }
     
     func getFavouritesCount(photoName: String)  -> Int {
-        self.openDB()
         var rowcount: Int = 0
-        let queryString = "SELECT count() FROM Favourites where photo = ?"
-        var stmt:OpaquePointer?
-        //preparing the query
-        if sqlite3_prepare(db, queryString, -1, &stmt, nil) == SQLITE_OK{
-            sqlite3_bind_text(stmt, 1, photoName, -1, nil)
-            while(sqlite3_step(stmt) == SQLITE_ROW){
-                rowcount = Int(sqlite3_column_int(stmt, 0));
+        if (self.openDB()) {
+            let queryString = "SELECT count() FROM Favourites where photo = ?"
+            var stmt:OpaquePointer?
+            //preparing the query
+            if sqlite3_prepare(db, queryString, -1, &stmt, nil) == SQLITE_OK{
+                sqlite3_bind_text(stmt, 1, photoName, -1, nil)
+                while(sqlite3_step(stmt) == SQLITE_ROW){
+                    rowcount = Int(sqlite3_column_int(stmt, 0));
+                }
             }
         }
         return rowcount;

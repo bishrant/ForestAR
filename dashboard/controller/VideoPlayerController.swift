@@ -17,24 +17,22 @@ class VideoPlayerController: UIViewController {
     @IBOutlet weak var totalTimeLbl: UILabel!
     @IBOutlet weak var currentTimeLbl: UILabel!
     @IBOutlet weak var videoControls: UIView!
+    @IBOutlet weak var webViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var myWebView: MyWebView!
+    
     var photoName: String = "fpd.png"
     var player: AVPlayer = AVPlayer()
     var playerLayer: AVPlayerLayer!
     var avpController = AVPlayerViewController()
     var observationVideoPlay: NSKeyValueObservation?
     var jsonUtils: JSONUtils = JSONUtils()
-    
     var customWebV: UIView = UIView()
     var customWebView: WKWebView = WKWebView()
     
-    @IBOutlet weak var webViewBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var myWebView: MyWebView!
-
     private var showHideControlsTask: DispatchWorkItem?
     private var stringUtils: StringUtils = StringUtils()
     private var customVideoPlayer: CustomVideoPlayer!
     private var totalTime: Double!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +47,11 @@ class VideoPlayerController: UIViewController {
     
     @objc func closeWebView() {
         UIView.animate(withDuration: 1.0,
-                       animations: {self.webViewBottomConstraint.constant = -1 * self.view.frame.height
+                       animations: {
+                        self.webViewBottomConstraint.constant = -1 * self.view.frame.height
         })
+        self.customVideoPlayer.playVideo()
+        
 
     }
     
@@ -60,31 +61,21 @@ class VideoPlayerController: UIViewController {
         self.myWebView.closeWebViewBtn.action = #selector(closeWebView)
     }
     
-
-    
-    func showWebPage() {
-        let im = self.photoName.components(separatedBy: ".png")[0]
-        let currentJson: JSONUtils.imagesEntry = self.jsonUtils.getImageDetailsFromJSON(json: Service.sharedInstance.appConfiguration, imageName: im)
-         
-//
-//        let currentURL = URL(string: currentJson.url)!
-//        webView.load(URLRequest(url: currentURL))
-        self.myWebView.loadUrl(url: currentJson.url, title: currentJson.title)
-        UIView.animate(withDuration: 1.0,
-                      delay: 0.0,
-                      options: [],
-                      animations: {
-                       self.webViewBottomConstraint.constant = 0
-       })
-    }
-    
     @IBAction func openWebPage(_ sender: Any) {
-        self.player.pause()
-        self.showWebPage()
-//        self.webPage.show(webPageView: self.webPage, view: self.view, imageName: self.photoName)
+        self.customVideoPlayer.pauseVideo()
+        let im = self.photoName.components(separatedBy: ".png")[0]
+         let currentJson: JSONUtils.imagesEntry = self.jsonUtils.getImageDetailsFromJSON(json: Service.sharedInstance.appConfiguration, imageName: im)
+         self.myWebView.loadUrl(url: currentJson.url, title: currentJson.title)
+         UIView.animate(withDuration: 1.0,
+                       delay: 0.0,
+                       options: [],
+                       animations: {
+                        self.webViewBottomConstraint.constant = 0
+        })
     }
+    
     override func viewDidDisappear(_ animated: Bool) {
-        self.player.pause()
+        self.customVideoPlayer.pauseVideo()
         self.player = AVPlayer()
     }
     
@@ -106,7 +97,6 @@ class VideoPlayerController: UIViewController {
     
     @IBAction func togglePlayPause(_ sender: Any) {
         self.customVideoPlayer.togglePlayPause()
-        
     }
     
     @IBAction func goBack(_ sender: Any) {
@@ -131,8 +121,6 @@ class VideoPlayerController: UIViewController {
         self.customVideoPlayer.isVideoPlaying = true
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.togglePlaybackControlsVisibility))
         self.view.addGestureRecognizer(gesture)
-        
-        self.showWebPage()
     }
     
     @objc func togglePlaybackControlsVisibility(sender : UITapGestureRecognizer) {
