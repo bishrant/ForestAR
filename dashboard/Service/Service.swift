@@ -16,6 +16,7 @@ struct Service {
     static let sharedInstance = Service()
     private var appUpdateSuccess: Bool
     private var arImageSet: Set<ARReferenceImage>!
+    public var appConfiguration: JSONUtils.photoId
     
     private init() {
         print("initializing singleton")
@@ -24,6 +25,7 @@ struct Service {
         self.arImageSet = arImageUtils.loadedImagesFromDirectoryContents()
         self.appVersion = self.appVersion + 1
         self.database.initializeDB()
+        self.appConfiguration = self.appUpdate.getAppJSON()
     }
        
     func getAppUpdateSuccess() -> Bool {
@@ -37,5 +39,5 @@ struct Service {
     func getARImageSet() -> Set<ARReferenceImage> {
         return self.arImageSet
     }
-    
+    //self.appConfiguration = appUpdate.getAppJSON()
 }

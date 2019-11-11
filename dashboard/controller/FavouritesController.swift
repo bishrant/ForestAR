@@ -112,7 +112,7 @@ class FavouritesController: UIViewController, UITableViewDataSource, UITableView
 ////        keyPadWindow.addSubview(keyPadSV)
 //        self.view.addSubview(keyPadSV)
         var subViews: [UIView] = []
-        for i in 0...5 {
+        for _ in 0...5 {
             let myView = UIView()
             var newFrame = myView.frame
 

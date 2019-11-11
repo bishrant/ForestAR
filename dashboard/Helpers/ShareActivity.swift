@@ -18,11 +18,11 @@ class ShareActivity: UIActivity {
     public var parent: ARDashboardController
     private var platform: String
     private var message: String
-    private var anchorImageParent: ARImageAnchor
+    private var imageName: String
     private var appUpdate: AppUpdate = AppUpdate()
     
-    init(platform: String, message: String, achorImage: ARImageAnchor) {
-        self.anchorImageParent = achorImage
+    init(platform: String, message: String, imageName: String) {
+        self.imageName = imageName
         self.parent = ARDashboardController()
         self.platform = platform
         self.message = message
@@ -46,7 +46,7 @@ class ShareActivity: UIActivity {
             UIApplication.shared.open(fbURLWeb as URL)
             break
         case "instagram":
-            parent.postToInstagram(imageName: self.anchorImageParent.referenceImage.name!)
+            parent.postToInstagram(imageName: self.imageName)
             break
         case "twitter":
             let appInstalled = appUpdate.checkIfAppIsInstalled(name: "twitter")
@@ -61,36 +61,31 @@ class ShareActivity: UIActivity {
         }
     }
     
-
+    
 }
 public func getExcludedActivities() -> [UIActivity.ActivityType] {
     return [UIActivity.ActivityType.airDrop,
-        UIActivity.ActivityType.copyToPasteboard,
-        UIActivity.ActivityType.message,
-        UIActivity.ActivityType.openInIBooks,
-        UIActivity.ActivityType.postToFlickr,
-        UIActivity.ActivityType.postToTencentWeibo,
-        UIActivity.ActivityType.postToVimeo,
-        UIActivity.ActivityType.postToWeibo,
-        UIActivity.ActivityType.print,
-        UIActivity.ActivityType.saveToCameraRoll,
-        UIActivity.ActivityType.markupAsPDF,
-        UIActivity.ActivityType.addToReadingList,
-        UIActivity.ActivityType.assignToContact
+            UIActivity.ActivityType.copyToPasteboard,
+            UIActivity.ActivityType.message,
+            UIActivity.ActivityType.openInIBooks,
+            UIActivity.ActivityType.postToFlickr,
+            UIActivity.ActivityType.postToTencentWeibo,
+            UIActivity.ActivityType.postToVimeo,
+            UIActivity.ActivityType.postToWeibo,
+            UIActivity.ActivityType.print,
+            UIActivity.ActivityType.saveToCameraRoll,
+            UIActivity.ActivityType.markupAsPDF,
+            UIActivity.ActivityType.addToReadingList,
+            UIActivity.ActivityType.assignToContact
     ]
 }
 
 public func getObjectsToShare(imageName: String, textToShare: String) -> [Any] {
     let imageUtils = ImageUtils()
     let bannerImage = imageUtils.getImageFromFileName(name: imageName)
-    let appIcon = UIImage(named: "appIcon")
+    let appIcon = UIImage(named: "AppIcon")
     let tfsWebsite = URL(string: "https://tfsweb.tamu.edu")!
     let txForestInfoWebsite = URL(string: "https://texasforestinfo.tamu.edu")!
     let objectsToShare = [textToShare, tfsWebsite, txForestInfoWebsite, bannerImage, appIcon!] as [Any]
-    
     return objectsToShare
 }
-
-
-
-

@@ -41,7 +41,6 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate {
     private var cameraControls: CameraControls = CameraControls()
     private var database: SqliteDatabase = SqliteDatabase()
     private var jsonUtils: JSONUtils = JSONUtils()
-    private var appConfiguration: JSONUtils.photoId!
     @IBOutlet weak var overlayView: UIView!
     private var showHideControlsTask: DispatchWorkItem?
     @IBOutlet weak var videoControls: UIView!
@@ -51,7 +50,6 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate {
         super.viewDidLoad()
         // Set the view's delegate
         sceneView.delegate = self
-        self.appConfiguration = appUpdate.getAppJSON()
         // spritekit and position
         self.spriteKitScene = SKScene(size: CGSize(width: 600, height: 300))
         self.spriteKitScene.scaleMode = .aspectFit
@@ -128,23 +126,11 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate {
     
     
     @IBAction func shareVideo(_ sender: UIButton) {
-        UIGraphicsBeginImageContext(view.frame.size)
-        view.layer.render(in: UIGraphicsGetCurrentContext()!)
-        let textToShare = "Check out Forest AR. An augumented reality app developed by the Texas A&M Forest Service. #TFS #ForestAR"
-        let activitiesItems = getObjectsToShare(imageName: self.imageAnchor.referenceImage.name!, textToShare: textToShare)
-        
-        var activities:[ShareActivity] = [ShareActivity(platform:"facebook", message: textToShare, achorImage: self.imageAnchor),
-                                          ShareActivity(platform:"twitter", message: textToShare, achorImage: self.imageAnchor)]
-        if appUpdate.checkIfAppIsInstalled(name: "instagram") {
-            activities.append(ShareActivity(platform:"instagram", message: textToShare, achorImage: self.imageAnchor))
-        }
-        let activityVC = UIActivityViewController(activityItems: activitiesItems, applicationActivities: activities)
-        //Excluded Activities
-        activityVC.excludedActivityTypes = getExcludedActivities()
-        activityVC.popoverPresentationController?.sourceView = self.view
+        let shareVideoCls = ShareVideo(imageName:self.imageAnchor.referenceImage.name!, parentView: self.view )
+        let activityVC: UIActivityViewController = shareVideoCls.createShareUI()
         self.present(activityVC, animated: true, completion: nil)
-        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.configuration = ARImageTrackingConfiguration()
@@ -178,7 +164,7 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate {
         let imageName = imageAnchors.referenceImage.name
         
         let serverURL = "https://txfipdev.tfs.tamu.edu/treeselector/"
-        let currentImgJson = self.jsonUtils.getImageDetailsFromJSON(json: self.appConfiguration, imageName: imageName!)
+        let currentImgJson = self.jsonUtils.getImageDetailsFromJSON(json: Service.sharedInstance.appConfiguration, imageName: imageName!)
         //        print(imageName!, "found");
         //        print(UIDevice().identifierForVendor?.uuidString ?? "", "Device name")
         self.setupVideo(videoURL: serverURL + currentImgJson.videoLink)
@@ -305,7 +291,7 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate {
         self.setBackgroundImage(button: sender, imageName: btnName)
         
         let imageName = self.imageAnchor.referenceImage.name
-        let currentJson: JSONUtils.imagesEntry = self.jsonUtils.getImageDetailsFromJSON(json: self.appConfiguration, imageName: imageName!)
+        let currentJson: JSONUtils.imagesEntry = self.jsonUtils.getImageDetailsFromJSON(json: Service.sharedInstance.appConfiguration, imageName: imageName!)
         self.database.toggleFavEntry(n: currentJson.title, l: currentJson.url, p: currentJson.imageName, v: currentJson.videoLink)
     }
     

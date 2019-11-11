@@ -65,11 +65,12 @@ class SqliteDatabase {
     }
     
     func toggleFavEntry(n: String, l: String, p: String, v: String) {
-        self.openDB()
-        if(getFavouritesCount(photoName: p) < 1) {
-            self.insertIntoFavTable(nameP: n, linkP: l, photoP: p, videoP: v)
-        } else {
-            self.deleteFavEntryByPhotoName(photoName: p)
+        if (self.openDB()) {
+            if(getFavouritesCount(photoName: p) < 1) {
+                self.insertIntoFavTable(nameP: n, linkP: l, photoP: p, videoP: v)
+            } else {
+                self.deleteFavEntryByPhotoName(photoName: p)
+            }
         }
        
     }

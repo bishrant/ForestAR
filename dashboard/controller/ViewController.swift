@@ -10,6 +10,7 @@ import UIKit
 import SQLite3
 //import Crashlytics
 
+var serverURL: String = "https://txfipdev.tfs.tamu.edu/treeselector/"
 
 class ViewController: UIViewController {
     var menuShowing = false

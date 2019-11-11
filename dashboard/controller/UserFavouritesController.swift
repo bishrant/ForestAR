@@ -224,7 +224,7 @@ class UserFavouritesController: UIViewController, UIGestureRecognizerDelegate {
     
     @objc func favTapped(_ sender: UITapGestureRecognizer){
         let pView = sender.view as! FavUIView
-        print("open pvideo page for ", pView.photoName)
+        print("open pvideo page for ", pView.photoName!)
         
         let storyboard = UIStoryboard(name: "VideoPlayer", bundle: Bundle.main)
         let destination1 = storyboard.instantiateViewController(withIdentifier: "VideoPlayer") as! VideoPlayerController

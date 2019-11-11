@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		851037712375BDC700741F3F /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851037702375BDC700741F3F /* NibView.swift */; };
+		851037732375BE3700741F3F /* CustomWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 851037722375BE3700741F3F /* CustomWebView.xib */; };
+		851037792375C9EA00741F3F /* CustomWebUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851037782375C9EA00741F3F /* CustomWebUIView.swift */; };
+		8510377B2378E5A100741F3F /* MyWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8510377A2378E5A100741F3F /* MyWebView.xib */; };
+		8510377D2378E5B200741F3F /* MyWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8510377C2378E5B200741F3F /* MyWebView.swift */; };
 		851CA502236B1EF500C28D4B /* UserFavourites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 851CA501236B1EF500C28D4B /* UserFavourites.storyboard */; };
 		851CA504236B1F2A00C28D4B /* UserFavouritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851CA503236B1F2A00C28D4B /* UserFavouritesController.swift */; };
 		851CA506236B72F000C28D4B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851CA505236B72F000C28D4B /* Color.swift */; };
@@ -48,9 +53,19 @@
 		85E16BA02357BCE800907CFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85E16B9E2357BCE800907CFF /* Main.storyboard */; };
 		85E16BA22357BCEB00907CFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85E16BA12357BCEB00907CFF /* Assets.xcassets */; };
 		85E16BA52357BCEB00907CFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85E16BA32357BCEB00907CFF /* LaunchScreen.storyboard */; };
+		85F8878C237069C1003FCE4F /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F8878B237069C1003FCE4F /* StringUtils.swift */; };
+		85F8878E237089F7003FCE4F /* CustomVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F8878D237089F7003FCE4F /* CustomVideoPlayer.swift */; };
+		85F8879023709403003FCE4F /* ShareVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F8878F23709403003FCE4F /* ShareVideo.swift */; };
+		85F887A02370B7D0003FCE4F /* WebPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F8879F2370B7D0003FCE4F /* WebPageView.swift */; };
+		85F887A42370BE62003FCE4F /* Web1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F887A32370BE62003FCE4F /* Web1.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		851037702375BDC700741F3F /* NibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
+		851037722375BE3700741F3F /* CustomWebView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomWebView.xib; sourceTree = "<group>"; };
+		851037782375C9EA00741F3F /* CustomWebUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWebUIView.swift; sourceTree = "<group>"; };
+		8510377A2378E5A100741F3F /* MyWebView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyWebView.xib; sourceTree = "<group>"; };
+		8510377C2378E5B200741F3F /* MyWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWebView.swift; sourceTree = "<group>"; };
 		851CA501236B1EF500C28D4B /* UserFavourites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserFavourites.storyboard; sourceTree = "<group>"; };
 		851CA503236B1F2A00C28D4B /* UserFavouritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavouritesController.swift; sourceTree = "<group>"; };
 		851CA505236B72F000C28D4B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -99,6 +114,11 @@
 		85E16BA12357BCEB00907CFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85E16BA42357BCEB00907CFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85E16BA62357BCEB00907CFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85F8878B237069C1003FCE4F /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
+		85F8878D237089F7003FCE4F /* CustomVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVideoPlayer.swift; sourceTree = "<group>"; };
+		85F8878F23709403003FCE4F /* ShareVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareVideo.swift; sourceTree = "<group>"; };
+		85F8879F2370B7D0003FCE4F /* WebPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageView.swift; sourceTree = "<group>"; };
+		85F887A32370BE62003FCE4F /* Web1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web1.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +151,10 @@
 				8558B3AA235F656A00DA6119 /* FavouriteModel.swift */,
 				8558B3B6235F8A9700DA6119 /* HelpSlide.swift */,
 				8558B3A8235F60EA00DA6119 /* Database.swift */,
+				85F8879F2370B7D0003FCE4F /* WebPageView.swift */,
+				85F887A32370BE62003FCE4F /* Web1.swift */,
+				851037702375BDC700741F3F /* NibView.swift */,
+				8510377C2378E5B200741F3F /* MyWebView.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -139,6 +163,10 @@
 			isa = PBXGroup;
 			children = (
 				8558B3B8235F8ABF00DA6119 /* HelpSlide.xib */,
+				85F8878D237089F7003FCE4F /* CustomVideoPlayer.swift */,
+				851037722375BE3700741F3F /* CustomWebView.xib */,
+				851037782375C9EA00741F3F /* CustomWebUIView.swift */,
+				8510377A2378E5A100741F3F /* MyWebView.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -187,6 +215,7 @@
 				8558B3C92360A05B00DA6119 /* ARImageUtils.swift */,
 				8558B4522368C79A00DA6119 /* CameraControls.swift */,
 				8558B4262363959600DA6119 /* CustomSlider.swift */,
+				85F8878B237069C1003FCE4F /* StringUtils.swift */,
 				8558B3C82360A05B00DA6119 /* DownloadUtils.swift */,
 				8558B44C2368710300DA6119 /* ImageUtils.swift */,
 				8558B3C72360A05B00DA6119 /* JSONUtils.swift */,
@@ -197,6 +226,7 @@
 				851CA505236B72F000C28D4B /* Color.swift */,
 				851CA509236C669600C28D4B /* ScaledHeightImageView.swift */,
 				851CA50B236C6F1A00C28D4B /* GradientView.swift */,
+				85F8878F23709403003FCE4F /* ShareVideo.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -325,7 +355,9 @@
 				85E16BA02357BCE800907CFF /* Main.storyboard in Resources */,
 				857C87FB235A0C18005724C4 /* TreeID.sqlite in Resources */,
 				8558B3F82361DDC400DA6119 /* GoogleService-Info.plist in Resources */,
+				851037732375BE3700741F3F /* CustomWebView.xib in Resources */,
 				8558B3BB2360947C00DA6119 /* ARDashboard.storyboard in Resources */,
+				8510377B2378E5A100741F3F /* MyWebView.xib in Resources */,
 				8558B3B1235F809700DA6119 /* Help.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,8 +390,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				851037792375C9EA00741F3F /* CustomWebUIView.swift in Sources */,
 				8558B44F236878E000DA6119 /* LoadingIndicator.swift in Sources */,
 				8558B3B7235F8A9700DA6119 /* HelpSlide.swift in Sources */,
+				85F887A42370BE62003FCE4F /* Web1.swift in Sources */,
 				857C87FF235A245F005724C4 /* FavouritesController.swift in Sources */,
 				851CA515236C8DEC00C28D4B /* VideoPlayerController.swift in Sources */,
 				8558B3CB2360A05B00DA6119 /* JSONUtils.swift in Sources */,
@@ -369,20 +403,26 @@
 				8558B425236340F000DA6119 /* VideoUtils.swift in Sources */,
 				851CA50C236C6F1A00C28D4B /* GradientView.swift in Sources */,
 				85E16B9D2357BCE800907CFF /* ViewController.swift in Sources */,
+				85F887A02370B7D0003FCE4F /* WebPageView.swift in Sources */,
 				85E16B992357BCE800907CFF /* AppDelegate.swift in Sources */,
+				851037712375BDC700741F3F /* NibView.swift in Sources */,
 				8558B3CE2360A05B00DA6119 /* AppUpdate.swift in Sources */,
 				85E16B9B2357BCE800907CFF /* SceneDelegate.swift in Sources */,
 				8558B3CC2360A05B00DA6119 /* DownloadUtils.swift in Sources */,
 				851CA504236B1F2A00C28D4B /* UserFavouritesController.swift in Sources */,
 				8558B3AB235F656A00DA6119 /* FavouriteModel.swift in Sources */,
+				85F8879023709403003FCE4F /* ShareVideo.swift in Sources */,
+				85F8878E237089F7003FCE4F /* CustomVideoPlayer.swift in Sources */,
 				8558B4272363959600DA6119 /* CustomSlider.swift in Sources */,
 				8558B3CD2360A05B00DA6119 /* ARImageUtils.swift in Sources */,
 				8558B3A9235F60EA00DA6119 /* Database.swift in Sources */,
+				85F8878C237069C1003FCE4F /* StringUtils.swift in Sources */,
 				851CA50A236C669600C28D4B /* ScaledHeightImageView.swift in Sources */,
 				8558B451236885BB00DA6119 /* ShareActivity.swift in Sources */,
 				8558B4552368CE7500DA6119 /* AnimationUtils.swift in Sources */,
 				8558B44D2368710300DA6119 /* ImageUtils.swift in Sources */,
 				8558B4582368E1F400DA6119 /* Service.swift in Sources */,
+				8510377D2378E5B200741F3F /* MyWebView.swift in Sources */,
 				8558B3B4235F80EB00DA6119 /* HelpController.swift in Sources */,
 				8558B3A7235E01CA00DA6119 /* PlayFavVideoController.swift in Sources */,
 			);
