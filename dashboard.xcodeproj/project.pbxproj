@@ -22,6 +22,10 @@
 		851CA50C236C6F1A00C28D4B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851CA50B236C6F1A00C28D4B /* GradientView.swift */; };
 		851CA513236C8DAD00C28D4B /* VideoPlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 851CA512236C8DAD00C28D4B /* VideoPlayer.storyboard */; };
 		851CA515236C8DEC00C28D4B /* VideoPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851CA514236C8DEC00C28D4B /* VideoPlayerController.swift */; };
+		853FE8DD237C6A2E00665404 /* ViewController 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853FE8DC237C6A2E00665404 /* ViewController 2.swift */; };
+		853FE8DF237C6E7000665404 /* ARVideoControls.xib in Resources */ = {isa = PBXBuildFile; fileRef = 853FE8DE237C6E7000665404 /* ARVideoControls.xib */; };
+		853FE8E1237C6EA100665404 /* ARVideoControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853FE8E0237C6EA100665404 /* ARVideoControls.swift */; };
+		853FE8E3237C701C00665404 /* ARVideoControlsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853FE8E2237C701C00665404 /* ARVideoControlsDelegate.swift */; };
 		8558B3A5235E000600DA6119 /* PlayFavVideo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8558B3A4235E000600DA6119 /* PlayFavVideo.storyboard */; };
 		8558B3A7235E01CA00DA6119 /* PlayFavVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3A6235E01CA00DA6119 /* PlayFavVideoController.swift */; };
 		8558B3A9235F60EA00DA6119 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3A8235F60EA00DA6119 /* Database.swift */; };
@@ -49,7 +53,7 @@
 		8558B4582368E1F400DA6119 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B4572368E1F400DA6119 /* Service.swift */; };
 		857C87FB235A0C18005724C4 /* TreeID.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 857C87FA235A0C18005724C4 /* TreeID.sqlite */; };
 		857C87FD235A1E0E005724C4 /* Favourites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 857C87FC235A1E0E005724C4 /* Favourites.storyboard */; };
-		857C87FF235A245F005724C4 /* FavouritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C87FE235A245F005724C4 /* FavouritesController.swift */; };
+		85C83009237B430F00A78EF7 /* MenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C83008237B430F00A78EF7 /* MenuDelegate.swift */; };
 		85E16B992357BCE800907CFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E16B982357BCE800907CFF /* AppDelegate.swift */; };
 		85E16B9B2357BCE800907CFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E16B9A2357BCE800907CFF /* SceneDelegate.swift */; };
 		85E16B9D2357BCE800907CFF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E16B9C2357BCE800907CFF /* ViewController.swift */; };
@@ -59,9 +63,12 @@
 		85F8878C237069C1003FCE4F /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F8878B237069C1003FCE4F /* StringUtils.swift */; };
 		85F8878E237089F7003FCE4F /* CustomVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F8878D237089F7003FCE4F /* CustomVideoPlayer.swift */; };
 		85F8879023709403003FCE4F /* ShareVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F8878F23709403003FCE4F /* ShareVideo.swift */; };
+		880DF9CEA4DD49F297F1CB29 /* Pods_dashboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCFBBE0425F1909761C37EFE /* Pods_dashboard.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		212EA8A135A19B76EB86DF40 /* Pods-dashboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dashboard.debug.xcconfig"; path = "Target Support Files/Pods-dashboard/Pods-dashboard.debug.xcconfig"; sourceTree = "<group>"; };
+		4B65BEA4114BF1E16BB7571A /* Pods-dashboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dashboard.release.xcconfig"; path = "Target Support Files/Pods-dashboard/Pods-dashboard.release.xcconfig"; sourceTree = "<group>"; };
 		8510377A2378E5A100741F3F /* MyWebView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyWebView.xib; sourceTree = "<group>"; };
 		8510377C2378E5B200741F3F /* MyWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWebView.swift; sourceTree = "<group>"; };
 		85103782237A1A4F00741F3F /* MyMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMenu.xib; sourceTree = "<group>"; };
@@ -77,6 +84,10 @@
 		851CA511236C772300C28D4B /* Segoe UI Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI Italic.ttf"; sourceTree = "<group>"; };
 		851CA512236C8DAD00C28D4B /* VideoPlayer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VideoPlayer.storyboard; sourceTree = "<group>"; };
 		851CA514236C8DEC00C28D4B /* VideoPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerController.swift; sourceTree = "<group>"; };
+		853FE8DC237C6A2E00665404 /* ViewController 2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController 2.swift"; sourceTree = "<group>"; };
+		853FE8DE237C6E7000665404 /* ARVideoControls.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ARVideoControls.xib; sourceTree = "<group>"; };
+		853FE8E0237C6EA100665404 /* ARVideoControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVideoControls.swift; sourceTree = "<group>"; };
+		853FE8E2237C701C00665404 /* ARVideoControlsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVideoControlsDelegate.swift; sourceTree = "<group>"; };
 		8558B3A4235E000600DA6119 /* PlayFavVideo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlayFavVideo.storyboard; sourceTree = "<group>"; };
 		8558B3A6235E01CA00DA6119 /* PlayFavVideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayFavVideoController.swift; sourceTree = "<group>"; };
 		8558B3A8235F60EA00DA6119 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
@@ -105,8 +116,8 @@
 		8558B4572368E1F400DA6119 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		857C87FA235A0C18005724C4 /* TreeID.sqlite */ = {isa = PBXFileReference; lastKnownFileType = text; path = TreeID.sqlite; sourceTree = "<group>"; };
 		857C87FC235A1E0E005724C4 /* Favourites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favourites.storyboard; sourceTree = "<group>"; };
-		857C87FE235A245F005724C4 /* FavouritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesController.swift; sourceTree = "<group>"; };
-		85E16B952357BCE800907CFF /* forestar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = forestar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		85C83008237B430F00A78EF7 /* MenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDelegate.swift; sourceTree = "<group>"; };
+		85E16B952357BCE800907CFF /* ForestAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForestAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85E16B982357BCE800907CFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85E16B9A2357BCE800907CFF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		85E16B9C2357BCE800907CFF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +128,7 @@
 		85F8878B237069C1003FCE4F /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		85F8878D237089F7003FCE4F /* CustomVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVideoPlayer.swift; sourceTree = "<group>"; };
 		85F8878F23709403003FCE4F /* ShareVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareVideo.swift; sourceTree = "<group>"; };
+		DCFBBE0425F1909761C37EFE /* Pods_dashboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dashboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +138,7 @@
 			files = (
 				8558B3C5236098A300DA6119 /* ARKit.framework in Frameworks */,
 				8558B3C12360986500DA6119 /* SceneKit.framework in Frameworks */,
+				880DF9CEA4DD49F297F1CB29 /* Pods_dashboard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +164,9 @@
 				8558B3A8235F60EA00DA6119 /* Database.swift */,
 				8510377C2378E5B200741F3F /* MyWebView.swift */,
 				85103784237A1BD600741F3F /* MyMenu.swift */,
+				85C83008237B430F00A78EF7 /* MenuDelegate.swift */,
+				853FE8E0237C6EA100665404 /* ARVideoControls.swift */,
+				853FE8E2237C701C00665404 /* ARVideoControlsDelegate.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -162,6 +178,7 @@
 				85F8878D237089F7003FCE4F /* CustomVideoPlayer.swift */,
 				8510377A2378E5A100741F3F /* MyWebView.xib */,
 				85103782237A1A4F00741F3F /* MyMenu.xib */,
+				853FE8DE237C6E7000665404 /* ARVideoControls.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -170,12 +187,12 @@
 			isa = PBXGroup;
 			children = (
 				85E16B9C2357BCE800907CFF /* ViewController.swift */,
-				857C87FE235A245F005724C4 /* FavouritesController.swift */,
 				8558B3A6235E01CA00DA6119 /* PlayFavVideoController.swift */,
 				8558B3B3235F80EB00DA6119 /* HelpController.swift */,
 				8558B3BC236095EA00DA6119 /* ARDashboardController.swift */,
 				851CA503236B1F2A00C28D4B /* UserFavouritesController.swift */,
 				851CA514236C8DEC00C28D4B /* VideoPlayerController.swift */,
+				853FE8DC237C6A2E00665404 /* ViewController 2.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -199,6 +216,7 @@
 			children = (
 				8558B3C4236098A300DA6119 /* ARKit.framework */,
 				8558B3BF2360986000DA6119 /* SceneKit.framework */,
+				DCFBBE0425F1909761C37EFE /* Pods_dashboard.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -206,7 +224,6 @@
 		8558B3C62360A05B00DA6119 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				8558B3CA2360A05B00DA6119 /* AppUpdate.swift */,
 				8558B3C92360A05B00DA6119 /* ARImageUtils.swift */,
 				8558B4522368C79A00DA6119 /* CameraControls.swift */,
 				8558B4262363959600DA6119 /* CustomSlider.swift */,
@@ -229,6 +246,7 @@
 		8558B4562368E1D100DA6119 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				8558B3CA2360A05B00DA6119 /* AppUpdate.swift */,
 				8558B4572368E1F400DA6119 /* Service.swift */,
 			);
 			path = Service;
@@ -247,7 +265,7 @@
 		85E16B962357BCE800907CFF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				85E16B952357BCE800907CFF /* forestar.app */,
+				85E16B952357BCE800907CFF /* ForestAR.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -277,6 +295,8 @@
 		A7F65BF95CEFCB9ADD26FDCD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				212EA8A135A19B76EB86DF40 /* Pods-dashboard.debug.xcconfig */,
+				4B65BEA4114BF1E16BB7571A /* Pods-dashboard.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -288,10 +308,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 85E16BA92357BCEB00907CFF /* Build configuration list for PBXNativeTarget "dashboard" */;
 			buildPhases = (
+				58A9846620C5B58AB369C29E /* [CP] Check Pods Manifest.lock */,
 				85E16B912357BCE800907CFF /* Sources */,
 				85E16B922357BCE800907CFF /* Frameworks */,
 				85E16B932357BCE800907CFF /* Resources */,
 				8558B3F62360E70B00DA6119 /* Run Script */,
+				743DD469D2D685B00AF4729B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -299,7 +321,7 @@
 			);
 			name = dashboard;
 			productName = dashboard;
-			productReference = 85E16B952357BCE800907CFF /* forestar.app */;
+			productReference = 85E16B952357BCE800907CFF /* ForestAR.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -344,6 +366,7 @@
 				851CA513236C8DAD00C28D4B /* VideoPlayer.storyboard in Resources */,
 				85E16BA22357BCEB00907CFF /* Assets.xcassets in Resources */,
 				857C87FD235A1E0E005724C4 /* Favourites.storyboard in Resources */,
+				853FE8DF237C6E7000665404 /* ARVideoControls.xib in Resources */,
 				85103783237A1A4F00741F3F /* MyMenu.xib in Resources */,
 				851037812379FC6800741F3F /* Segoe UI Bold Italic.ttf in Resources */,
 				851CA502236B1EF500C28D4B /* UserFavourites.storyboard in Resources */,
@@ -364,6 +387,45 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		58A9846620C5B58AB369C29E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-dashboard-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		743DD469D2D685B00AF4729B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-dashboard/Pods-dashboard-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-dashboard/Pods-dashboard-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-dashboard/Pods-dashboard-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8558B3F62360E70B00DA6119 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -392,8 +454,8 @@
 				8558B44F236878E000DA6119 /* LoadingIndicator.swift in Sources */,
 				8558B3B7235F8A9700DA6119 /* HelpSlide.swift in Sources */,
 				85103785237A1BD600741F3F /* MyMenu.swift in Sources */,
-				857C87FF235A245F005724C4 /* FavouritesController.swift in Sources */,
 				851CA515236C8DEC00C28D4B /* VideoPlayerController.swift in Sources */,
+				853FE8E3237C701C00665404 /* ARVideoControlsDelegate.swift in Sources */,
 				8558B3CB2360A05B00DA6119 /* JSONUtils.swift in Sources */,
 				8558B4532368C79A00DA6119 /* CameraControls.swift in Sources */,
 				851CA506236B72F000C28D4B /* Color.swift in Sources */,
@@ -405,7 +467,10 @@
 				8558B3CE2360A05B00DA6119 /* AppUpdate.swift in Sources */,
 				85E16B9B2357BCE800907CFF /* SceneDelegate.swift in Sources */,
 				8558B3CC2360A05B00DA6119 /* DownloadUtils.swift in Sources */,
+				85C83009237B430F00A78EF7 /* MenuDelegate.swift in Sources */,
 				851CA504236B1F2A00C28D4B /* UserFavouritesController.swift in Sources */,
+				853FE8E1237C6EA100665404 /* ARVideoControls.swift in Sources */,
+				853FE8DD237C6A2E00665404 /* ViewController 2.swift in Sources */,
 				8558B3AB235F656A00DA6119 /* FavouriteModel.swift in Sources */,
 				85F8879023709403003FCE4F /* ShareVideo.swift in Sources */,
 				85F8878E237089F7003FCE4F /* CustomVideoPlayer.swift in Sources */,
@@ -562,6 +627,7 @@
 		};
 		85E16BAA2357BCEB00907CFF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 212EA8A135A19B76EB86DF40 /* Pods-dashboard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -575,7 +641,7 @@
 				);
 				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tfs.forestarapp;
-				PRODUCT_NAME = forestar;
+				PRODUCT_NAME = ForestAR;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -583,6 +649,7 @@
 		};
 		85E16BAB2357BCEB00907CFF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B65BEA4114BF1E16BB7571A /* Pods-dashboard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -595,7 +662,7 @@
 				);
 				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tfs.forestarapp;
-				PRODUCT_NAME = forestar;
+				PRODUCT_NAME = ForestAR;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -42,7 +42,6 @@ class VideoPlayerController: UIViewController {
         self.setupVideo()
         view.isUserInteractionEnabled = true
         initWebViewBtns()
-        
     }
     
     @objc func closeWebView() {
@@ -51,8 +50,6 @@ class VideoPlayerController: UIViewController {
                         self.webViewBottomConstraint.constant = -1 * self.view.frame.height
         })
         self.customVideoPlayer.playVideo()
-        
-
     }
     
     func initWebViewBtns() {

@@ -10,7 +10,7 @@ import UIKit
 
 
 class UserFavouritesController: UIViewController, UIGestureRecognizerDelegate {
-    var SqliteDb = SqliteDatabase()
+    private var SqliteDb = Service.sharedInstance.getDatabase()
     var favouritesList = [FavouritesStruct] ()
     
     @IBOutlet weak var noFavourites: UILabel!
@@ -111,7 +111,7 @@ class UserFavouritesController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func getAllFavourites() {
-        if SqliteDb.openDB() {
+      //  if SqliteDb.openDB() {
             self.favouritesList = SqliteDb.getFavourites();
             if (self.favouritesList.count > 0) {
                 self.swipeInstructions.isHidden = false
@@ -124,7 +124,7 @@ class UserFavouritesController: UIViewController, UIGestureRecognizerDelegate {
                 self.noFavourites.isHidden = false
             }
 
-        }
+        //}
     }
     
     func setupScrollView() {

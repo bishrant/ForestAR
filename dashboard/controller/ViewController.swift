@@ -8,25 +8,24 @@
 
 import UIKit
 import SQLite3
-//import Crashlytics
 
 var serverURL: String = "https://txfipdev.tfs.tamu.edu/treeselector/"
 
-
-
-
-class ViewController: UIViewController {
-    var menuShowing = false
-    @IBOutlet weak var sidemenu: UIView!
+class ViewController: UIViewController, MenuDelegate {
+    internal var menuShowing = false
+    internal var imageViewBackground: UIImageView!
+    @IBOutlet weak var sidemenu: MyMenu!
     @IBOutlet weak var LeadingConstraint: NSLayoutConstraint!
-    var imageViewBackground: UIImageView!
+    @IBOutlet weak var tfsLogo: UIImageView!
+    @IBOutlet weak var MenuBtn: UIButton!
+    @IBOutlet weak var TrailingConstraint: NSLayoutConstraint!;
+    
+    @IBOutlet weak var instructionConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
         if (!Service.sharedInstance.getAppUpdateSuccess()){
             print("Error updating app")
         }
-        
-        print(self.view.frame.width)
         TrailingConstraint.constant = self.view.frame.width;
         let gradientView = GradientView(frame: self.view.bounds)
         self.view.insertSubview(gradientView, at: 0)
@@ -34,18 +33,56 @@ class ViewController: UIViewController {
         self.imageViewBackground = self.getBackground()
         self.view.addSubview(imageViewBackground)
         self.view.sendSubviewToBack(imageViewBackground)
+        self.sidemenu.delegate = self
         
+        self.setupLogoClick()
+        self.adjustInstructionConstraint()
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    func adjustInstructionConstraint() {
+        self.instructionConstraint.constant = UIDevice.current.orientation.isLandscape ? -62 : -80
+    }
+    
+    func menuSelected(menuName: String) {
+        let storyboardId: String
+        if (menuName == "HOME") {
+            navigationController?.popViewController(animated: true)
+        } else {
+            switch menuName {
+            case "FAVORITES":
+                storyboardId = "UserFavourites"
+                break
+            case "HOW TO ?":
+                storyboardId = "Help"
+                break
+            default:
+                storyboardId = "HOME"
+            }
+            self.goToPage(storyboardName: storyboardId)
+        }
+        toggleMenuFunc()
+    }
+    
+    func menuClosed() {
+        toggleMenuFunc()
+    }
+    
+    @objc func goToTFSHome(){
+        guard let url = URL(string: "https://tfsweb.tamu.edu") else { return }
+        UIApplication.shared.open(url)
         
-        
-        let gradientViewForMenu = GradientView(frame: self.sidemenu.bounds)
-        self.sidemenu.insertSubview(gradientViewForMenu, at: 0)
-        
-//        view.addSubview(scrollView)
-        //showARDashboard();
-//        showHelpPage();
-//        showUserFavouritesPageFunc()
-      //  showVideoPlayer()
-//        showFavouritesPageFunc()
+    }
+    func setupLogoClick() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(goToTFSHome))
+        tfsLogo.isUserInteractionEnabled = true
+        tfsLogo.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    func goToPage(storyboardName: String) {
+        let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
+        let destination = storyboard.instantiateViewController(withIdentifier: storyboardName)
+        navigationController?.pushViewController(destination, animated: true)
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -53,45 +90,35 @@ class ViewController: UIViewController {
         coordinator.animate(alongsideTransition: { (context) in
         }) { (context) in
             self.imageViewBackground.frame.size = size
-            self.sidemenu.isHidden = true
+            //    self.sidemenu.isHidden = true
             self.TrailingConstraint.constant = self.TrailingConstraint.constant == 0 ? 0: self.view.frame.width
-            self.sidemenu.frame.size = size
-            self.sidemenu.isHidden = false
+            //     self.sidemenu.frame.size = size
+            //   self.sidemenu.isHidden = false
+            self.adjustInstructionConstraint()
         }
     }
     
     func getBackground() -> UIImageView {
-        // screen width and height:
         let width = UIScreen.main.bounds.size.width
         let height = UIScreen.main.bounds.size.height
-
         let imageViewBackground = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
         imageViewBackground.image = UIImage(named: "Fort Davis 2008.jpg")
-
-        // you can change the content mode:
         imageViewBackground.contentMode = .scaleAspectFill
-
         return imageViewBackground
     }
     
     @IBAction func showARDashboard(_ sender: Any) {
-        showARDashboard();
+        self.goToPage(storyboardName: "ARDashboard")
     }
 
-    @IBAction func showHelpPageAction(_ sender: Any) {
-        showHelpPage();
-        toggleMenuFunc();
-    }
-    @IBOutlet weak var MenuBtn: UIButton!
-    @IBOutlet weak var TrailingConstraint: NSLayoutConstraint!;
-    
     private func toggleMenuFunc() {
         TrailingConstraint.constant = menuShowing ? self.sidemenu.frame.width : 0
         UIView.animate(withDuration: 0.2,
-                       delay:0,
+                       delay: 0,
                        options: .curveEaseIn,
                        animations: {
-            self.view.layoutIfNeeded()
+                        self.sidemenu.isHidden = self.menuShowing ? true : false
+                        self.view.layoutIfNeeded()
         });
         menuShowing = !menuShowing
         MenuBtn.isHidden  = !MenuBtn.isHidden
@@ -100,53 +127,5 @@ class ViewController: UIViewController {
         toggleMenuFunc();
     }
     
-
-    
-    @IBAction func showFavouritesPage(_ sender: Any) {
-        showUserFavouritesPageFunc()
-//        showFavouritesPageFunc()
-    }
-    
-    func showFavouritesPageFunc() {
-        let storyboard = UIStoryboard(name: "Favourites", bundle: Bundle.main)
-        let destination1 = storyboard.instantiateViewController(withIdentifier: "Favourites") as! FavouritesController
-        navigationController?.pushViewController(destination1, animated: true)
-    }
-    
-    func showVideoPlayer() {
-        let storyboard = UIStoryboard(name: "VideoPlayer", bundle: Bundle.main)
-        let destination1 = storyboard.instantiateViewController(withIdentifier: "VideoPlayer") as! VideoPlayerController
-        navigationController?.pushViewController(destination1, animated: true)
-    }
-    
-    func showUserFavouritesPageFunc() {
-        let storyboard = UIStoryboard(name: "UserFavourites", bundle: Bundle.main)
-        let destination1 = storyboard.instantiateViewController(withIdentifier: "UserFavourites") as! UserFavouritesController
-        navigationController?.pushViewController(destination1, animated: true)
-    }
-    
-    func showARDashboard() {
-        let storyboard = UIStoryboard(name: "ARDashboard", bundle: Bundle.main)
-        let destination1 = storyboard.instantiateViewController(withIdentifier: "ARDashboard") as! ARDashboardController
-        navigationController?.pushViewController(destination1, animated: true)
-    }
-    
-    func showHelpPage() {
-        let storyboard = UIStoryboard(name: "Help", bundle: Bundle.main)
-        let destination1 = storyboard.instantiateViewController(withIdentifier: "Help") as! HelpController
-        navigationController?.pushViewController(destination1, animated: true)
-    }
-
-    
-    func randomString(length: Int) -> String {
-      let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-      return String((0..<length).map{ _ in letters.randomElement()! })
-    }
-    
-    @IBAction func insertIntoTable(_ sender: Any) {
-//        self.database.insertIntoFavTable(name: randomString(length: 5), link: randomString(length: 5))
-    }
-    
-    
+    @IBAction func goToHome(_ sender: UIStoryboardSegue) {}
 }
-

@@ -10,7 +10,7 @@ import UIKit
 import WebKit
 
 class MyWebView: UIView {
-    @IBOutlet var contentView: UIView!
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var webViewTitle: UINavigationItem!
     @IBOutlet weak var closeWebViewBtn: UIBarButtonItem!
     @IBOutlet weak var webViewArea: WKWebView!

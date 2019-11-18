@@ -19,6 +19,16 @@ class ShareVideo {
         self.parentView = parentView
     }
     
+    public func getObjectsToShare(imageName: String, textToShare: String) -> [Any] {
+        let imageUtils = ImageUtils()
+        let bannerImage = imageUtils.getImageFromFileName(name: imageName)
+        let appIcon = UIImage(named: "AppIcon")
+        let tfsWebsite = URL(string: "https://tfsweb.tamu.edu")!
+        let txForestInfoWebsite = URL(string: "https://texasforestinfo.tamu.edu")!
+        let objectsToShare = [textToShare, tfsWebsite, txForestInfoWebsite, bannerImage, appIcon!] as [Any]
+        return objectsToShare
+    }
+    
     func createShareUI() -> UIActivityViewController {
         UIGraphicsBeginImageContext(self.parentView.frame.size)
         self.parentView.layer.render(in: UIGraphicsGetCurrentContext()!)
@@ -27,9 +37,9 @@ class ShareVideo {
         
         var activities:[ShareActivity] = [ShareActivity(platform:"facebook", message: textToShare, imageName: self.imageName),
                                           ShareActivity(platform:"twitter", message: textToShare, imageName: self.imageName)]
-        if appUpdate.checkIfAppIsInstalled(name: "instagram") {
-            activities.append(ShareActivity(platform:"instagram", message: textToShare, imageName: self.imageName))
-        }
+//        if appUpdate.checkIfAppIsInstalled(name: "instagram") {
+//            activities.append(ShareActivity(platform:"instagram", message: textToShare, imageName: self.imageName))
+//        }
         let activityVC = UIActivityViewController(activityItems: activitiesItems, applicationActivities: activities)
         //Excluded Activities
         activityVC.excludedActivityTypes = getExcludedActivities()

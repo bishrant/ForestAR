@@ -29,7 +29,8 @@ class ShareActivity: UIActivity {
         super.init()
     }
     override var activityTitle: String? {
-        return NSLocalizedString(self.platform.firstCapitalized, comment: "Forest AR")
+        return nil
+//        return NSLocalizedString(self.platform.firstCapitalized, comment: "Forest AR")
     }
     override var activityImage: UIImage? {
         return UIImage(named: self.platform)
@@ -39,6 +40,17 @@ class ShareActivity: UIActivity {
         return true
     }
     
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+        
+        if let lastAsset = fetchResult.firstObject {
+            let url = URL(string: "instagram://library?LocalIdentifier=\(lastAsset.localIdentifier)")!
+            UIApplication.shared.open(url)
+        }
+    }
+    
     override func perform() {
         switch platform {
         case "facebook":
@@ -46,7 +58,9 @@ class ShareActivity: UIActivity {
             UIApplication.shared.open(fbURLWeb as URL)
             break
         case "instagram":
-            parent.postToInstagram(imageName: self.imageName)
+            let imageUtils = ImageUtils()
+            let instaImage = imageUtils.getImageFromFileName(name: self.imageName)
+            UIImageWriteToSavedPhotosAlbum(instaImage, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
             break
         case "twitter":
             let appInstalled = appUpdate.checkIfAppIsInstalled(name: "twitter")
@@ -80,12 +94,4 @@ public func getExcludedActivities() -> [UIActivity.ActivityType] {
     ]
 }
 
-public func getObjectsToShare(imageName: String, textToShare: String) -> [Any] {
-    let imageUtils = ImageUtils()
-    let bannerImage = imageUtils.getImageFromFileName(name: imageName)
-    let appIcon = UIImage(named: "AppIcon")
-    let tfsWebsite = URL(string: "https://tfsweb.tamu.edu")!
-    let txForestInfoWebsite = URL(string: "https://texasforestinfo.tamu.edu")!
-    let objectsToShare = [textToShare, tfsWebsite, txForestInfoWebsite, bannerImage, appIcon!] as [Any]
-    return objectsToShare
-}
+
