@@ -2,16 +2,17 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyWebView" customModule="forestar" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyWebView" customModule="ForestAR" customModuleProvider="target">
             <connections>
                 <outlet property="closeWebViewBtn" destination="Gx2-WC-gmy" id="i2h-qt-YhB"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="5Bb-cg-vlr"/>
-                <outlet property="webViewArea" destination="35B-J1-JDU" id="bQz-Zk-7fp"/>
+                <outlet property="progressBar" destination="U7A-sN-trn" id="Dp4-cZ-bnF"/>
+                <outlet property="webView" destination="35B-J1-JDU" id="4jB-Uv-n2b"/>
                 <outlet property="webViewTitle" destination="DZK-Wy-9Xf" id="zdx-dU-U9m"/>
             </connections>
         </placeholder>
@@ -38,7 +39,11 @@
                                     <action selector="reloadWebPage:" destination="-1" id="07g-3G-KlE"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem key="rightBarButtonItem" title="close" image="xmark" catalog="system" id="Gx2-WC-gmy"/>
+                            <barButtonItem key="rightBarButtonItem" title="close" image="xmark" catalog="system" id="Gx2-WC-gmy">
+                                <connections>
+                                    <action selector="closeWebView:" destination="-1" id="8Tp-QZ-YtY"/>
+                                </connections>
+                            </barButtonItem>
                         </navigationItem>
                     </items>
                 </navigationBar>
@@ -50,15 +55,21 @@
                         <wkPreferences key="preferences"/>
                     </wkWebViewConfiguration>
                 </wkWebView>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="U7A-sN-trn">
+                    <rect key="frame" x="0.0" y="90" width="414" height="2"/>
+                </progressView>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.91372549020000005" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="dEA-jI-b09" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="4PT-eZ-bPY"/>
                 <constraint firstItem="35B-J1-JDU" firstAttribute="top" secondItem="dEA-jI-b09" secondAttribute="bottom" id="5Cs-0X-rYV"/>
+                <constraint firstAttribute="trailing" secondItem="U7A-sN-trn" secondAttribute="trailing" id="ACW-ti-nOY"/>
+                <constraint firstItem="U7A-sN-trn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Gae-C9-47p"/>
                 <constraint firstItem="dEA-jI-b09" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Pa7-j6-5E6"/>
                 <constraint firstItem="dEA-jI-b09" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="U1t-N6-FbM"/>
                 <constraint firstItem="35B-J1-JDU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="c2s-ir-uOp"/>
                 <constraint firstItem="35B-J1-JDU" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="rd0-Ii-Vuu"/>
+                <constraint firstItem="U7A-sN-trn" firstAttribute="top" secondItem="dEA-jI-b09" secondAttribute="bottom" constant="2" id="sjP-Ty-1gx"/>
                 <constraint firstAttribute="bottom" secondItem="35B-J1-JDU" secondAttribute="bottom" id="xch-Mv-U9o"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

@@ -9,7 +9,6 @@
 import UIKit
 import ARKit
 import SceneKit
-//import Photos
 
 extension StringProtocol {
     var firstUppercased: String {
@@ -20,7 +19,7 @@ extension StringProtocol {
     }
 }
 
-class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoControlsDelegate {
+class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoControlsDelegate, WebViewDelegate {
     var sceneViews: ARSCNView!
     @IBOutlet weak var favBtn: UIButton!
     @IBOutlet weak var overlayView: UIView!
@@ -30,12 +29,10 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
     @IBOutlet weak var videoControlsView: ARVideoControls!
     @IBOutlet weak var mainView: UIView!
     
-    
     private var imageNode: SCNNode!
     private var videoHolder: SCNNode!
     private var imageAnchor: ARImageAnchor!
     private var videoPlayerNode: SKVideoNode?
-    
     
     private var isVideoLoaded = false
     private var span: Double = 1
@@ -55,7 +52,7 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         super.viewDidLoad()
         self.scanningActiveView.layer.zPosition = 100
         self.videoControlsView.arDelegate = self
-        self.initWebViewBtns()
+        self.webViewBottomConstraint.constant = -1 * self.view.frame.height
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,7 +68,7 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         self.sceneViews.isUserInteractionEnabled = false
         self.mainView.addSubview(self.sceneViews)
         self.sceneViews.delegate = self
-        self.sceneViews.showsStatistics = true
+        self.myWebView.webViewDelegate = self
         let configuration = ARImageTrackingConfiguration()
         configuration.trackingImages = Service.sharedInstance.getARImageSet()
         configuration.maximumNumberOfTrackedImages = 1
@@ -80,13 +77,9 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         self.runTest()
     }
     
-    func runTest() {
-        
-
-    }
+    func runTest() {    }
     
     @IBAction func closeBtnWhileScanning(_ sender: UIButton) {
-        
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -120,23 +113,11 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
     
     func renderer(_ renderer: SCNSceneRenderer, didRemove: SCNNode, for: ARAnchor){}
     
-    
-    //    @IBAction func closePlayingVideo(_ sender: UIButton) {
-    //        self.closeVideo()
-    //    }
-    //
-    func initWebViewBtns() {
-        self.webViewBottomConstraint.constant = -1 * self.view.frame.height
-        self.myWebView.closeWebViewBtn.target = self
-        self.myWebView.closeWebViewBtn.action = #selector(closeWebView)
-    }
-    //
     @objc func closeWebView() {
         UIView.animate(withDuration: 1.0,
                        animations: {
                         self.webViewBottomConstraint.constant = -1 * self.view.frame.height
         })
-        //        self.customVideoPlayer.playVideo()
     }
     
     @IBAction func toggleFlash(_ sender: UIButton) {
@@ -164,13 +145,14 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
     //
     func openShareUI() {
         self.playerLayer.player!.pause()
+        self.videoControlsView.pauseFunc()
         let shareVideoCls = ShareVideo(imageName:self.imageAnchor.referenceImage.name!, parentView: self.view )
         let activityVC: UIActivityViewController = shareVideoCls.createShareUI()
         
         activityVC.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
             if !completed {
                 self.animationUtils.showWithAnimation(myView: self.videoControlsView, delay: 0.4)
-                self.playerLayer.player!.play()
+                //                self.playerLayer.player!.play()
                 return
             }
             // User completed activity
@@ -181,20 +163,24 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
             popoverController.sourceView = self.view
             popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
         }
-
-
+        
+        
         self.present(activityVC, animated: true, completion: {
             print("view dismissed")
         })
     }
     
     func openLink() {
+        self.playerLayer.player!.pause()
+        self.videoControlsView.pauseFunc()
         let currentJson: JSONUtils.imagesEntry = self.jsonUtils.getImageDetailsFromJSON(json: Service.sharedInstance.appConfiguration, imageName: self.imageAnchor!.referenceImage.name!)
+        print(self.imageAnchor!.referenceImage.name!)
         self.myWebView.loadUrl(url: currentJson.url, title: currentJson.title)
         UIView.animate(withDuration: 2.0,
                        delay: 0.0,
                        options: [],
                        animations: {
+                        self.myWebView.isHidden = false
                         self.webViewBottomConstraint.constant = 0
         })
     }
@@ -255,29 +241,19 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         }
         DispatchQueue.main.async {
             self.addPeriodicTimeObserver()
-            //            self.videoSlider.removeTarget(self, action: #selector(self.sliderChanged), for: UIControl.Event.valueChanged)
-            //            self.videoSlider.addTarget(self, action: #selector(self.sliderChanged), for: UIControl.Event.valueChanged)
         }
-        
-        
-        //        DispatchQueue.main.async {
-        //            self.addPeriodicTimeObserver()
-        //            self.videoSlider.removeTarget(self, action: #selector(self.sliderChanged), for: UIControl.Event.valueChanged)
-        //            self.videoSlider.addTarget(self, action: #selector(self.sliderChanged), for: UIControl.Event.valueChanged)
-        //        }
     }
-    //
+
     func addPeriodicTimeObserver() {
         // Invoke callback every half second
         let interval = CMTime(seconds: 1,  preferredTimescale: CMTimeScale(NSEC_PER_SEC))
-        
         // Add time observer
         self.timeObserver = self.playerLayer.player!.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main) {
             [weak self] time in
             self?.videoControlsView.sliderObserver(time: time)
         }
     }
-
+    
     func playerSeekTo(time: CMTime) {
         self.playerLayer.player!.seek(to: time)
     }
@@ -325,7 +301,10 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         self.animationUtils.hideWithAnimation(myView: self.videoControlsView, delay: 0.2)
         self.animationUtils.showWithAnimation(myView: self.scanningActiveView, delay: 0.2)
         self.imageAnchor = nil
+ 
+        self.playerLayer.player!.removeTimeObserver(self.timeObserver!)
         self.timeObserver = nil
+        
         self.playerLayer.player?.pause() // 1. pause the player to stop it
         self.playerLayer.player = nil // 2. set the playerLayer's player to nil
         self.playerLayer.removeFromSuperlayer() // 3 remove the playerLayer from it's
@@ -351,11 +330,10 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
                 self.videoPlayerNode?.play()
             }
         }
+        
     }
     
     //   Override to create and configure nodes for anchors added to the view's session.
-    
-    
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         if (self.isVideoLoaded) {
             if (span > 1) {

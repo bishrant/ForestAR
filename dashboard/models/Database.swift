@@ -159,17 +159,20 @@ class SqliteDatabase {
         do {
             var db = self.getDb()
             let Favs = Table("Favourites")
-            for f in (try db?.prepare(Favs))! {
-                favouritesListPrivate.append(
-                    FavouritesStruct(
-                        id: try f.get(id)!,
-                        name: try f.get(name)!,
-                        link: try f.get(link)!,
-                        photo: try f.get(photo)!,
-                        video: try f.get(video)!
-                        
-                ))
+            try autoreleasepool{
+                for f in (try db?.prepare(Favs))! {
+                    favouritesListPrivate.append(
+                        FavouritesStruct(
+                            id: try f.get(id)!,
+                            name: try f.get(name)!,
+                            link: try f.get(link)!,
+                            photo: try f.get(photo)!,
+                            video: try f.get(video)!
+                            
+                    ))
+                }
             }
+
             db = nil
         } catch {
             print ("error in new lib")

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wdd-jr-EqC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
@@ -15,7 +15,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ForestAR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ForestAR" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -166,24 +166,6 @@
             </objects>
             <point key="canvasLocation" x="2861.5999999999999" y="137.18140929535232"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Zc8-MH-CCv">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wdd-jr-EqC" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="do2-rK-If5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="v1F-YT-e8i"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ATj-4O-Fr7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1952.1739130434785" y="137.94642857142856"/>
-        </scene>
         <!--Dashboard Controller-->
         <scene sceneID="ccR-gm-jhc">
             <objects>
@@ -193,7 +175,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Drk-ME-oet" userLabel="OverlayView">
-                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.zPosition">
@@ -202,7 +184,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uwe-mu-Hey" userLabel="VideoControlsView" customClass="ARVideoControls" customModule="ForestAR" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.zPosition">
@@ -303,7 +285,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.91372549020000005" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.0" green="0.64892009263150685" blue="0.98208349939999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="uwe-mu-Hey" firstAttribute="bottom" secondItem="vO1-bc-iKT" secondAttribute="bottom" id="8RY-Uy-kTk"/>
                             <constraint firstItem="Drk-ME-oet" firstAttribute="leading" secondItem="vO1-bc-iKT" secondAttribute="leading" id="Ab7-Vn-jIa"/>
@@ -328,7 +310,7 @@
                     </view>
                     <connections>
                         <outlet property="mainView" destination="Cv8-29-uIu" id="9R6-VH-rlV"/>
-                        <outlet property="myWebView" destination="JX2-bp-seh" id="hHP-4o-41O"/>
+                        <outlet property="myWebView" destination="JX2-bp-seh" id="hfb-El-2DG"/>
                         <outlet property="overlayView" destination="Drk-ME-oet" id="Kgt-GW-EZD"/>
                         <outlet property="scanningActiveView" destination="7V2-5N-lQl" id="shC-Kb-nET"/>
                         <outlet property="videoControlsView" destination="uwe-mu-Hey" id="Jh4-GC-3JS"/>

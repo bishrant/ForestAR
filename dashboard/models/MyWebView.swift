@@ -9,15 +9,19 @@
 import UIKit
 import WebKit
 
-class MyWebView: UIView {
+class MyWebView: UIView , WKNavigationDelegate, WKUIDelegate{
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var webViewTitle: UINavigationItem!
     @IBOutlet weak var closeWebViewBtn: UIBarButtonItem!
-    @IBOutlet weak var webViewArea: WKWebView!
     
+    @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var webView: WKWebView!
+    var webViewDelegate: WebViewDelegate!
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.commonInit()
+        self.webView.navigationDelegate = self
+        self.webView.uiDelegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -25,6 +29,11 @@ class MyWebView: UIView {
         self.commonInit()
     }
     
+    @IBAction func closeWebView(_ sender: Any) {
+        webView.removeObserver(self, forKeyPath: "estimatedProgress")
+        webView.stopLoading()
+        self.webViewDelegate.closeWebView()
+    }
     private func commonInit() {
         Bundle.main.loadNibNamed("MyWebView", owner: self, options: nil)
         guard let content = contentView else { return }
@@ -37,10 +46,19 @@ class MyWebView: UIView {
     func loadUrl(url: String, title: String) {
         let urlObj = URL(string: url)
         self.webViewTitle.title = title
-        webViewArea.load(URLRequest(url: urlObj!))
+        webView.load(URLRequest(url: urlObj!))
+        webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
+    }
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?)
+    {
+            if (keyPath == "estimatedProgress") { // listen to changes and updated view
+                progressBar.isHidden = webView.estimatedProgress == 1
+                progressBar.setProgress(Float(webView.estimatedProgress), animated: false)
+            }
     }
     
+
     @IBAction func reloadWebPage(_ sender: Any) {
-        self.webViewArea.reload()
+        self.webView.reload()
     }
 }

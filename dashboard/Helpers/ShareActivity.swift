@@ -29,8 +29,8 @@ class ShareActivity: UIActivity {
         super.init()
     }
     override var activityTitle: String? {
-        return nil
-//        return NSLocalizedString(self.platform.firstCapitalized, comment: "Forest AR")
+//        return nil
+        return NSLocalizedString(self.platform.firstCapitalized, comment: "Forest AR")
     }
     override var activityImage: UIImage? {
         return UIImage(named: self.platform)

@@ -11,7 +11,7 @@ import AVKit
 import AVFoundation
 import WebKit
 
-class VideoPlayerController: UIViewController {
+class VideoPlayerController: UIViewController, WebViewDelegate {
     @IBOutlet weak var playPauseBtn: UIButton!
     @IBOutlet weak var videoSlider: CustomSlider!
     @IBOutlet weak var totalTimeLbl: UILabel!
@@ -40,8 +40,9 @@ class VideoPlayerController: UIViewController {
             self.toogleControlsWithAnimations(videoControlsView: self.videoControls)
         }
         self.setupVideo()
-        view.isUserInteractionEnabled = true
+        self.view.isUserInteractionEnabled = true
         initWebViewBtns()
+        self.myWebView.webViewDelegate = self
     }
     
     @objc func closeWebView() {
@@ -49,13 +50,10 @@ class VideoPlayerController: UIViewController {
                        animations: {
                         self.webViewBottomConstraint.constant = -1 * self.view.frame.height
         })
-        self.customVideoPlayer.playVideo()
     }
     
     func initWebViewBtns() {
         self.webViewBottomConstraint.constant = -1 * self.view.frame.height
-        self.myWebView.closeWebViewBtn.target = self
-        self.myWebView.closeWebViewBtn.action = #selector(closeWebView)
     }
     
     @IBAction func openWebPage(_ sender: Any) {
@@ -101,7 +99,8 @@ class VideoPlayerController: UIViewController {
     }
     
     func setupVideo() {
-        let url = URL(string: serverURL + "fpd.mp4")
+        let im = self.photoName.components(separatedBy: ".png")[0]
+        let url = URL(string: serverURL + im+".mp4")
         self.player.replaceCurrentItem(with: AVPlayerItem(url: url!))
         self.player = AVPlayer(url: url!)
         self.playerLayer = AVPlayerLayer(player: player)

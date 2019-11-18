@@ -15,6 +15,7 @@ class ARVideoControls: UIView {
     @IBOutlet weak var totalTimeLbl: UILabel!
     @IBOutlet weak var videoSlider: CustomSlider!
     @IBOutlet weak var currentTimeLbl: UILabel!
+    @IBOutlet weak var playPauseBtn: UIButton!
     
     private var showHideControlsTask: DispatchWorkItem?
     private var database: SqliteDatabase = Service.sharedInstance.getDatabase()
@@ -29,6 +30,8 @@ class ARVideoControls: UIView {
         self.commonInit()
     }
     @IBAction func closeVideo(_ sender: Any) {
+        self.playPauseBtn.setBackgroundImage(UIImage(named: "pause"), for: UIControl.State.normal)
+        self.videoPlaying = false
         self.arDelegate?.closeVideo()
     }
     
@@ -43,9 +46,18 @@ class ARVideoControls: UIView {
         self.commonInit()
     }
     
+    func pauseFunc() {
+        self.playPauseBtn.setBackgroundImage(UIImage(named: "play"), for: UIControl.State.normal)
+        self.videoPlaying = false
+    }
+    
     @IBAction func togglePlayPause(_ sender: UIButton) {
+        self.togglePlayPauseFunc()
+    }
+    
+    func togglePlayPauseFunc() {
         let newImage = self.videoPlaying ? "play" : "pause"
-        sender.setBackgroundImage(UIImage(named: newImage), for: UIControl.State.normal)
+        self.playPauseBtn.setBackgroundImage(UIImage(named: newImage), for: UIControl.State.normal)
         self.videoPlaying.toggle()
         self.arDelegate?.togglePlayPause()
     }
@@ -95,6 +107,7 @@ class ARVideoControls: UIView {
     }
     
     @IBAction func openLink(_ sender: Any) {
+        print(1)
         self.arDelegate?.openLink()
     }
     
@@ -129,10 +142,11 @@ class ARVideoControls: UIView {
     
     func playerDidFinishPlaying() {
         //        self.closeOverlayVideo(nil)
-        //  self.playerLayer.player?.pause()
+        
         let currentSlidedTime = 1
         let cmTime =  CMTimeMakeWithSeconds(Float64(currentSlidedTime), preferredTimescale: 10)
         self.arDelegate?.playerSeekTo(time: cmTime)
+        self.togglePlayPauseFunc()
 //        self.player.seek(to: cmTime, completionHandler: {_ in
 //            //  self.playerLayer.player?.pause()
 //            self.isVideoPlaying.toggle()

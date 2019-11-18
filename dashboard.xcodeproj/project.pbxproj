@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,6 +26,8 @@
 		853FE8DF237C6E7000665404 /* ARVideoControls.xib in Resources */ = {isa = PBXBuildFile; fileRef = 853FE8DE237C6E7000665404 /* ARVideoControls.xib */; };
 		853FE8E1237C6EA100665404 /* ARVideoControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853FE8E0237C6EA100665404 /* ARVideoControls.swift */; };
 		853FE8E3237C701C00665404 /* ARVideoControlsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853FE8E2237C701C00665404 /* ARVideoControlsDelegate.swift */; };
+		855637C52382FEEA00F399CF /* WebViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855637C42382FEEA00F399CF /* WebViewDelegate.swift */; };
+		855637C6238310CF00F399CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85E16B9E2357BCE800907CFF /* Main.storyboard */; };
 		8558B3A5235E000600DA6119 /* PlayFavVideo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8558B3A4235E000600DA6119 /* PlayFavVideo.storyboard */; };
 		8558B3A7235E01CA00DA6119 /* PlayFavVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3A6235E01CA00DA6119 /* PlayFavVideoController.swift */; };
 		8558B3A9235F60EA00DA6119 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3A8235F60EA00DA6119 /* Database.swift */; };
@@ -34,7 +36,6 @@
 		8558B3B4235F80EB00DA6119 /* HelpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3B3235F80EB00DA6119 /* HelpController.swift */; };
 		8558B3B7235F8A9700DA6119 /* HelpSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3B6235F8A9700DA6119 /* HelpSlide.swift */; };
 		8558B3B9235F8ABF00DA6119 /* HelpSlide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8558B3B8235F8ABF00DA6119 /* HelpSlide.xib */; };
-		8558B3BB2360947C00DA6119 /* ARDashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8558B3BA2360947C00DA6119 /* ARDashboard.storyboard */; };
 		8558B3BD236095EA00DA6119 /* ARDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3BC236095EA00DA6119 /* ARDashboardController.swift */; };
 		8558B3C12360986500DA6119 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8558B3BF2360986000DA6119 /* SceneKit.framework */; };
 		8558B3C5236098A300DA6119 /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8558B3C4236098A300DA6119 /* ARKit.framework */; };
@@ -57,7 +58,6 @@
 		85E16B992357BCE800907CFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E16B982357BCE800907CFF /* AppDelegate.swift */; };
 		85E16B9B2357BCE800907CFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E16B9A2357BCE800907CFF /* SceneDelegate.swift */; };
 		85E16B9D2357BCE800907CFF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E16B9C2357BCE800907CFF /* ViewController.swift */; };
-		85E16BA02357BCE800907CFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85E16B9E2357BCE800907CFF /* Main.storyboard */; };
 		85E16BA22357BCEB00907CFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85E16BA12357BCEB00907CFF /* Assets.xcassets */; };
 		85E16BA52357BCEB00907CFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85E16BA32357BCEB00907CFF /* LaunchScreen.storyboard */; };
 		85F8878C237069C1003FCE4F /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F8878B237069C1003FCE4F /* StringUtils.swift */; };
@@ -88,6 +88,7 @@
 		853FE8DE237C6E7000665404 /* ARVideoControls.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ARVideoControls.xib; sourceTree = "<group>"; };
 		853FE8E0237C6EA100665404 /* ARVideoControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVideoControls.swift; sourceTree = "<group>"; };
 		853FE8E2237C701C00665404 /* ARVideoControlsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVideoControlsDelegate.swift; sourceTree = "<group>"; };
+		855637C42382FEEA00F399CF /* WebViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewDelegate.swift; sourceTree = "<group>"; };
 		8558B3A4235E000600DA6119 /* PlayFavVideo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlayFavVideo.storyboard; sourceTree = "<group>"; };
 		8558B3A6235E01CA00DA6119 /* PlayFavVideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayFavVideoController.swift; sourceTree = "<group>"; };
 		8558B3A8235F60EA00DA6119 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
@@ -96,7 +97,6 @@
 		8558B3B3235F80EB00DA6119 /* HelpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpController.swift; sourceTree = "<group>"; };
 		8558B3B6235F8A9700DA6119 /* HelpSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpSlide.swift; sourceTree = "<group>"; };
 		8558B3B8235F8ABF00DA6119 /* HelpSlide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpSlide.xib; sourceTree = "<group>"; };
-		8558B3BA2360947C00DA6119 /* ARDashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ARDashboard.storyboard; sourceTree = "<group>"; };
 		8558B3BC236095EA00DA6119 /* ARDashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDashboardController.swift; sourceTree = "<group>"; };
 		8558B3BF2360986000DA6119 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 		8558B3C4236098A300DA6119 /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
@@ -167,6 +167,7 @@
 				85C83008237B430F00A78EF7 /* MenuDelegate.swift */,
 				853FE8E0237C6EA100665404 /* ARVideoControls.swift */,
 				853FE8E2237C701C00665404 /* ARVideoControlsDelegate.swift */,
+				855637C42382FEEA00F399CF /* WebViewDelegate.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -204,7 +205,6 @@
 				8558B3A4235E000600DA6119 /* PlayFavVideo.storyboard */,
 				857C87FC235A1E0E005724C4 /* Favourites.storyboard */,
 				8558B3B0235F809700DA6119 /* Help.storyboard */,
-				8558B3BA2360947C00DA6119 /* ARDashboard.storyboard */,
 				851CA501236B1EF500C28D4B /* UserFavourites.storyboard */,
 				851CA512236C8DAD00C28D4B /* VideoPlayer.storyboard */,
 			);
@@ -372,13 +372,12 @@
 				851CA502236B1EF500C28D4B /* UserFavourites.storyboard in Resources */,
 				8558B3B9235F8ABF00DA6119 /* HelpSlide.xib in Resources */,
 				8558B3A5235E000600DA6119 /* PlayFavVideo.storyboard in Resources */,
-				85E16BA02357BCE800907CFF /* Main.storyboard in Resources */,
 				857C87FB235A0C18005724C4 /* TreeID.sqlite in Resources */,
 				851037802379FC6500741F3F /* Segoe UI.ttf in Resources */,
 				8558B3F82361DDC400DA6119 /* GoogleService-Info.plist in Resources */,
-				8558B3BB2360947C00DA6119 /* ARDashboard.storyboard in Resources */,
 				8510377F2379FC6200741F3F /* Segoe UI Italic.ttf in Resources */,
 				8510377E2379FC5C00741F3F /* Segoe UI Bold.ttf in Resources */,
+				855637C6238310CF00F399CF /* Main.storyboard in Resources */,
 				8510377B2378E5A100741F3F /* MyWebView.xib in Resources */,
 				8558B3B1235F809700DA6119 /* Help.storyboard in Resources */,
 			);
@@ -459,6 +458,7 @@
 				8558B3CB2360A05B00DA6119 /* JSONUtils.swift in Sources */,
 				8558B4532368C79A00DA6119 /* CameraControls.swift in Sources */,
 				851CA506236B72F000C28D4B /* Color.swift in Sources */,
+				855637C52382FEEA00F399CF /* WebViewDelegate.swift in Sources */,
 				8558B3BD236095EA00DA6119 /* ARDashboardController.swift in Sources */,
 				8558B425236340F000DA6119 /* VideoUtils.swift in Sources */,
 				851CA50C236C6F1A00C28D4B /* GradientView.swift in Sources */,

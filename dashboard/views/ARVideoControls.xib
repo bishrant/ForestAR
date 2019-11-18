@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="currentTimeLbl" destination="3jD-cg-vdX" id="Dye-gF-f2g"/>
                 <outlet property="favBtn" destination="2r4-rt-s6z" id="kon-g8-Zer"/>
+                <outlet property="playPauseBtn" destination="BB8-Ih-E92" id="mPg-KO-NSt"/>
                 <outlet property="totalTimeLbl" destination="k5M-fj-dHY" id="mCO-eG-QFG"/>
                 <outlet property="videoControlsView" destination="6PE-c6-Ep3" id="Ihg-jW-KS7"/>
                 <outlet property="videoSlider" destination="mXl-P8-zfM" id="7RW-hO-5wg"/>

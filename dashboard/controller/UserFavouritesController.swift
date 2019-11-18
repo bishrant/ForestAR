@@ -46,6 +46,7 @@ class UserFavouritesController: UIViewController, UIGestureRecognizerDelegate {
 
         self.view?.layer.insertSublayer(gradientLayer, at: 0)
     }
+    
     @objc func swipeHandler(_ sender: UISwipeGestureRecognizer){
         for ss: UIView in self.stackView.subviews {
             ss.backgroundColor = .white
@@ -225,7 +226,6 @@ class UserFavouritesController: UIViewController, UIGestureRecognizerDelegate {
     @objc func favTapped(_ sender: UITapGestureRecognizer){
         let pView = sender.view as! FavUIView
         print("open pvideo page for ", pView.photoName!)
-        
         let storyboard = UIStoryboard(name: "VideoPlayer", bundle: Bundle.main)
         let destination1 = storyboard.instantiateViewController(withIdentifier: "VideoPlayer") as! VideoPlayerController
         destination1.photoName = pView.photoName!
