@@ -30,6 +30,8 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>This App uses camera to track anchor images to play their corresponding video.</string>
+	<key>NSMainStoryboardFile</key>
+	<string>Help</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app needs permission to store temporary photos of images scanned by you in your library to enable offline support.</string>
 	<key>UIAppFonts</key>
@@ -52,6 +54,8 @@
 					<string>Default Configuration</string>
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+                    <key>UISceneStoryboardFile</key>
+                    <string>Main</string>
 				</dict>
 			</array>
 		</dict>

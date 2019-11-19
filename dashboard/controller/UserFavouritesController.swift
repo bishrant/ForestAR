@@ -10,7 +10,6 @@ import UIKit
 
 
 class UserFavouritesController: UIViewController, UIGestureRecognizerDelegate {
-    private var SqliteDb = Service.sharedInstance.getDatabase()
     var favouritesList = [FavouritesStruct] ()
     
     @IBOutlet weak var noFavourites: UILabel!
@@ -35,18 +34,6 @@ class UserFavouritesController: UIViewController, UIGestureRecognizerDelegate {
         return v
     }()
     
-    func setGradientBackground(colorTop: UIColor, colorBottom: UIColor) {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [colorBottom.cgColor, colorTop.cgColor]
-        gradientLayer.endPoint = CGPoint(x: 0.9, y: 0)
-        gradientLayer.startPoint = CGPoint(x: 0.00, y: 0.9)
-
-        gradientLayer.locations = [0, 1]
-        gradientLayer.frame = self.view.bounds
-
-        self.view?.layer.insertSublayer(gradientLayer, at: 0)
-    }
-    
     @objc func swipeHandler(_ sender: UISwipeGestureRecognizer){
         for ss: UIView in self.stackView.subviews {
             ss.backgroundColor = .white
@@ -58,11 +45,14 @@ class UserFavouritesController: UIViewController, UIGestureRecognizerDelegate {
                     }
                 }
                 if (sb is UIStackView) {
-                    sb.transform = CGAffineTransform(translationX: 0, y: 0)
+                    UIView.animate(withDuration: 1, animations: {
+                        sb.transform = CGAffineTransform(translationX: 0, y: 0)
+                    }, completion: nil)
+                    
                 }
             }
         }
-
+        
         sender.view?.layer.borderWidth = 2
         for stack in sender.view!.subviews {
             if (stack is UIStackView) {
@@ -104,7 +94,6 @@ class UserFavouritesController: UIViewController, UIGestureRecognizerDelegate {
         getAllFavourites();
         
         self.view.isUserInteractionEnabled = true
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -112,20 +101,20 @@ class UserFavouritesController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func getAllFavourites() {
-      //  if SqliteDb.openDB() {
-            self.favouritesList = SqliteDb.getFavourites();
-            if (self.favouritesList.count > 0) {
-                self.swipeInstructions.isHidden = false
-                self.noFavourites.isHidden = true
-                setupScrollView()
-                setupStackView()
-                addStackViewButtons()
-            } else {
-                self.swipeInstructions.isHidden = true
-                self.noFavourites.isHidden = false
-            }
-
-        //}
+        var db: SqliteDatabase!
+        db = SqliteDatabase()
+        self.favouritesList = db.getFavourites();
+        if (self.favouritesList.count > 0) {
+            self.swipeInstructions.isHidden = false
+            self.noFavourites.isHidden = true
+            setupScrollView()
+            setupStackView()
+            addStackViewButtons()
+        } else {
+            self.swipeInstructions.isHidden = true
+            self.noFavourites.isHidden = false
+        }
+        db = nil
     }
     
     func setupScrollView() {
@@ -146,6 +135,9 @@ class UserFavouritesController: UIViewController, UIGestureRecognizerDelegate {
     
     
     func addStackViewButtons() {
+        for v in stackView.subviews {
+            v.removeFromSuperview()
+        }
         for fav in self.favouritesList {
             let myView = FavUIView(photoName: fav.photo!)
             
@@ -171,7 +163,7 @@ class UserFavouritesController: UIViewController, UIGestureRecognizerDelegate {
             horizonatlStackView.backgroundColor = .green
             
             let imageUtils = ImageUtils()
-//            let img = UIImage(named: "350")
+            //            let img = UIImage(named: "350")
             let coverImageView = ScaledHeightImageView()
             coverImageView.frame.size.height = 100
             coverImageView.frame.size.width = 100
@@ -200,11 +192,11 @@ class UserFavouritesController: UIViewController, UIGestureRecognizerDelegate {
             deleteBtn.isHidden = true
             myView.addSubview(deleteBtn)
             NSLayoutConstraint.activate([
-                    deleteBtn.widthAnchor.constraint(equalToConstant: 80),
-                    deleteBtn.heightAnchor.constraint(equalToConstant: 40),
-                    deleteBtn.trailingAnchor.constraint(equalTo: self.stackView.trailingAnchor),
-                    deleteBtn.centerYAnchor.constraint(equalTo: myView.centerYAnchor)
-                ])
+                deleteBtn.widthAnchor.constraint(equalToConstant: 80),
+                deleteBtn.heightAnchor.constraint(equalToConstant: 80),
+                deleteBtn.trailingAnchor.constraint(equalTo: self.stackView.trailingAnchor),
+                deleteBtn.centerYAnchor.constraint(equalTo: myView.centerYAnchor)
+            ])
             
             let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeHandler(_:)))
             rightSwipe.direction = .left
@@ -230,31 +222,24 @@ class UserFavouritesController: UIViewController, UIGestureRecognizerDelegate {
         let destination1 = storyboard.instantiateViewController(withIdentifier: "VideoPlayer") as! VideoPlayerController
         destination1.photoName = pView.photoName!
         navigationController?.pushViewController(destination1, animated: true)
-        
-        print(sender)
-        
     }
+    
     @objc func deleteFav(_ sender: DeleteButton) {
+        var db: SqliteDatabase!
+        db = SqliteDatabase()
         UIView.animate(withDuration: 1, animations: {
             sender.inView.layer.opacity = 0
         }, completion: {finished in
             sender.inView.removeFromSuperview()
-            let deleteSuccess = self.SqliteDb.deleteFavEntryByPhotoName(photoName: sender.photoName);
+            let deleteSuccess = db.deleteFavEntryByPhotoName(photoName: sender.photoName);
             if deleteSuccess {
-                self.favouritesList = self.SqliteDb.getFavourites();
+                self.favouritesList = db.getFavourites();
                 self.getAllFavourites()
                 self.view.layoutIfNeeded()
             }
+            db = nil
         })
-
-    }
-    
-    func createButton(id: Int, myView: UIView) -> UIButton {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .green
-        button.setTitle("Test Button" + String(id), for: UIControl.State.normal)
-        return button
+        
     }
     
     func setupHorizontalStack(forView: UIView) -> UIStackView {
@@ -266,7 +251,6 @@ class UserFavouritesController: UIViewController, UIGestureRecognizerDelegate {
         horizontalStackView.spacing = 10
         horizontalStackView.backgroundColor = .purple
         return horizontalStackView
-        
     }
     
 }
@@ -282,6 +266,7 @@ class DeleteButton: UIButton {
         super.init(frame: .zero)
         backgroundColor = .red
         translatesAutoresizingMaskIntoConstraints = false
+        layer.cornerRadius = 5
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("not initialized properly")
@@ -292,12 +277,11 @@ class FavUIView: UIView {
     var photoName: String?
     init(photoName: String) {
         self.photoName = photoName
-        
         super.init(frame: CGRect.zero)
         backgroundColor = .white
     }
     
     required init?(coder aDecoder: NSCoder) {
-           super.init(coder: aDecoder)
-       }
+        super.init(coder: aDecoder)
+    }
 }

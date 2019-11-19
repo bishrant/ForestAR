@@ -23,10 +23,10 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BB8-Ih-E92" userLabel="PlayPauseBtn">
-                    <rect key="frame" x="137" y="378" width="140" height="140"/>
+                    <rect key="frame" x="152" y="393" width="110" height="110"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="140" id="cfF-P5-sJ2"/>
-                        <constraint firstAttribute="height" constant="140" id="p1C-ff-kh4"/>
+                        <constraint firstAttribute="width" constant="110" id="cfF-P5-sJ2"/>
+                        <constraint firstAttribute="height" constant="110" id="p1C-ff-kh4"/>
                     </constraints>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" backgroundImage="pause">
@@ -41,7 +41,7 @@
                     </connections>
                 </button>
                 <slider clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="mXl-P8-zfM" customClass="CustomSlider" customModule="ForestAR" customModuleProvider="target">
-                    <rect key="frame" x="88" y="722" width="238" height="31"/>
+                    <rect key="frame" x="88" y="742" width="238" height="31"/>
                     <color key="tintColor" red="0.062745098040000002" green="0.92156862750000001" blue="0.98823529409999999" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                     <color key="minimumTrackTintColor" red="0.062745098040000002" green="0.92156862750000001" blue="0.98823529409999999" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                     <color key="maximumTrackTintColor" red="0.92897909879999996" green="0.87621384859999996" blue="0.92811518910000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -142,13 +142,13 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5M-fj-dHY">
-                    <rect key="frame" x="332" y="722.5" width="36" height="21"/>
+                    <rect key="frame" x="332" y="742.5" width="36" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jD-cg-vdX">
-                    <rect key="frame" x="46" y="727" width="36" height="20.5"/>
+                    <rect key="frame" x="46" y="747" width="36" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -157,7 +157,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="mXl-P8-zfM" firstAttribute="centerY" secondItem="3jD-cg-vdX" secondAttribute="centerY" id="5vE-z8-Zhn"/>
-                <constraint firstItem="xEB-tG-zxT" firstAttribute="bottom" secondItem="mXl-P8-zfM" secondAttribute="bottom" constant="100" id="6zY-mf-qSl"/>
+                <constraint firstItem="xEB-tG-zxT" firstAttribute="bottom" secondItem="mXl-P8-zfM" secondAttribute="bottom" constant="80" id="6zY-mf-qSl"/>
                 <constraint firstAttribute="trailingMargin" secondItem="mXl-P8-zfM" secondAttribute="trailing" constant="70" id="7w0-hL-EWF"/>
                 <constraint firstItem="mXl-P8-zfM" firstAttribute="leading" secondItem="6PE-c6-Ep3" secondAttribute="leadingMargin" constant="70" id="Asi-4P-WAk"/>
                 <constraint firstAttribute="bottomMargin" secondItem="xEB-tG-zxT" secondAttribute="bottom" constant="10" id="CGl-C3-Usy"/>

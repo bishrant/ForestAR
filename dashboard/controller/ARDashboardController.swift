@@ -43,7 +43,6 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
     private var appUpdate: AppUpdate = AppUpdate()
     private var animationUtils: AnimationUtils = AnimationUtils()
     private var cameraControls: CameraControls = CameraControls()
-    private var database: SqliteDatabase = Service.sharedInstance.getDatabase()
     private var jsonUtils: JSONUtils = JSONUtils()
     private var stringUtils: StringUtils = StringUtils()
     private var timeObserver: Any!
@@ -127,22 +126,10 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
     @IBAction func goToHelpPage(_ sender: UIButton) {
         self.videoPlayerNode?.pause()
         let storyboard = UIStoryboard(name: "Help", bundle: Bundle.main)
-        let destination1 = storyboard.instantiateViewController(withIdentifier: "Help") as! HelpController
+        let destination1 = storyboard.instantiateViewController(withIdentifier: "Help") as! HelpViewController
         navigationController?.pushViewController(destination1, animated: true)
     }
-    //
-    ////    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-    ////        let fetchOptions = PHFetchOptions()
-    ////        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-    ////        let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
-    ////
-    ////        if let lastAsset = fetchResult.firstObject {
-    ////            let url = URL(string: "instagram://library?LocalIdentifier=\(lastAsset.localIdentifier)")!
-    ////            UIApplication.shared.open(url)
-    ////        }
-    ////    }
-    //
-    //
+    
     func openShareUI() {
         self.playerLayer.player!.pause()
         self.videoControlsView.pauseFunc()
@@ -152,10 +139,8 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         activityVC.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
             if !completed {
                 self.animationUtils.showWithAnimation(myView: self.videoControlsView, delay: 0.4)
-                //                self.playerLayer.player!.play()
                 return
             }
-            // User completed activity
         }
         
         if let popoverController = activityVC.popoverPresentationController {
@@ -164,10 +149,7 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
             popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
         }
         
-        
-        self.present(activityVC, animated: true, completion: {
-            print("view dismissed")
-        })
+        self.present(activityVC, animated: true, completion: nil)
     }
     
     func openLink() {
@@ -243,7 +225,7 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
             self.addPeriodicTimeObserver()
         }
     }
-
+    
     func addPeriodicTimeObserver() {
         // Invoke callback every half second
         let interval = CMTime(seconds: 1,  preferredTimescale: CMTimeScale(NSEC_PER_SEC))
@@ -264,6 +246,7 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         }) { (context) in
             self.overlayView.frame.size = size
             self.playerLayer.frame.size = size
+            self.sceneViews.frame.size = size
         }
     }
     
@@ -285,12 +268,15 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
     }
     //
     func toggleFavorite() {
+        var db: SqliteDatabase!
+        db = SqliteDatabase()
         let imageName = self.imageAnchor.referenceImage.name
         let currentJson: JSONUtils.imagesEntry = self.jsonUtils.getImageDetailsFromJSON(json: Service.sharedInstance.appConfiguration, imageName: imageName!)
-        let toggleSuccess = self.database.toggleFavEntry(n: currentJson.title, l: currentJson.url, p: currentJson.imageName, v: currentJson.videoLink)
+        let toggleSuccess = db.toggleFavEntry(n: currentJson.title, l: currentJson.url, p: currentJson.imageName, v: currentJson.videoLink)
         if (!toggleSuccess) {
             print("Error")
         }
+        db = nil
     }
     
     @objc func togglePlaybackControlsVisibility(sender : UITapGestureRecognizer) {
@@ -301,7 +287,7 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         self.animationUtils.hideWithAnimation(myView: self.videoControlsView, delay: 0.2)
         self.animationUtils.showWithAnimation(myView: self.scanningActiveView, delay: 0.2)
         self.imageAnchor = nil
- 
+        
         self.playerLayer.player!.removeTimeObserver(self.timeObserver!)
         self.timeObserver = nil
         

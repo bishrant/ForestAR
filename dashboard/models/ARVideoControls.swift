@@ -18,27 +18,30 @@ class ARVideoControls: UIView {
     @IBOutlet weak var playPauseBtn: UIButton!
     
     private var showHideControlsTask: DispatchWorkItem?
-    private var database: SqliteDatabase = Service.sharedInstance.getDatabase()
     private var stringUtils: StringUtils = StringUtils()
     
     var arDelegate: ARVideoControlsDelegate?
     var videoPlaying: Bool = false
     var totalTime: Double!
+    private var isVideoFavorited: Bool = false
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.setBackgroundImage(button: self.favBtn, imageName: "favBtn")
         self.commonInit()
     }
     @IBAction func closeVideo(_ sender: Any) {
         self.playPauseBtn.setBackgroundImage(UIImage(named: "pause"), for: UIControl.State.normal)
         self.videoPlaying = false
+        self.isVideoFavorited = false
+        self.setBackgroundImage(button: self.favBtn, imageName: "favBtn")
         self.arDelegate?.closeVideo()
     }
     
     @IBAction func toggleFavorite(_ sender: UIButton) {
-        let btnName = sender.backgroundImage(for: UIControl.State.normal) == UIImage(named: "favBtn") ? "favBtnActive": "favBtn"
+        let btnName = self.isVideoFavorited ? "favBtn": "favBtnActive"
         self.setBackgroundImage(button: sender, imageName: btnName)
-        
+        self.isVideoFavorited.toggle()
         self.arDelegate?.toggleFavorite()
     }
     required init?(coder aDecoder: NSCoder) {
@@ -94,10 +97,13 @@ class ARVideoControls: UIView {
     }
     
     func checkIfVideoIsFavourited(imageName: String) {
-        if(self.database.getFavouritesCount(photoName: imageName + ".png") > 0) {
+        var db: SqliteDatabase!
+        db = SqliteDatabase()
+        if(db.getFavouritesCount(photoName: imageName + ".png") > 0) {
+            self.isVideoFavorited = true
             self.setBackgroundImage(button: self.favBtn, imageName: "favBtnActive")
         }
-        
+        db = nil
     }
     
     func setBackgroundImage(button: UIButton, imageName: String) {

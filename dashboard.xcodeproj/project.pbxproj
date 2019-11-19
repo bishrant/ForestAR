@@ -28,12 +28,16 @@
 		853FE8E3237C701C00665404 /* ARVideoControlsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853FE8E2237C701C00665404 /* ARVideoControlsDelegate.swift */; };
 		855637C52382FEEA00F399CF /* WebViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855637C42382FEEA00F399CF /* WebViewDelegate.swift */; };
 		855637C6238310CF00F399CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85E16B9E2357BCE800907CFF /* Main.storyboard */; };
+		855637C8238332AB00F399CF /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855637C7238332AB00F399CF /* TutorialViewController.swift */; };
+		855637EE238346EE00F399CF /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 855637ED238346EE00F399CF /* Tutorial.storyboard */; };
+		855637F02383558500F399CF /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855637EF2383558500F399CF /* LaunchScreenController.swift */; };
+		855637F22383564B00F399CF /* LogoAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855637F12383564B00F399CF /* LogoAnimationView.swift */; };
+		855637F42384442C00F399CF /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 855637F32384442C00F399CF /* Help.storyboard */; };
+		855637F62384448600F399CF /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855637F52384448600F399CF /* HelpViewController.swift */; };
 		8558B3A5235E000600DA6119 /* PlayFavVideo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8558B3A4235E000600DA6119 /* PlayFavVideo.storyboard */; };
 		8558B3A7235E01CA00DA6119 /* PlayFavVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3A6235E01CA00DA6119 /* PlayFavVideoController.swift */; };
-		8558B3A9235F60EA00DA6119 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3A8235F60EA00DA6119 /* Database.swift */; };
+		8558B3A9235F60EA00DA6119 /* SqliteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3A8235F60EA00DA6119 /* SqliteDatabase.swift */; };
 		8558B3AB235F656A00DA6119 /* FavouriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3AA235F656A00DA6119 /* FavouriteModel.swift */; };
-		8558B3B1235F809700DA6119 /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8558B3B0235F809700DA6119 /* Help.storyboard */; };
-		8558B3B4235F80EB00DA6119 /* HelpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3B3235F80EB00DA6119 /* HelpController.swift */; };
 		8558B3B7235F8A9700DA6119 /* HelpSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3B6235F8A9700DA6119 /* HelpSlide.swift */; };
 		8558B3B9235F8ABF00DA6119 /* HelpSlide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8558B3B8235F8ABF00DA6119 /* HelpSlide.xib */; };
 		8558B3BD236095EA00DA6119 /* ARDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3BC236095EA00DA6119 /* ARDashboardController.swift */; };
@@ -53,7 +57,6 @@
 		8558B4552368CE7500DA6119 /* AnimationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B4542368CE7500DA6119 /* AnimationUtils.swift */; };
 		8558B4582368E1F400DA6119 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B4572368E1F400DA6119 /* Service.swift */; };
 		857C87FB235A0C18005724C4 /* TreeID.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 857C87FA235A0C18005724C4 /* TreeID.sqlite */; };
-		857C87FD235A1E0E005724C4 /* Favourites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 857C87FC235A1E0E005724C4 /* Favourites.storyboard */; };
 		85C83009237B430F00A78EF7 /* MenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C83008237B430F00A78EF7 /* MenuDelegate.swift */; };
 		85E16B992357BCE800907CFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E16B982357BCE800907CFF /* AppDelegate.swift */; };
 		85E16B9B2357BCE800907CFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E16B9A2357BCE800907CFF /* SceneDelegate.swift */; };
@@ -89,12 +92,16 @@
 		853FE8E0237C6EA100665404 /* ARVideoControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVideoControls.swift; sourceTree = "<group>"; };
 		853FE8E2237C701C00665404 /* ARVideoControlsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVideoControlsDelegate.swift; sourceTree = "<group>"; };
 		855637C42382FEEA00F399CF /* WebViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewDelegate.swift; sourceTree = "<group>"; };
+		855637C7238332AB00F399CF /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		855637ED238346EE00F399CF /* Tutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
+		855637EF2383558500F399CF /* LaunchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
+		855637F12383564B00F399CF /* LogoAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationView.swift; sourceTree = "<group>"; };
+		855637F32384442C00F399CF /* Help.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
+		855637F52384448600F399CF /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		8558B3A4235E000600DA6119 /* PlayFavVideo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlayFavVideo.storyboard; sourceTree = "<group>"; };
 		8558B3A6235E01CA00DA6119 /* PlayFavVideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayFavVideoController.swift; sourceTree = "<group>"; };
-		8558B3A8235F60EA00DA6119 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		8558B3A8235F60EA00DA6119 /* SqliteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteDatabase.swift; sourceTree = "<group>"; };
 		8558B3AA235F656A00DA6119 /* FavouriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteModel.swift; sourceTree = "<group>"; };
-		8558B3B0235F809700DA6119 /* Help.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
-		8558B3B3235F80EB00DA6119 /* HelpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpController.swift; sourceTree = "<group>"; };
 		8558B3B6235F8A9700DA6119 /* HelpSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpSlide.swift; sourceTree = "<group>"; };
 		8558B3B8235F8ABF00DA6119 /* HelpSlide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpSlide.xib; sourceTree = "<group>"; };
 		8558B3BC236095EA00DA6119 /* ARDashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDashboardController.swift; sourceTree = "<group>"; };
@@ -115,7 +122,6 @@
 		8558B4542368CE7500DA6119 /* AnimationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationUtils.swift; sourceTree = "<group>"; };
 		8558B4572368E1F400DA6119 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		857C87FA235A0C18005724C4 /* TreeID.sqlite */ = {isa = PBXFileReference; lastKnownFileType = text; path = TreeID.sqlite; sourceTree = "<group>"; };
-		857C87FC235A1E0E005724C4 /* Favourites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favourites.storyboard; sourceTree = "<group>"; };
 		85C83008237B430F00A78EF7 /* MenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDelegate.swift; sourceTree = "<group>"; };
 		85E16B952357BCE800907CFF /* ForestAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForestAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85E16B982357BCE800907CFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,7 +167,7 @@
 			children = (
 				8558B3AA235F656A00DA6119 /* FavouriteModel.swift */,
 				8558B3B6235F8A9700DA6119 /* HelpSlide.swift */,
-				8558B3A8235F60EA00DA6119 /* Database.swift */,
+				8558B3A8235F60EA00DA6119 /* SqliteDatabase.swift */,
 				8510377C2378E5B200741F3F /* MyWebView.swift */,
 				85103784237A1BD600741F3F /* MyMenu.swift */,
 				85C83008237B430F00A78EF7 /* MenuDelegate.swift */,
@@ -189,11 +195,13 @@
 			children = (
 				85E16B9C2357BCE800907CFF /* ViewController.swift */,
 				8558B3A6235E01CA00DA6119 /* PlayFavVideoController.swift */,
-				8558B3B3235F80EB00DA6119 /* HelpController.swift */,
 				8558B3BC236095EA00DA6119 /* ARDashboardController.swift */,
 				851CA503236B1F2A00C28D4B /* UserFavouritesController.swift */,
 				851CA514236C8DEC00C28D4B /* VideoPlayerController.swift */,
 				853FE8DC237C6A2E00665404 /* ViewController 2.swift */,
+				855637F52384448600F399CF /* HelpViewController.swift */,
+				855637C7238332AB00F399CF /* TutorialViewController.swift */,
+				855637EF2383558500F399CF /* LaunchScreenController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -203,10 +211,10 @@
 			children = (
 				85E16B9E2357BCE800907CFF /* Main.storyboard */,
 				8558B3A4235E000600DA6119 /* PlayFavVideo.storyboard */,
-				857C87FC235A1E0E005724C4 /* Favourites.storyboard */,
-				8558B3B0235F809700DA6119 /* Help.storyboard */,
 				851CA501236B1EF500C28D4B /* UserFavourites.storyboard */,
 				851CA512236C8DAD00C28D4B /* VideoPlayer.storyboard */,
+				855637ED238346EE00F399CF /* Tutorial.storyboard */,
+				855637F32384442C00F399CF /* Help.storyboard */,
 			);
 			path = designs;
 			sourceTree = "<group>";
@@ -239,6 +247,7 @@
 				851CA509236C669600C28D4B /* ScaledHeightImageView.swift */,
 				851CA50B236C6F1A00C28D4B /* GradientView.swift */,
 				85F8878F23709403003FCE4F /* ShareVideo.swift */,
+				855637F12383564B00F399CF /* LogoAnimationView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -363,9 +372,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				85E16BA52357BCEB00907CFF /* LaunchScreen.storyboard in Resources */,
+				855637F42384442C00F399CF /* Help.storyboard in Resources */,
 				851CA513236C8DAD00C28D4B /* VideoPlayer.storyboard in Resources */,
 				85E16BA22357BCEB00907CFF /* Assets.xcassets in Resources */,
-				857C87FD235A1E0E005724C4 /* Favourites.storyboard in Resources */,
 				853FE8DF237C6E7000665404 /* ARVideoControls.xib in Resources */,
 				85103783237A1A4F00741F3F /* MyMenu.xib in Resources */,
 				851037812379FC6800741F3F /* Segoe UI Bold Italic.ttf in Resources */,
@@ -377,9 +386,9 @@
 				8558B3F82361DDC400DA6119 /* GoogleService-Info.plist in Resources */,
 				8510377F2379FC6200741F3F /* Segoe UI Italic.ttf in Resources */,
 				8510377E2379FC5C00741F3F /* Segoe UI Bold.ttf in Resources */,
+				855637EE238346EE00F399CF /* Tutorial.storyboard in Resources */,
 				855637C6238310CF00F399CF /* Main.storyboard in Resources */,
 				8510377B2378E5A100741F3F /* MyWebView.xib in Resources */,
-				8558B3B1235F809700DA6119 /* Help.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,7 +465,9 @@
 				851CA515236C8DEC00C28D4B /* VideoPlayerController.swift in Sources */,
 				853FE8E3237C701C00665404 /* ARVideoControlsDelegate.swift in Sources */,
 				8558B3CB2360A05B00DA6119 /* JSONUtils.swift in Sources */,
+				855637C8238332AB00F399CF /* TutorialViewController.swift in Sources */,
 				8558B4532368C79A00DA6119 /* CameraControls.swift in Sources */,
+				855637F62384448600F399CF /* HelpViewController.swift in Sources */,
 				851CA506236B72F000C28D4B /* Color.swift in Sources */,
 				855637C52382FEEA00F399CF /* WebViewDelegate.swift in Sources */,
 				8558B3BD236095EA00DA6119 /* ARDashboardController.swift in Sources */,
@@ -472,19 +483,20 @@
 				853FE8E1237C6EA100665404 /* ARVideoControls.swift in Sources */,
 				853FE8DD237C6A2E00665404 /* ViewController 2.swift in Sources */,
 				8558B3AB235F656A00DA6119 /* FavouriteModel.swift in Sources */,
+				855637F22383564B00F399CF /* LogoAnimationView.swift in Sources */,
 				85F8879023709403003FCE4F /* ShareVideo.swift in Sources */,
 				85F8878E237089F7003FCE4F /* CustomVideoPlayer.swift in Sources */,
 				8558B4272363959600DA6119 /* CustomSlider.swift in Sources */,
 				8558B3CD2360A05B00DA6119 /* ARImageUtils.swift in Sources */,
-				8558B3A9235F60EA00DA6119 /* Database.swift in Sources */,
+				8558B3A9235F60EA00DA6119 /* SqliteDatabase.swift in Sources */,
 				85F8878C237069C1003FCE4F /* StringUtils.swift in Sources */,
 				851CA50A236C669600C28D4B /* ScaledHeightImageView.swift in Sources */,
+				855637F02383558500F399CF /* LaunchScreenController.swift in Sources */,
 				8558B451236885BB00DA6119 /* ShareActivity.swift in Sources */,
 				8558B4552368CE7500DA6119 /* AnimationUtils.swift in Sources */,
 				8558B44D2368710300DA6119 /* ImageUtils.swift in Sources */,
 				8558B4582368E1F400DA6119 /* Service.swift in Sources */,
 				8510377D2378E5B200741F3F /* MyWebView.swift in Sources */,
-				8558B3B4235F80EB00DA6119 /* HelpController.swift in Sources */,
 				8558B3A7235E01CA00DA6119 /* PlayFavVideoController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

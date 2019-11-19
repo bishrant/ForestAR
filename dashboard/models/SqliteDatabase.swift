@@ -11,15 +11,17 @@ import SQLite3
 import SQLite
 
 class SqliteDatabase {
-    private var db: OpaquePointer
-    init() {
+    private var db: OpaquePointer!
+    
+    init() { }
+    
+    func initializeDb() {
         var ob: OpaquePointer?
         let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("TreeID.sqlite")
         if sqlite3_open(fileURL.path, &ob) != SQLITE_OK {
             print("error opening database");
         } else {
             print("database opened");
-            
         }
         self.db = ob!
         self.createFavTableIfNotExists()
@@ -47,8 +49,6 @@ class SqliteDatabase {
     }
     
     func insertIntoFavTable(nameP: String, linkP: String, photoP: String, videoP: String) {
-        
-        
         var suc: Bool = false
           do {
               var db = self.getDb()
@@ -60,41 +60,17 @@ class SqliteDatabase {
               print ("error in new lib")
           }
           print("result of insert", suc)
-        
-        
-//        var stmt: OpaquePointer?
-//        let queryString = "INSERT INTO Favourites (name, link, photo, video) VALUES (?, ?, ?, ?)"
-//        if sqlite3_prepare(self.db, queryString, -1, &stmt, nil) != SQLITE_OK {
-//            let errmsg = String(cString: sqlite3_errmsg(self.db)!)
-//            print("error preparing insert: \(errmsg)")
-//            return
-//        }
-//        // binding the parameters
-//        sqlite3_bind_text(stmt, 1, NSString(string: nameP).utf8String, -1, nil);
-//        sqlite3_bind_text(stmt, 2, NSString(string: linkP).utf8String, -1, nil);
-//        sqlite3_bind_text(stmt, 3, NSString(string: photoP).utf8String, -1, nil);
-//        sqlite3_bind_text(stmt, 4, NSString(string: videoP).utf8String, -1, nil);
-//
-//        if sqlite3_step(stmt) != SQLITE_DONE {
-//            print("failed to insert");
-//        } else {
-//            print ("saved to db");
-//        }
     }
     
     func toggleFavEntry(n: String, l: String, p: String, v: String) -> Bool {
         var _success: Bool = false;
-        //let dbOpen = self.openDB()
-      //  if (dbOpen) {
             if(getFavouritesCount(photoName: p) < 1) {
                 self.insertIntoFavTable(nameP: n, linkP: l, photoP: p, videoP: v)
                 _success = true
             } else {
                 _success = self.deleteFavEntryByPhotoName(photoName: p)
             }
-        //}
         return _success
-        
     }
     
     func deleteFavEntryByPhotoName(photoName: String) -> Bool {
@@ -118,7 +94,6 @@ class SqliteDatabase {
         } catch {
             return nil
         }
-        
     }
     
     func getFavouritesCount(photoName: String)  -> Int64 {
@@ -133,7 +108,6 @@ class SqliteDatabase {
         }
         return rowcount;
     }
-    
     
     func deleteFavEntry(id: Int32) -> Bool {
         var suc: Bool = false
@@ -158,7 +132,7 @@ class SqliteDatabase {
         var favouritesListPrivate = [FavouritesStruct] ()
         do {
             var db = self.getDb()
-            let Favs = Table("Favourites")
+            let Favs = Table("Favourites").order(name.asc)
             try autoreleasepool{
                 for f in (try db?.prepare(Favs))! {
                     favouritesListPrivate.append(
@@ -168,7 +142,6 @@ class SqliteDatabase {
                             link: try f.get(link)!,
                             photo: try f.get(photo)!,
                             video: try f.get(video)!
-                            
                     ))
                 }
             }
@@ -179,5 +152,4 @@ class SqliteDatabase {
         }
         return favouritesListPrivate;
     }
-    
 }

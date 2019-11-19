@@ -9,7 +9,7 @@
 import UIKit
 import SQLite3
 
-var serverURL: String = "https://txfipdev.tfs.tamu.edu/treeselector/"
+var serverURL: String = "https://txfipdev.tfs.tamu.edu/ForestAR/"
 
 class ViewController: UIViewController, MenuDelegate {
     internal var menuShowing = false
@@ -23,6 +23,8 @@ class ViewController: UIViewController, MenuDelegate {
     @IBOutlet weak var instructionConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.showInitialWalkthrough()
+        
         if (!Service.sharedInstance.getAppUpdateSuccess()){
             print("Error updating app")
         }
@@ -38,6 +40,7 @@ class ViewController: UIViewController, MenuDelegate {
         self.setupLogoClick()
         self.adjustInstructionConstraint()
         navigationController?.setNavigationBarHidden(true, animated: false)
+        
     }
     
     func adjustInstructionConstraint() {
@@ -128,4 +131,20 @@ class ViewController: UIViewController, MenuDelegate {
     }
     
     @IBAction func goToHome(_ sender: UIStoryboardSegue) {}
+}
+
+extension ViewController {
+    func showInitialWalkthrough() {
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore  {
+            print("Not first launch.")
+
+        } else {
+            print("First launch, setting UserDefault.")
+            let storyboard = UIStoryboard(name: "Tutorial", bundle: Bundle.main)
+            let destination1 = storyboard.instantiateViewController(withIdentifier: "Tutorial") as! TutorialViewController
+            navigationController?.pushViewController(destination1, animated: false)
+//            UserDefaults.standard.set(true, forKey: "launchedBefore")
+        }
+    }
 }

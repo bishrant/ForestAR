@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,7 +10,7 @@
         <!--Video Player Controller-->
         <scene sceneID="kCc-AN-WOl">
             <objects>
-                <viewController storyboardIdentifier="VideoPlayer" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xd8-bn-t7y" customClass="VideoPlayerController" customModule="forestar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VideoPlayer" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xd8-bn-t7y" customClass="VideoPlayerController" customModule="ForestAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uSn-rV-7HH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,8 +42,8 @@
                                             <action selector="togglePlayPause:" destination="xd8-bn-t7y" eventType="touchUpInside" id="Sax-WH-Zeb"/>
                                         </connections>
                                     </button>
-                                    <slider clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4NZ-P6-r5Y" customClass="CustomSlider" customModule="forestar" customModuleProvider="target">
-                                        <rect key="frame" x="68" y="676" width="278" height="31"/>
+                                    <slider clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4NZ-P6-r5Y" customClass="CustomSlider" customModule="ForestAR" customModuleProvider="target">
+                                        <rect key="frame" x="68" y="723" width="278" height="31"/>
                                         <color key="tintColor" red="0.062745098040000002" green="0.92156862750000001" blue="0.98823529409999999" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="vVM-d9-le7"/>
@@ -64,7 +64,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </slider>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l2m-2Y-Dqz" userLabel="PlaybackControls">
-                                        <rect key="frame" x="132" y="739" width="150" height="84"/>
+                                        <rect key="frame" x="132" y="763" width="150" height="60"/>
                                         <subviews>
                                             <button clipsSubviews="YES" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kCJ-Oi-HRy" userLabel="linkBtn">
                                                 <rect key="frame" x="8" y="12" width="60" height="60"/>
@@ -109,7 +109,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="84" id="ARq-6p-cA3"/>
+                                            <constraint firstAttribute="height" constant="60" id="ARq-6p-cA3"/>
                                             <constraint firstAttribute="width" constant="150" id="sUy-Y8-NPL"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -119,22 +119,22 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ho-Vr-oth">
-                                        <rect key="frame" x="15" y="681" width="35" height="21"/>
+                                        <rect key="frame" x="15" y="727.5" width="35" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBj-bJ-tdJ">
-                                        <rect key="frame" x="364" y="685" width="35" height="21"/>
+                                        <rect key="frame" x="364" y="727.5" width="35" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sud-pG-K2W">
-                                        <rect key="frame" x="8" y="15" width="36" height="44"/>
+                                        <rect key="frame" x="20" y="9.5" width="25" height="31.5"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="36" id="PwE-g5-f28"/>
-                                            <constraint firstAttribute="height" constant="47.5" id="nTO-ct-LFO"/>
+                                            <constraint firstAttribute="width" constant="25" id="PwE-g5-f28"/>
+                                            <constraint firstAttribute="height" constant="35" id="nTO-ct-LFO"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" backgroundImage="chevron.left" catalog="system"/>
@@ -150,19 +150,19 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="sud-pG-K2W" firstAttribute="top" secondItem="f0C-oc-M2m" secondAttribute="top" constant="8" id="2vD-ob-DEG"/>
+                                    <constraint firstItem="sud-pG-K2W" firstAttribute="centerY" secondItem="f0C-oc-M2m" secondAttribute="top" constant="20" id="2vD-ob-DEG"/>
                                     <constraint firstItem="Pqj-Nv-GK8" firstAttribute="centerX" secondItem="un2-y1-R1R" secondAttribute="centerX" id="2xr-q1-ShP"/>
                                     <constraint firstItem="f0C-oc-M2m" firstAttribute="trailing" secondItem="FBj-bJ-tdJ" secondAttribute="trailing" constant="15" id="3Mg-9m-kgs"/>
                                     <constraint firstItem="4Ho-Vr-oth" firstAttribute="leading" secondItem="f0C-oc-M2m" secondAttribute="leading" constant="15" id="4hu-0A-da9"/>
                                     <constraint firstItem="Pqj-Nv-GK8" firstAttribute="centerY" secondItem="un2-y1-R1R" secondAttribute="centerY" id="9NE-nQ-UAC"/>
                                     <constraint firstItem="4NZ-P6-r5Y" firstAttribute="leading" secondItem="f0C-oc-M2m" secondAttribute="leading" constant="70" id="9zu-P6-RIS"/>
+                                    <constraint firstItem="4NZ-P6-r5Y" firstAttribute="centerY" secondItem="4Ho-Vr-oth" secondAttribute="centerY" id="A6D-TM-G9K"/>
                                     <constraint firstItem="f0C-oc-M2m" firstAttribute="trailing" secondItem="4NZ-P6-r5Y" secondAttribute="trailing" constant="70" id="BVy-bp-oMK"/>
-                                    <constraint firstItem="sud-pG-K2W" firstAttribute="leading" secondItem="f0C-oc-M2m" secondAttribute="leading" constant="8" id="Cxa-oc-Dox"/>
+                                    <constraint firstItem="sud-pG-K2W" firstAttribute="leading" secondItem="f0C-oc-M2m" secondAttribute="leading" constant="20" id="Cxa-oc-Dox"/>
                                     <constraint firstItem="l2m-2Y-Dqz" firstAttribute="centerX" secondItem="un2-y1-R1R" secondAttribute="centerX" id="JXf-b5-mYF"/>
-                                    <constraint firstItem="l2m-2Y-Dqz" firstAttribute="top" secondItem="4NZ-P6-r5Y" secondAttribute="bottom" constant="33" id="PUa-MB-wgR"/>
+                                    <constraint firstItem="l2m-2Y-Dqz" firstAttribute="top" secondItem="4NZ-P6-r5Y" secondAttribute="bottom" constant="10" id="PUa-MB-wgR"/>
                                     <constraint firstAttribute="bottom" secondItem="l2m-2Y-Dqz" secondAttribute="bottom" id="bOf-du-TIX"/>
-                                    <constraint firstItem="f0C-oc-M2m" firstAttribute="bottom" secondItem="4Ho-Vr-oth" secondAttribute="bottom" constant="121" id="d7E-Ra-iTe"/>
-                                    <constraint firstItem="f0C-oc-M2m" firstAttribute="bottom" secondItem="FBj-bJ-tdJ" secondAttribute="bottom" constant="117" id="yDJ-FN-agv"/>
+                                    <constraint firstItem="4NZ-P6-r5Y" firstAttribute="centerY" secondItem="FBj-bJ-tdJ" secondAttribute="centerY" id="yDJ-FN-agv"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="f0C-oc-M2m"/>
                                 <userDefinedRuntimeAttributes>
@@ -171,7 +171,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UMV-b3-yDy" customClass="MyWebView" customModule="forestar" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UMV-b3-yDy" customClass="MyWebView" customModule="ForestAR" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -205,7 +205,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.left" catalog="system" width="32" height="32"/>
+        <image name="chevron.left" catalog="system" width="48" height="64"/>
         <image name="linkBtn" width="245" height="245"/>
         <image name="pause" width="230" height="270"/>
         <image name="shareBtn" width="245" height="245"/>

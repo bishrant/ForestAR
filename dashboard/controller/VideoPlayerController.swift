@@ -128,6 +128,9 @@ class VideoPlayerController: UIViewController, WebViewDelegate {
         coordinator.animate(alongsideTransition: { (context) in
         }) { (context) in
             self.playerLayer.frame.size = size
+            if (self.webViewBottomConstraint.constant < 0) {
+                self.webViewBottomConstraint.constant = -1 * self.view.frame.height
+            }
         }
     }
     
