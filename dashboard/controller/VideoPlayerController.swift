@@ -125,7 +125,6 @@ class VideoPlayerController: UIViewController, WebViewDelegate {
     }
     
     @objc func videoSliderTapped(gestureRecognizer: UIGestureRecognizer) {
-        print("A")
         let pointTapped: CGPoint = gestureRecognizer.location(in: self.videoSlider.superview)
 
         let positionOfSlider: CGPoint = self.videoSlider.frame.origin

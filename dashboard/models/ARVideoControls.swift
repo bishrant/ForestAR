@@ -33,12 +33,6 @@ class ARVideoControls: UIView {
         super.init(frame: frame)
         self.setBackgroundImage(button: self.favBtn, imageName: "favBtn")
         self.commonInit()
-        
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(videoSliderTapped(gestureRecognizer:)))
-        self.videoPlayerSlider.addGestureRecognizer(tapGestureRecognizer)
-        
-//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(sliderTapped(gestureRecognizer:)))
-//        self.videoSlider.addGestureRecognizer(tapGestureRecognizer)
     }
     
     @IBAction func gotoHome(_ sender: Any) {
@@ -46,16 +40,12 @@ class ARVideoControls: UIView {
     }
     
     @objc func videoSliderTapped(gestureRecognizer: UIGestureRecognizer) {
-           print("A")
-
          let pointTapped: CGPoint = gestureRecognizer.location(in: self.videoPlayerSlider.superview)
-
          let positionOfSlider: CGPoint = self.videoPlayerSlider.frame.origin
          let widthOfSlider: CGFloat =  self.videoPlayerSlider.frame.size.width
          let newValue = ((pointTapped.x - positionOfSlider.x) * CGFloat( self.videoPlayerSlider.maximumValue) / widthOfSlider)
 
           self.videoPlayerSlider.setValue(Float(newValue), animated: true)
-         
      }
     
     
@@ -154,7 +144,6 @@ class ARVideoControls: UIView {
     }
     
     @IBAction func openLink(_ sender: Any) {
-        print(1)
         self.arDelegate?.openLink()
     }
     
@@ -188,42 +177,15 @@ class ARVideoControls: UIView {
     }
     
     func playerDidFinishPlaying() {
-        //        self.closeOverlayVideo(nil)
-        
         let currentSlidedTime = 1
         let cmTime =  CMTimeMakeWithSeconds(Float64(currentSlidedTime), preferredTimescale: 10)
         self.arDelegate?.playerSeekTo(time: cmTime)
         self.togglePlayPauseFunc()
-//        self.player.seek(to: cmTime, completionHandler: {_ in
-//            //  self.playerLayer.player?.pause()
-//            self.isVideoPlaying.toggle()
-//        })
-        
     }
+    
     func sliderChanged() {
         let currentSlidedTime = Int(self.videoSlider.value * Float(self.totalTime))
         let cmTime =  CMTimeMakeWithSeconds(Float64(currentSlidedTime), preferredTimescale: 10)
         self.arDelegate?.playerSeekTo(time: cmTime)
     }
-    
- 
-    @IBAction func sliderChangedAction(_ sender: Any) {
-//        sliderChanged()
-        print("yee1", self.videoSlider.value)
-    }
-    
-    
-    @objc func sliderTapped(gestureRecognizer: UIGestureRecognizer) {
-          print("A")
-
-        let pointTapped: CGPoint = gestureRecognizer.location(in: self.videoControlsView)
-
-        let positionOfSlider: CGPoint = self.videoSlider.frame.origin
-        let widthOfSlider: CGFloat =  self.videoSlider.frame.size.width
-        let newValue = ((pointTapped.x - positionOfSlider.x) * CGFloat( self.videoSlider.maximumValue) / widthOfSlider)
-
-         self.videoSlider.setValue(Float(newValue), animated: true)
-//        sliderChanged()
-    }
-
 }

@@ -34,8 +34,6 @@
 		855637F42384442C00F399CF /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 855637F32384442C00F399CF /* Help.storyboard */; };
 		855637F62384448600F399CF /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855637F52384448600F399CF /* HelpViewController.swift */; };
 		855637FA23847DA900F399CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 855637F823847DA900F399CF /* Assets.xcassets */; };
-		855637FE23847EFE00F399CF /* particle.scnp in Resources */ = {isa = PBXBuildFile; fileRef = 855637FD23847EFE00F399CF /* particle.scnp */; };
-		8556380023847F4500F399CF /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 855637FF23847F4500F399CF /* cross.png */; };
 		8558B3A5235E000600DA6119 /* PlayFavVideo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8558B3A4235E000600DA6119 /* PlayFavVideo.storyboard */; };
 		8558B3A7235E01CA00DA6119 /* PlayFavVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3A6235E01CA00DA6119 /* PlayFavVideoController.swift */; };
 		8558B3A9235F60EA00DA6119 /* SqliteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3A8235F60EA00DA6119 /* SqliteDatabase.swift */; };
@@ -100,8 +98,6 @@
 		855637F32384442C00F399CF /* Help.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
 		855637F52384448600F399CF /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		855637F823847DA900F399CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		855637FD23847EFE00F399CF /* particle.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = particle.scnp; sourceTree = "<group>"; };
-		855637FF23847F4500F399CF /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cross.png; sourceTree = "<group>"; };
 		8558B3A4235E000600DA6119 /* PlayFavVideo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlayFavVideo.storyboard; sourceTree = "<group>"; };
 		8558B3A6235E01CA00DA6119 /* PlayFavVideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayFavVideoController.swift; sourceTree = "<group>"; };
 		8558B3A8235F60EA00DA6119 /* SqliteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteDatabase.swift; sourceTree = "<group>"; };
@@ -293,8 +289,6 @@
 				85E16BA12357BCEB00907CFF /* Assets.xcassets */,
 				8558B3F923622BD000DA6119 /* GoogleService-Info.plist */,
 				85E16BA32357BCEB00907CFF /* LaunchScreen.storyboard */,
-				855637FD23847EFE00F399CF /* particle.scnp */,
-				855637FF23847F4500F399CF /* cross.png */,
 				85E16BA62357BCEB00907CFF /* Info.plist */,
 				8558B3B2235F80C400DA6119 /* controller */,
 				857C87FA235A0C18005724C4 /* TreeID.sqlite */,
@@ -377,7 +371,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8556380023847F4500F399CF /* cross.png in Resources */,
 				85E16BA52357BCEB00907CFF /* LaunchScreen.storyboard in Resources */,
 				855637F42384442C00F399CF /* Help.storyboard in Resources */,
 				851CA513236C8DAD00C28D4B /* VideoPlayer.storyboard in Resources */,
@@ -397,7 +390,6 @@
 				855637EE238346EE00F399CF /* Tutorial.storyboard in Resources */,
 				855637C6238310CF00F399CF /* Main.storyboard in Resources */,
 				8510377B2378E5A100741F3F /* MyWebView.xib in Resources */,
-				855637FE23847EFE00F399CF /* particle.scnp in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -68,7 +68,6 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
     }
     
     @objc func videoSliderTapped(gestureRecognizer: UIGestureRecognizer) {
-        print("A")
         let pointTapped: CGPoint = gestureRecognizer.location(in: self.videoControlsView.videoSlider.superview)
 
         let positionOfSlider: CGPoint = self.videoControlsView.videoSlider.frame.origin
@@ -77,7 +76,6 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
 
         self.videoControlsView.videoSlider.setValue(Float(newValue), animated: true)
         self.videoControlsView.sliderChanged()
-         
      }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -171,7 +169,6 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
             popoverController.sourceView = self.view
             popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
         }
-        
         self.present(activityVC, animated: true, completion: nil)
     }
     
@@ -179,7 +176,6 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         self.playerLayer.player!.pause()
         self.videoControlsView.pauseFunc()
         let currentJson: JSONUtils.imagesEntry = self.jsonUtils.getImageDetailsFromJSON(json: Service.sharedInstance.appConfiguration, imageName: self.imageAnchor!.referenceImage.name!)
-        print(self.imageAnchor!.referenceImage.name!)
         self.myWebView.loadUrl(url: currentJson.url, title: currentJson.title)
         UIView.animate(withDuration: 2.0,
                        delay: 0.0,
@@ -204,29 +200,7 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         self.setupVideo(videoURL: serverURL + currentImgJson.videoLink)
         self.isVideoLoaded = true
     }
-    
-    @objc func tapGestureRecognizer(gestureRecognizer: UIGestureRecognizer) {
-        print("slider changed")
-//        let pointTapped: CGPoint = gestureRecognizer.location(in: self.videoControlsView)
-//
-//        let positionOfSlider: CGPoint = self.videoControlsView.videoSlider.frame.origin
-//        let widthOfSlider: CGFloat =  self.videoControlsView.videoSlider.frame.size.width
-//        let newValue = ((pointTapped.x - positionOfSlider.x) * CGFloat( self.videoControlsView.videoSlider.maximumValue) / widthOfSlider)
-//
-//        self.videoControlsView.videoSlider.setValue(Float(newValue), animated: true)
-//
-////
-//        let t = self.playerLayer.player?.currentItem?.asset.duration.seconds
-//        let v  = Double(newValue) * t!
-//
-//        let cmTime =  CMTimeMakeWithSeconds(Float64(v), preferredTimescale: 10)
-//        self.playerSeekTo(time: cmTime)
-////
-//        print(newValue)
-    }
-    
-
-    
+       
     func setupVideo(videoURL: String) {
         let videoPlayer  = AVPlayer(url: URL(string: videoURL)!)
         videoPlayer.volume = 10
@@ -245,10 +219,7 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
             self.videoPlayerNode = self.videoUtils.createVideoPlayerNode(videoPlayer: self.playerLayer.player!, spriteKitScene: spriteKitScene)
             let gesture1 = UITapGestureRecognizer(target: self, action:  #selector(self.togglePlaybackControlsVisibility))
             self.videoControlsView.addGestureRecognizer(gesture1)
-            
-//            let sliderGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapGestureRecognizer))
-//            self.videoControlsView.videoSlider.addGestureRecognizer(sliderGesture)
-            
+                       
             spriteKitScene.addChild(self.videoPlayerNode!)
             spriteKitScene.name = "spriteKitScene"
 //            let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.togglePlaybackControlsVisibility))

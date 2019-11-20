@@ -27,16 +27,16 @@
                                 <rect key="frame" x="117" y="258" width="180" height="180"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VBT-3E-Vpz" userLabel="Title View">
-                                <rect key="frame" x="92" y="533" width="230" height="80"/>
+                                <rect key="frame" x="92" y="528.5" width="230" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FOREST" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BpV-yu-7YE">
-                                        <rect key="frame" x="0.0" y="12" width="167.5" height="56"/>
+                                        <rect key="frame" x="0.0" y="15.5" width="171" height="49"/>
                                         <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="42"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ac-33-fzf">
-                                        <rect key="frame" x="167.5" y="12" width="62.5" height="56"/>
+                                        <rect key="frame" x="171" y="15.5" width="59" height="49"/>
                                         <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="42"/>
                                         <color key="textColor" red="0.87535041570000005" green="0.28122845289999998" blue="0.057474903760000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -48,13 +48,13 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hjn-Os-Bqe">
-                                <rect key="frame" x="138" y="468" width="138" height="35"/>
+                                <rect key="frame" x="138" y="468" width="138" height="30.5"/>
                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.64892009260000005" blue="0.98208349939999995" alpha="0.71596746575342463" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.095756635273972601" green="0.78858190766849323" blue="1" alpha="0.77865475171232879" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="j0j-r2-iK6" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-100" id="4sB-ML-3M9"/>
                             <constraint firstItem="j0j-r2-iK6" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="6g4-Dr-aOu"/>
