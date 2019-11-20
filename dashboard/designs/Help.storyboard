@@ -47,10 +47,9 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="p2h-Pq-0hT"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="j2v-ys-z5P"/>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" preservesSuperviewLayoutMargins="YES" text="Help Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qMp-pX-RVO">
-                                <rect key="frame" x="31" y="925" width="375" height="73"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Help Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qMp-pX-RVO">
+                                <rect key="frame" x="0.0" y="825" width="414" height="73"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="73" id="Pb9-Ch-FpJ"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="73" id="nqN-nu-qxQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="17"/>
@@ -68,7 +67,8 @@
                             <constraint firstItem="ejl-Gs-mPH" firstAttribute="centerY" secondItem="A85-1D-mPx" secondAttribute="top" constant="20" id="RLj-Tr-67q"/>
                             <constraint firstAttribute="trailing" secondItem="rMm-WC-5sD" secondAttribute="trailing" constant="10" id="Skm-UF-d4p"/>
                             <constraint firstItem="rMm-WC-5sD" firstAttribute="top" secondItem="3d0-a1-U2D" secondAttribute="bottom" constant="20" id="WYh-Gl-x0Y"/>
-                            <constraint firstItem="rMm-WC-5sD" firstAttribute="height" relation="lessThanOrEqual" secondItem="IdT-du-Yna" secondAttribute="height" constant="-180" id="hq8-Dy-Xh9"/>
+                            <constraint firstItem="qMp-pX-RVO" firstAttribute="centerX" secondItem="IdT-du-Yna" secondAttribute="centerX" id="YaB-Pg-0zn"/>
+                            <constraint firstItem="rMm-WC-5sD" firstAttribute="height" secondItem="IdT-du-Yna" secondAttribute="height" constant="-180" id="hq8-Dy-Xh9"/>
                             <constraint firstItem="rMm-WC-5sD" firstAttribute="leading" secondItem="A85-1D-mPx" secondAttribute="leading" constant="10" id="o46-wx-jv0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A85-1D-mPx"/>

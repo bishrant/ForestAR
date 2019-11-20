@@ -12,6 +12,7 @@
                 <outlet property="currentTimeLbl" destination="3jD-cg-vdX" id="Dye-gF-f2g"/>
                 <outlet property="favBtn" destination="2r4-rt-s6z" id="kon-g8-Zer"/>
                 <outlet property="playPauseBtn" destination="BB8-Ih-E92" id="mPg-KO-NSt"/>
+                <outlet property="shareVideoBtn" destination="cES-q4-GXS" id="MPa-8a-2h2"/>
                 <outlet property="totalTimeLbl" destination="k5M-fj-dHY" id="mCO-eG-QFG"/>
                 <outlet property="videoControlsView" destination="6PE-c6-Ep3" id="Ihg-jW-KS7"/>
                 <outlet property="videoSlider" destination="mXl-P8-zfM" id="7RW-hO-5wg"/>
@@ -43,8 +44,11 @@
                 <slider clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="mXl-P8-zfM" customClass="CustomSlider" customModule="ForestAR" customModuleProvider="target">
                     <rect key="frame" x="88" y="742" width="238" height="31"/>
                     <color key="tintColor" red="0.062745098040000002" green="0.92156862750000001" blue="0.98823529409999999" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                    <accessibility key="accessibilityConfiguration">
+                        <accessibilityTraits key="traits" updatesFrequently="YES"/>
+                    </accessibility>
                     <color key="minimumTrackTintColor" red="0.062745098040000002" green="0.92156862750000001" blue="0.98823529409999999" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
-                    <color key="maximumTrackTintColor" red="0.92897909879999996" green="0.87621384859999996" blue="0.92811518910000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="maximumTrackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="thumbTintColor" red="0.062745098040000002" green="0.92156862750000001" blue="0.98823529409999999" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="trackWidth">
@@ -53,10 +57,10 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                             <integer key="value" value="7"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.zPosition">
+                            <integer key="value" value="1000"/>
+                        </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="sliderChanged:" destination="-1" eventType="valueChanged" id="neA-Jw-VML"/>
-                    </connections>
                 </slider>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xEB-tG-zxT" userLabel="PlaybackControls">
                     <rect key="frame" x="57" y="768" width="300" height="84"/>
@@ -142,20 +146,32 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5M-fj-dHY">
-                    <rect key="frame" x="332" y="742.5" width="36" height="21"/>
+                    <rect key="frame" x="332" y="746.5" width="36" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jD-cg-vdX">
                     <rect key="frame" x="46" y="747" width="36" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0sa-SU-YwS">
+                    <rect key="frame" x="354" y="64" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="QWy-3k-wJC"/>
+                        <constraint firstAttribute="width" constant="40" id="cPI-Az-dyO"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="home"/>
+                    <connections>
+                        <action selector="gotoHome:" destination="-1" eventType="touchUpInside" id="wiK-jV-Blt"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="Weh-55-aHd" firstAttribute="trailing" secondItem="0sa-SU-YwS" secondAttribute="trailing" constant="20" id="1rN-Hc-D00"/>
                 <constraint firstItem="mXl-P8-zfM" firstAttribute="centerY" secondItem="3jD-cg-vdX" secondAttribute="centerY" id="5vE-z8-Zhn"/>
                 <constraint firstItem="xEB-tG-zxT" firstAttribute="bottom" secondItem="mXl-P8-zfM" secondAttribute="bottom" constant="80" id="6zY-mf-qSl"/>
                 <constraint firstAttribute="trailingMargin" secondItem="mXl-P8-zfM" secondAttribute="trailing" constant="70" id="7w0-hL-EWF"/>
@@ -163,9 +179,10 @@
                 <constraint firstAttribute="bottomMargin" secondItem="xEB-tG-zxT" secondAttribute="bottom" constant="10" id="CGl-C3-Usy"/>
                 <constraint firstItem="BB8-Ih-E92" firstAttribute="centerX" secondItem="6PE-c6-Ep3" secondAttribute="centerX" id="D4r-vy-8Og"/>
                 <constraint firstItem="k5M-fj-dHY" firstAttribute="leading" secondItem="mXl-P8-zfM" secondAttribute="trailing" constant="8" id="EKm-ji-z8W"/>
+                <constraint firstItem="0sa-SU-YwS" firstAttribute="top" secondItem="Weh-55-aHd" secondAttribute="top" constant="20" id="HDR-mj-rW5"/>
                 <constraint firstItem="mXl-P8-zfM" firstAttribute="centerX" secondItem="6PE-c6-Ep3" secondAttribute="centerX" id="Q7R-L0-4TQ"/>
                 <constraint firstItem="xEB-tG-zxT" firstAttribute="centerX" secondItem="6PE-c6-Ep3" secondAttribute="centerX" id="cUX-hW-IFq"/>
-                <constraint firstItem="mXl-P8-zfM" firstAttribute="centerY" secondItem="k5M-fj-dHY" secondAttribute="centerY" constant="4" id="d26-lK-fdv"/>
+                <constraint firstItem="mXl-P8-zfM" firstAttribute="centerY" secondItem="k5M-fj-dHY" secondAttribute="centerY" id="d26-lK-fdv"/>
                 <constraint firstItem="BB8-Ih-E92" firstAttribute="centerY" secondItem="6PE-c6-Ep3" secondAttribute="centerY" id="lWD-sN-wPL"/>
                 <constraint firstItem="mXl-P8-zfM" firstAttribute="leading" secondItem="3jD-cg-vdX" secondAttribute="trailing" constant="8" id="yqT-QU-PxI"/>
             </constraints>
@@ -175,12 +192,13 @@
                     <integer key="value" value="100"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
-            <point key="canvasLocation" x="133" y="-492"/>
+            <point key="canvasLocation" x="131.8840579710145" y="-492.1875"/>
         </view>
     </objects>
     <resources>
         <image name="closeBtn" width="245" height="245"/>
         <image name="favBtn" width="245" height="245"/>
+        <image name="home" width="144" height="144"/>
         <image name="linkBtn" width="245" height="245"/>
         <image name="pause" width="230" height="270"/>
         <image name="shareBtn" width="245" height="245"/>

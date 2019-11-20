@@ -64,6 +64,9 @@ class CustomVideoPlayer {
     }
     
     @objc func sliderChanged() {
+        self.sliderChangedFunc()
+    }
+    func sliderChangedFunc() {
         let currentSlidedTime = Int(self.videoSlider.value * Float(self.totalTime))
         let cmTime =  CMTimeMakeWithSeconds(Float64(currentSlidedTime), preferredTimescale: 10)
         self.player.seek(to: cmTime)

@@ -47,12 +47,38 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
     private var stringUtils: StringUtils = StringUtils()
     private var timeObserver: Any!
     
+    let updateQueue = DispatchQueue(label: Bundle.main.bundleIdentifier! +
+        ".serialSceneKitQueue")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.scanningActiveView.layer.zPosition = 100
         self.videoControlsView.arDelegate = self
         self.webViewBottomConstraint.constant = -1 * self.view.frame.height
+        
+        let tapGestureRecognizerVP = UITapGestureRecognizer(target: self, action: #selector(videoSliderTapped(gestureRecognizer:)))
+        self.videoControlsView.videoSlider.addGestureRecognizer(tapGestureRecognizerVP)
+        
+        self.videoControlsView.videoSlider.addTarget(self, action: #selector(sliderValChanged), for: UIControl.Event.valueChanged)
     }
+    
+    @objc func sliderValChanged() {
+        print(self.videoControlsView.videoSlider.value)
+        self.videoControlsView.sliderChanged()
+    }
+    
+    @objc func videoSliderTapped(gestureRecognizer: UIGestureRecognizer) {
+        print("A")
+        let pointTapped: CGPoint = gestureRecognizer.location(in: self.videoControlsView.videoSlider.superview)
+
+        let positionOfSlider: CGPoint = self.videoControlsView.videoSlider.frame.origin
+        let widthOfSlider: CGFloat =  self.videoControlsView.videoSlider.frame.size.width
+        let newValue = ((pointTapped.x - positionOfSlider.x) * CGFloat( self.videoControlsView.videoSlider.maximumValue) / widthOfSlider)
+
+        self.videoControlsView.videoSlider.setValue(Float(newValue), animated: true)
+        self.videoControlsView.sliderChanged()
+         
+     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -72,7 +98,6 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         configuration.trackingImages = Service.sharedInstance.getARImageSet()
         configuration.maximumNumberOfTrackedImages = 1
         self.sceneViews.session.run(configuration, options: [.resetTracking, .removeExistingAnchors, .stopTrackedRaycasts])
-        
         self.runTest()
     }
     
@@ -82,9 +107,7 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         self.navigationController?.popViewController(animated: true)
     }
     
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
-    }
+    func session(_ session: ARSession, didFailWithError error: Error) {}
     
     func sessionWasInterrupted(_ session: ARSession) {
         // Inform the user that the session has been interrupted, for example, by presenting an overlay
@@ -167,8 +190,6 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         })
     }
     
-    
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.sceneViews.session.pause()
@@ -184,6 +205,27 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         self.isVideoLoaded = true
     }
     
+    @objc func tapGestureRecognizer(gestureRecognizer: UIGestureRecognizer) {
+        print("slider changed")
+//        let pointTapped: CGPoint = gestureRecognizer.location(in: self.videoControlsView)
+//
+//        let positionOfSlider: CGPoint = self.videoControlsView.videoSlider.frame.origin
+//        let widthOfSlider: CGFloat =  self.videoControlsView.videoSlider.frame.size.width
+//        let newValue = ((pointTapped.x - positionOfSlider.x) * CGFloat( self.videoControlsView.videoSlider.maximumValue) / widthOfSlider)
+//
+//        self.videoControlsView.videoSlider.setValue(Float(newValue), animated: true)
+//
+////
+//        let t = self.playerLayer.player?.currentItem?.asset.duration.seconds
+//        let v  = Double(newValue) * t!
+//
+//        let cmTime =  CMTimeMakeWithSeconds(Float64(v), preferredTimescale: 10)
+//        self.playerSeekTo(time: cmTime)
+////
+//        print(newValue)
+    }
+    
+
     
     func setupVideo(videoURL: String) {
         let videoPlayer  = AVPlayer(url: URL(string: videoURL)!)
@@ -204,17 +246,45 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
             let gesture1 = UITapGestureRecognizer(target: self, action:  #selector(self.togglePlaybackControlsVisibility))
             self.videoControlsView.addGestureRecognizer(gesture1)
             
+//            let sliderGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapGestureRecognizer))
+//            self.videoControlsView.videoSlider.addGestureRecognizer(sliderGesture)
+            
             spriteKitScene.addChild(self.videoPlayerNode!)
             spriteKitScene.name = "spriteKitScene"
-            let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.togglePlaybackControlsVisibility))
-            self.overlayView.addGestureRecognizer(gesture)
+//            let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.togglePlaybackControlsVisibility))
+           // self.overlayView.addGestureRecognizer(gesture)
             self.videoHolder = self.videoUtils.createVideoHolderOverImage(referenceImage: self.imageAnchor.referenceImage, spriteKitScene: spriteKitScene)
             
             self.videoPlayerNode?.play()
             self.videoControlsView.videoPlaying = true
             self.setVideoPlaybackTime()
             self.imageNode.addChildNode(self.videoHolder)
+            let referenceImage = self.imageAnchor.referenceImage
+            
+            self.updateQueue.async {
+                // Create a plane to visualize the initial position of the detected image.
+                let plane = SCNPlane(width: referenceImage.physicalSize.width,
+                                     height: referenceImage.physicalSize.height)
+                plane.firstMaterial!.diffuse.contents  = UIColor(red: 0, green: 170 / 255, blue: 1, alpha: 1)
+                let planeNode = SCNNode(geometry: plane)
+                planeNode.opacity = 0.25
+                planeNode.eulerAngles.x = -.pi / 2
+                planeNode.runAction(self.imageHighlightAction)
+                self.imageNode.addChildNode(planeNode)
+                planeNode.renderOnTop()
+            }
         }
+    }
+    
+    var imageHighlightAction: SCNAction {
+        return .sequence([
+            .wait(duration: 0.25),
+            .fadeOpacity(to: 0.85, duration: 0.25),
+            .fadeOpacity(to: 0.15, duration: 0.25),
+            .fadeOpacity(to: 0.85, duration: 0.25),
+            .fadeOut(duration: 0.5),
+            .removeFromParentNode()
+        ])
     }
     
     func setVideoPlaybackTime() {
@@ -263,6 +333,8 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
                 self.animationUtils.showWithAnimation(myView: self.videoControlsView, delay: 0.4)
                 
                 self.videoControlsView.checkIfVideoIsFavourited(imageName: imageAnchors.referenceImage.name!)
+                
+                
             }
         }
     }
@@ -364,4 +436,23 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         }
     }
     
+    func goToHome() {
+        navigationController?.popToRootViewController(animated: true)
+        closeVideo()
+    }
+    
+}
+
+extension SCNNode {
+    func renderOnTop() {
+        self.renderingOrder = 2
+        if let geom = self.geometry {
+            for material in geom.materials {
+                material.readsFromDepthBuffer = false
+            }
+        }
+        for child in self.childNodes {
+            child.renderOnTop()
+        }
+    }
 }

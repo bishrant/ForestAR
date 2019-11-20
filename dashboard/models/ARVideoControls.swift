@@ -17,19 +17,48 @@ class ARVideoControls: UIView {
     @IBOutlet weak var currentTimeLbl: UILabel!
     @IBOutlet weak var playPauseBtn: UIButton!
     
+  
     private var showHideControlsTask: DispatchWorkItem?
     private var stringUtils: StringUtils = StringUtils()
+    
+    @IBOutlet weak var videoPlayerSlider: UISlider!
     
     var arDelegate: ARVideoControlsDelegate?
     var videoPlaying: Bool = false
     var totalTime: Double!
     private var isVideoFavorited: Bool = false
 
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setBackgroundImage(button: self.favBtn, imageName: "favBtn")
         self.commonInit()
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(videoSliderTapped(gestureRecognizer:)))
+        self.videoPlayerSlider.addGestureRecognizer(tapGestureRecognizer)
+        
+//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(sliderTapped(gestureRecognizer:)))
+//        self.videoSlider.addGestureRecognizer(tapGestureRecognizer)
     }
+    
+    @IBAction func gotoHome(_ sender: Any) {
+        self.arDelegate!.goToHome()
+    }
+    
+    @objc func videoSliderTapped(gestureRecognizer: UIGestureRecognizer) {
+           print("A")
+
+         let pointTapped: CGPoint = gestureRecognizer.location(in: self.videoPlayerSlider.superview)
+
+         let positionOfSlider: CGPoint = self.videoPlayerSlider.frame.origin
+         let widthOfSlider: CGFloat =  self.videoPlayerSlider.frame.size.width
+         let newValue = ((pointTapped.x - positionOfSlider.x) * CGFloat( self.videoPlayerSlider.maximumValue) / widthOfSlider)
+
+          self.videoPlayerSlider.setValue(Float(newValue), animated: true)
+         
+     }
+    
+    
     @IBAction func closeVideo(_ sender: Any) {
         self.playPauseBtn.setBackgroundImage(UIImage(named: "pause"), for: UIControl.State.normal)
         self.videoPlaying = false
@@ -64,16 +93,20 @@ class ARVideoControls: UIView {
         self.videoPlaying.toggle()
         self.arDelegate?.togglePlayPause()
     }
+
     
+    @IBOutlet weak var shareVideoBtn: UIButton!
     private func commonInit() {
         self.showHideControlsTask = DispatchWorkItem {
             self.toogleControlsWithAnimations()
         }
+        
         Bundle.main.loadNibNamed("ARVideoControls", owner: self, options: nil)
         guard let content = videoControlsView else { return }
         content.frame = self.bounds
         content.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         self.addSubview(content)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5, execute: self.showHideControlsTask!)
     }
     
     func toogleControlsWithAnimations() {
@@ -84,8 +117,12 @@ class ARVideoControls: UIView {
                 self.videoControlsView.isHidden = false
             })
             self.showHideControlsTask!.cancel()
+            self.showHideControlsTask = DispatchWorkItem {
+                self.toogleControlsWithAnimations()
+            }
+            
             // execute task in 10 seconds
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 10, execute: self.showHideControlsTask!)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5, execute: self.showHideControlsTask!)
         } else {
             UIView.animate(withDuration: 0.5, animations: {
                 self.videoControlsView.alpha = 0;
@@ -93,6 +130,10 @@ class ARVideoControls: UIView {
                 self.videoControlsView.isHidden = true // Here you hide it when animation done
             })
             self.showHideControlsTask!.cancel()
+            self.showHideControlsTask = DispatchWorkItem {
+                self.toogleControlsWithAnimations()
+            }
+            
         }
     }
     
@@ -159,11 +200,30 @@ class ARVideoControls: UIView {
 //        })
         
     }
-    
-    @IBAction func sliderChanged(_ sender: Any) {
+    func sliderChanged() {
         let currentSlidedTime = Int(self.videoSlider.value * Float(self.totalTime))
         let cmTime =  CMTimeMakeWithSeconds(Float64(currentSlidedTime), preferredTimescale: 10)
         self.arDelegate?.playerSeekTo(time: cmTime)
     }
     
+ 
+    @IBAction func sliderChangedAction(_ sender: Any) {
+//        sliderChanged()
+        print("yee1", self.videoSlider.value)
+    }
+    
+    
+    @objc func sliderTapped(gestureRecognizer: UIGestureRecognizer) {
+          print("A")
+
+        let pointTapped: CGPoint = gestureRecognizer.location(in: self.videoControlsView)
+
+        let positionOfSlider: CGPoint = self.videoSlider.frame.origin
+        let widthOfSlider: CGFloat =  self.videoSlider.frame.size.width
+        let newValue = ((pointTapped.x - positionOfSlider.x) * CGFloat( self.videoSlider.maximumValue) / widthOfSlider)
+
+         self.videoSlider.setValue(Float(newValue), animated: true)
+//        sliderChanged()
+    }
+
 }

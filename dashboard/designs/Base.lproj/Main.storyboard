@@ -276,8 +276,8 @@
                                     <constraint firstItem="9WK-ed-Ue7" firstAttribute="top" secondItem="7V2-5N-lQl" secondAttribute="top" constant="30" id="wxR-IA-Poz"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JX2-bp-seh" customClass="MyWebView" customModule="ForestAR" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="667"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JX2-bp-seh" customClass="MyWebView" customModule="ForestAR" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.zPosition">
@@ -293,6 +293,7 @@
                             <constraint firstItem="uwe-mu-Hey" firstAttribute="top" secondItem="vO1-bc-iKT" secondAttribute="top" id="ChY-ct-QkC"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Drk-ME-oet" secondAttribute="bottom" id="EwK-l6-m6N"/>
                             <constraint firstItem="JX2-bp-seh" firstAttribute="height" secondItem="Cv8-29-uIu" secondAttribute="height" id="Hq5-7C-Xau"/>
+                            <constraint firstItem="JX2-bp-seh" firstAttribute="centerX" secondItem="Cv8-29-uIu" secondAttribute="centerX" id="I6f-hf-cOO"/>
                             <constraint firstItem="Drk-ME-oet" firstAttribute="top" secondItem="vO1-bc-iKT" secondAttribute="top" id="PoO-rw-WwK"/>
                             <constraint firstItem="vO1-bc-iKT" firstAttribute="bottom" secondItem="7V2-5N-lQl" secondAttribute="bottom" id="Stp-Gy-YMi"/>
                             <constraint firstItem="7V2-5N-lQl" firstAttribute="top" secondItem="Cv8-29-uIu" secondAttribute="top" id="bOg-zY-dEX"/>

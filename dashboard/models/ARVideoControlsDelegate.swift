@@ -15,4 +15,5 @@ protocol ARVideoControlsDelegate {
     func openShareUI()
     func openLink()
     func playerSeekTo(time: CMTime)
+    func goToHome()
 }

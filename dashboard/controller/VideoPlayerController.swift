@@ -117,7 +117,26 @@ class VideoPlayerController: UIViewController, WebViewDelegate {
         self.customVideoPlayer.isVideoPlaying = true
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.togglePlaybackControlsVisibility))
         self.view.addGestureRecognizer(gesture)
+        
+        let tapGestureRecognizerVP = UITapGestureRecognizer(target: self, action: #selector(videoSliderTapped(gestureRecognizer:)))
+        self.videoSlider.addGestureRecognizer(tapGestureRecognizerVP)
+        
+//        self.videoControlsView.videoSlider.addTarget(self, action: #selector(sliderValChanged), for: UIControl.Event.valueChanged)
     }
+    
+    @objc func videoSliderTapped(gestureRecognizer: UIGestureRecognizer) {
+        print("A")
+        let pointTapped: CGPoint = gestureRecognizer.location(in: self.videoSlider.superview)
+
+        let positionOfSlider: CGPoint = self.videoSlider.frame.origin
+        let widthOfSlider: CGFloat =  self.videoSlider.frame.size.width
+        let newValue = ((pointTapped.x - positionOfSlider.x) * CGFloat( self.videoSlider.maximumValue) / widthOfSlider)
+
+        self.videoSlider.setValue(Float(newValue), animated: true)
+        self.customVideoPlayer.sliderChangedFunc()
+//        self.videoControlsView.sliderChanged()
+//
+     }
     
     @objc func togglePlaybackControlsVisibility(sender : UITapGestureRecognizer) {
         self.showHideControlsTask?.perform()
