@@ -29,7 +29,7 @@ class PlayFavVideoController: UIViewController {
     
     private func setupNavigationBar() {
         navigationController?.title = "Test"
-        navigationItem.title = "Favourite";
+        navigationItem.title = "Favorite";
         
         let t = UIImageView(image: UIImage(named: "menu"))
         navigationItem.titleView = t

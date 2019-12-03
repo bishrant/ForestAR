@@ -116,10 +116,17 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
     }
     
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        self.imageNode = SCNNode()
-        self.imageNode.name = "imageNode"
-        findImageAnchorsForVideo(anchor: anchor)
-        return self.imageNode
+        if (self.imageAnchor == nil) {
+            self.imageNode = SCNNode()
+            self.imageNode.name = "imageNode"
+            findImageAnchorsForVideo(anchor: anchor)
+            return self.imageNode
+        } else {
+            return nil
+        }
+
+        
+        
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd: SCNNode, for: ARAnchor){}
@@ -304,8 +311,6 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
                 self.animationUtils.showWithAnimation(myView: self.videoControlsView, delay: 0.4)
                 
                 self.videoControlsView.checkIfVideoIsFavourited(imageName: imageAnchors.referenceImage.name!)
-                
-                
             }
         }
     }

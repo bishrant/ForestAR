@@ -20,17 +20,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Begin by identifying scan enabled photos. Press the camera icon to start." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I40-hc-OcN">
-                                <rect key="frame" x="40" y="538" width="295" height="38.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Begin by identifying scan-enabled photos. Press the camera icon to start scanning." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I40-hc-OcN">
+                                <rect key="frame" x="30" y="536" width="315" height="38.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tfs_white" translatesAutoresizingMaskIntoConstraints="NO" id="TFL-24-I33">
-                                <rect key="frame" x="127.5" y="581" width="120" height="27"/>
+                                <rect key="frame" x="112.5" y="574.5" width="150" height="33.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="TFL-24-I33" secondAttribute="height" multiplier="40:9" id="kzu-mr-KI9"/>
-                                    <constraint firstAttribute="width" constant="120" id="p6Q-6D-KwT"/>
+                                    <constraint firstAttribute="width" constant="150" id="p6Q-6D-KwT"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="woR-Ed-Xhv" userLabel="Title View">
@@ -135,7 +135,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RSL-6g-DZW" secondAttribute="trailing" constant="20" id="5jD-7d-mtw"/>
-                            <constraint firstItem="I40-hc-OcN" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="-80" id="8Cu-JL-mYJ"/>
+                            <constraint firstItem="I40-hc-OcN" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="-60" id="8Cu-JL-mYJ"/>
                             <constraint firstItem="Anw-kg-kub" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="A8L-bJ-vBf"/>
                             <constraint firstItem="TFL-24-I33" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="H4r-w2-CVr"/>
                             <constraint firstItem="gB4-Gy-ZKW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OdL-jC-is7"/>
@@ -145,7 +145,7 @@
                             <constraint firstItem="woR-Ed-Xhv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ben-RS-g92"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TFL-24-I33" secondAttribute="bottom" constant="10" id="hSW-wN-O2S"/>
                             <constraint firstItem="gB4-Gy-ZKW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ls9-CV-3Ba"/>
-                            <constraint firstItem="I40-hc-OcN" firstAttribute="top" secondItem="TFL-24-I33" secondAttribute="bottom" constant="-70" id="u4y-Vf-BEu"/>
+                            <constraint firstItem="I40-hc-OcN" firstAttribute="bottom" secondItem="TFL-24-I33" secondAttribute="top" id="u4y-Vf-BEu"/>
                             <constraint firstItem="woR-Ed-Xhv" firstAttribute="centerY" secondItem="RSL-6g-DZW" secondAttribute="centerY" id="x10-Gj-NS4"/>
                             <constraint firstAttribute="bottom" secondItem="Anw-kg-kub" secondAttribute="bottom" id="ycY-wJ-Bvt"/>
                             <constraint firstAttribute="top" secondItem="woR-Ed-Xhv" secondAttribute="centerY" constant="-40" id="yri-4d-P30"/>
@@ -161,6 +161,7 @@
                         <outlet property="instructionConstraint" destination="u4y-Vf-BEu" id="LSp-Qq-by1"/>
                         <outlet property="sidemenu" destination="Anw-kg-kub" id="ErU-Y1-DDy"/>
                         <outlet property="tfsLogo" destination="TFL-24-I33" id="GxQ-v7-MEm"/>
+                        <outlet property="tfsLogoWidthConstraint" destination="p6Q-6D-KwT" id="rbC-5V-ace"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

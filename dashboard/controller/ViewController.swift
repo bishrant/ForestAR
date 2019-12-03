@@ -20,6 +20,7 @@ class ViewController: UIViewController, MenuDelegate {
     @IBOutlet weak var MenuBtn: UIButton!
     @IBOutlet weak var TrailingConstraint: NSLayoutConstraint!;
     
+    @IBOutlet weak var tfsLogoWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var instructionConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,10 +42,12 @@ class ViewController: UIViewController, MenuDelegate {
         self.adjustInstructionConstraint()
         navigationController?.setNavigationBarHidden(true, animated: false)
         
+        tfsLogoWidthConstraint.constant =  view.frame.width > 500 ? 190 : 150
+        
     }
     
     func adjustInstructionConstraint() {
-        self.instructionConstraint.constant = UIDevice.current.orientation.isLandscape ? -62 : -80
+        self.instructionConstraint.constant = UIDevice.current.orientation.isLandscape ? -10 : -30
     }
     
     func menuSelected(menuName: String) {
@@ -56,7 +59,7 @@ class ViewController: UIViewController, MenuDelegate {
             case "FAVORITES":
                 storyboardId = "UserFavourites"
                 break
-            case "HOW TO ?":
+            case "HOW TO":
                 storyboardId = "Help"
                 break
             default:

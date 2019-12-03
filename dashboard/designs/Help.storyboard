@@ -35,8 +35,8 @@
                                     <action selector="goBack:" destination="Y1C-VT-lQu" eventType="touchUpInside" id="P3m-mE-Mfj"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOW TO?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3d0-a1-U2D">
-                                <rect key="frame" x="159" y="49.5" width="96" height="29.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOW TO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3d0-a1-U2D">
+                                <rect key="frame" x="164" y="49.5" width="86" height="29.5"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -47,8 +47,8 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="p2h-Pq-0hT"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="j2v-ys-z5P"/>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Help Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qMp-pX-RVO">
-                                <rect key="frame" x="0.0" y="825" width="414" height="73"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Help Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.34999999999999998" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qMp-pX-RVO">
+                                <rect key="frame" x="25" y="795" width="364" height="73"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="73" id="nqN-nu-qxQ"/>
                                 </constraints>
@@ -59,16 +59,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="qMp-pX-RVO" firstAttribute="top" secondItem="rMm-WC-5sD" secondAttribute="bottom" constant="10" id="0Jp-O8-XMq"/>
+                            <constraint firstItem="qMp-pX-RVO" firstAttribute="top" secondItem="rMm-WC-5sD" secondAttribute="bottom" constant="20" id="0Jp-O8-XMq"/>
                             <constraint firstItem="3d0-a1-U2D" firstAttribute="centerX" secondItem="IdT-du-Yna" secondAttribute="centerX" id="0cN-Zn-NMh"/>
                             <constraint firstItem="3d0-a1-U2D" firstAttribute="centerY" secondItem="A85-1D-mPx" secondAttribute="top" constant="20" id="1eB-Yd-w4t"/>
                             <constraint firstItem="ejl-Gs-mPH" firstAttribute="leading" secondItem="A85-1D-mPx" secondAttribute="leading" constant="20" id="9DT-Qm-bYF"/>
-                            <constraint firstItem="qMp-pX-RVO" firstAttribute="width" secondItem="A85-1D-mPx" secondAttribute="width" id="FEI-Dr-Mgo"/>
+                            <constraint firstItem="qMp-pX-RVO" firstAttribute="width" secondItem="A85-1D-mPx" secondAttribute="width" constant="-50" id="FEI-Dr-Mgo"/>
                             <constraint firstItem="ejl-Gs-mPH" firstAttribute="centerY" secondItem="A85-1D-mPx" secondAttribute="top" constant="20" id="RLj-Tr-67q"/>
                             <constraint firstAttribute="trailing" secondItem="rMm-WC-5sD" secondAttribute="trailing" constant="10" id="Skm-UF-d4p"/>
                             <constraint firstItem="rMm-WC-5sD" firstAttribute="top" secondItem="3d0-a1-U2D" secondAttribute="bottom" constant="20" id="WYh-Gl-x0Y"/>
                             <constraint firstItem="qMp-pX-RVO" firstAttribute="centerX" secondItem="IdT-du-Yna" secondAttribute="centerX" id="YaB-Pg-0zn"/>
-                            <constraint firstItem="rMm-WC-5sD" firstAttribute="height" secondItem="IdT-du-Yna" secondAttribute="height" constant="-180" id="hq8-Dy-Xh9"/>
+                            <constraint firstItem="rMm-WC-5sD" firstAttribute="height" secondItem="IdT-du-Yna" secondAttribute="height" constant="-220" id="hq8-Dy-Xh9"/>
                             <constraint firstItem="rMm-WC-5sD" firstAttribute="leading" secondItem="A85-1D-mPx" secondAttribute="leading" constant="10" id="o46-wx-jv0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A85-1D-mPx"/>

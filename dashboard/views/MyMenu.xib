@@ -48,7 +48,7 @@
                                 <action selector="menuItemClicked:" destination="-1" eventType="touchUpInside" id="9bX-46-KDo"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncU-lU-IKh">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncU-lU-IKh">
                             <rect key="frame" x="0.0" y="62" width="145" height="52"/>
                             <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="30"/>
                             <state key="normal" title="FAVORITES"/>
@@ -56,10 +56,10 @@
                                 <action selector="menuItemClicked:" destination="-1" eventType="touchUpInside" id="rop-6c-zaC"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJ0-ZK-0dm">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJ0-ZK-0dm">
                             <rect key="frame" x="0.0" y="124" width="145" height="52"/>
                             <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="30"/>
-                            <state key="normal" title="HOW TO ?"/>
+                            <state key="normal" title="HOW TO"/>
                             <connections>
                                 <action selector="menuItemClicked:" destination="-1" eventType="touchUpInside" id="Z7R-7u-tN9"/>
                             </connections>
@@ -72,8 +72,8 @@
                         <constraint firstItem="vJ0-ZK-0dm" firstAttribute="width" secondItem="Yyl-dG-L7I" secondAttribute="width" id="q3e-Ba-MMH"/>
                     </constraints>
                 </stackView>
-                <stackView opaque="NO" contentMode="scaleAspectFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Nwr-AJ-m8H">
-                    <rect key="frame" x="25" y="802" width="364" height="50"/>
+                <stackView opaque="NO" contentMode="scaleAspectFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Nwr-AJ-m8H" userLabel="Connect Menu">
+                    <rect key="frame" x="47" y="782" width="320" height="50"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sw0-mB-6gc">
                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -89,7 +89,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ClT-Gj-P5u">
-                            <rect key="frame" x="78.5" y="0.0" width="50" height="50"/>
+                            <rect key="frame" x="67.5" y="0.0" width="50" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="tKm-FT-2p7"/>
                                 <constraint firstAttribute="height" constant="50" id="z7H-kT-GHv"/>
@@ -100,7 +100,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y96-0c-JZe">
-                            <rect key="frame" x="157" y="0.0" width="50" height="50"/>
+                            <rect key="frame" x="135" y="0.0" width="50" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="5G9-Zb-uyf"/>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="9VK-fk-XOu"/>
@@ -113,7 +113,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BaX-oQ-4ET">
-                            <rect key="frame" x="235.5" y="0.0" width="50" height="50"/>
+                            <rect key="frame" x="202.5" y="0.0" width="50" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="4Fb-Bq-7Fu"/>
                                 <constraint firstAttribute="width" constant="50" id="9XL-wA-dDI"/>
@@ -124,7 +124,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="89G-8J-9Kp">
-                            <rect key="frame" x="314" y="0.0" width="50" height="50"/>
+                            <rect key="frame" x="270" y="0.0" width="50" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="Iji-aA-RwM"/>
                                 <constraint firstAttribute="height" constant="50" id="pCz-F0-8ng"/>
@@ -135,9 +135,12 @@
                             </connections>
                         </button>
                     </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="A5r-jP-Nuh"/>
+                    </constraints>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONNECT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZM-KB-vhJ">
-                    <rect key="frame" x="153" y="760" width="108.5" height="32"/>
+                    <rect key="frame" x="153" y="730" width="108.5" height="32"/>
                     <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="24"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -149,9 +152,8 @@
                 <constraint firstItem="HMh-wq-UL7" firstAttribute="top" secondItem="ZG7-II-IIV" secondAttribute="top" constant="-10" id="8mU-Jc-01I"/>
                 <constraint firstItem="Nwr-AJ-m8H" firstAttribute="centerX" secondItem="8wR-Er-oua" secondAttribute="centerX" id="9i8-tE-Mlz"/>
                 <constraint firstAttribute="trailingMargin" secondItem="ZG7-II-IIV" secondAttribute="trailing" constant="10" id="Hv9-6a-z0a"/>
-                <constraint firstItem="HMh-wq-UL7" firstAttribute="bottom" secondItem="Nwr-AJ-m8H" secondAttribute="bottom" constant="10" id="M4T-D4-hih"/>
-                <constraint firstItem="Nwr-AJ-m8H" firstAttribute="width" secondItem="8wR-Er-oua" secondAttribute="width" constant="-50" id="fI5-es-BQM"/>
-                <constraint firstItem="Nwr-AJ-m8H" firstAttribute="top" secondItem="zZM-KB-vhJ" secondAttribute="bottom" constant="10" id="fnK-Xf-6Ow"/>
+                <constraint firstItem="HMh-wq-UL7" firstAttribute="bottom" secondItem="Nwr-AJ-m8H" secondAttribute="bottom" constant="30" id="M4T-D4-hih"/>
+                <constraint firstItem="Nwr-AJ-m8H" firstAttribute="top" secondItem="zZM-KB-vhJ" secondAttribute="bottom" constant="20" id="fnK-Xf-6Ow"/>
                 <constraint firstItem="Yyl-dG-L7I" firstAttribute="centerY" secondItem="8wR-Er-oua" secondAttribute="centerY" constant="-80" id="gFM-CL-mrr"/>
                 <constraint firstItem="Yyl-dG-L7I" firstAttribute="centerX" secondItem="8wR-Er-oua" secondAttribute="centerX" id="idd-L2-uLO"/>
                 <constraint firstItem="zZM-KB-vhJ" firstAttribute="centerX" secondItem="8wR-Er-oua" secondAttribute="centerX" id="jXR-LN-ecB"/>
