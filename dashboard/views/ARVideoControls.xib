@@ -15,6 +15,7 @@
                 <outlet property="shareVideoBtn" destination="cES-q4-GXS" id="MPa-8a-2h2"/>
                 <outlet property="totalTimeLbl" destination="k5M-fj-dHY" id="mCO-eG-QFG"/>
                 <outlet property="videoControlsView" destination="6PE-c6-Ep3" id="Ihg-jW-KS7"/>
+                <outlet property="videoPlayingFlashBtn" destination="wOX-KM-dIV" id="x6Q-CE-wKX"/>
                 <outlet property="videoSlider" destination="mXl-P8-zfM" id="7RW-hO-5wg"/>
             </connections>
         </placeholder>
@@ -168,9 +169,18 @@
                         <action selector="gotoHome:" destination="-1" eventType="touchUpInside" id="wiK-jV-Blt"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="flashBtn" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOX-KM-dIV" userLabel="flashBtn">
+                    <rect key="frame" x="20" y="64" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="e4O-uQ-YPZ"/>
+                        <constraint firstAttribute="width" constant="35" id="zRs-k8-mqs"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="flashOff"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="wOX-KM-dIV" firstAttribute="top" secondItem="Weh-55-aHd" secondAttribute="top" constant="20" id="0i1-0W-mwc"/>
                 <constraint firstItem="Weh-55-aHd" firstAttribute="trailing" secondItem="0sa-SU-YwS" secondAttribute="trailing" constant="20" id="1rN-Hc-D00"/>
                 <constraint firstItem="mXl-P8-zfM" firstAttribute="centerY" secondItem="3jD-cg-vdX" secondAttribute="centerY" id="5vE-z8-Zhn"/>
                 <constraint firstItem="xEB-tG-zxT" firstAttribute="bottom" secondItem="mXl-P8-zfM" secondAttribute="bottom" constant="80" id="6zY-mf-qSl"/>
@@ -180,6 +190,7 @@
                 <constraint firstItem="BB8-Ih-E92" firstAttribute="centerX" secondItem="6PE-c6-Ep3" secondAttribute="centerX" id="D4r-vy-8Og"/>
                 <constraint firstItem="k5M-fj-dHY" firstAttribute="leading" secondItem="mXl-P8-zfM" secondAttribute="trailing" constant="8" id="EKm-ji-z8W"/>
                 <constraint firstItem="0sa-SU-YwS" firstAttribute="top" secondItem="Weh-55-aHd" secondAttribute="top" constant="20" id="HDR-mj-rW5"/>
+                <constraint firstItem="wOX-KM-dIV" firstAttribute="leading" secondItem="Weh-55-aHd" secondAttribute="leading" constant="20" id="Ihs-Zb-9Sw"/>
                 <constraint firstItem="mXl-P8-zfM" firstAttribute="centerX" secondItem="6PE-c6-Ep3" secondAttribute="centerX" id="Q7R-L0-4TQ"/>
                 <constraint firstItem="xEB-tG-zxT" firstAttribute="centerX" secondItem="6PE-c6-Ep3" secondAttribute="centerX" id="cUX-hW-IFq"/>
                 <constraint firstItem="mXl-P8-zfM" firstAttribute="centerY" secondItem="k5M-fj-dHY" secondAttribute="centerY" id="d26-lK-fdv"/>
@@ -198,6 +209,7 @@
     <resources>
         <image name="closeBtn" width="245" height="245"/>
         <image name="favBtn" width="245" height="245"/>
+        <image name="flashOff" width="165" height="150"/>
         <image name="home" width="144" height="144"/>
         <image name="linkBtn" width="245" height="245"/>
         <image name="pause" width="230" height="270"/>

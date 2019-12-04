@@ -29,6 +29,7 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
     @IBOutlet weak var videoControlsView: ARVideoControls!
     @IBOutlet weak var mainView: UIView!
     
+    @IBOutlet weak var flashBtn: UIButton!
     private var imageNode: SCNNode!
     private var videoHolder: SCNNode!
     private var imageAnchor: ARImageAnchor!
@@ -60,6 +61,8 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         self.videoControlsView.videoSlider.addGestureRecognizer(tapGestureRecognizerVP)
         
         self.videoControlsView.videoSlider.addTarget(self, action: #selector(sliderValChanged), for: UIControl.Event.valueChanged)
+        
+        self.videoControlsView.videoPlayingFlashBtn.addTarget(self, action: #selector(toggleFlash(_:)), for: UIControl.Event.touchDown)
     }
     
     @objc func sliderValChanged() {
@@ -148,7 +151,11 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
     }
     
     @IBAction func toggleFlash(_ sender: UIButton) {
-        self.cameraControls.toggleFlashFunc(senderBtn: sender)
+        
+        let flashimgName = self.cameraControls.toggleFlashFunc(senderBtn: self.flashBtn) ? "flashOn" : "flashOff"
+        DispatchQueue.main.async {
+            self.videoControlsView.videoPlayingFlashBtn.setBackgroundImage(UIImage(named: flashimgName), for: UIControl.State.normal)
+        }
     }
     
     @IBAction func goToHelpPage(_ sender: UIButton) {

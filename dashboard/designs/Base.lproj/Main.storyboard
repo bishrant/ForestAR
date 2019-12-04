@@ -313,6 +313,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="QDS-O7-vib"/>
                     <connections>
+                        <outlet property="flashBtn" destination="9WK-ed-Ue7" id="FVd-nK-QhY"/>
                         <outlet property="mainView" destination="Cv8-29-uIu" id="9R6-VH-rlV"/>
                         <outlet property="myWebView" destination="JX2-bp-seh" id="hfb-El-2DG"/>
                         <outlet property="overlayView" destination="Drk-ME-oet" id="Kgt-GW-EZD"/>

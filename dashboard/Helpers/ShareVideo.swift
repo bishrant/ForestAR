@@ -25,7 +25,7 @@ class ShareVideo {
         let appIcon = UIImage(named: "play")
         let tfsWebsite = URL(string: "https://tfsweb.tamu.edu")!
         let txForestInfoWebsite = URL(string: "https://texasforestinfo.tamu.edu")!
-        let objectsToShare = [appIcon!, textToShare, tfsWebsite, txForestInfoWebsite, bannerImage, appIcon!] as [Any]
+        let objectsToShare = [textToShare, tfsWebsite, txForestInfoWebsite, bannerImage] as [Any]
         return objectsToShare
     }
     

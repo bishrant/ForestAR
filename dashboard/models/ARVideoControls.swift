@@ -17,7 +17,8 @@ class ARVideoControls: UIView {
     @IBOutlet weak var currentTimeLbl: UILabel!
     @IBOutlet weak var playPauseBtn: UIButton!
     
-  
+    @IBOutlet weak var videoPlayingFlashBtn: UIButton!
+    
     private var showHideControlsTask: DispatchWorkItem?
     private var stringUtils: StringUtils = StringUtils()
     
@@ -28,11 +29,11 @@ class ARVideoControls: UIView {
     var totalTime: Double!
     private var isVideoFavorited: Bool = false
 
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setBackgroundImage(button: self.favBtn, imageName: "favBtn")
         self.commonInit()
+        
     }
     
     @IBAction func gotoHome(_ sender: Any) {
