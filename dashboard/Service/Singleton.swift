@@ -17,6 +17,8 @@ class Service {
     private var appUpdateSuccess: Bool = true;
     let arImageUtils: ARImageUtils = ARImageUtils()
     private var db: SqliteDatabase!
+    public var downloadComplete: Bool = false;
+    public var downloadError: Bool = false;
     static let sharedInstance: Service = {
         let instance = Service();
         instance.db = SqliteDatabase();
@@ -49,9 +51,13 @@ class Service {
                     instance.appUpdateSuccess = true;
                     instance.db.initializeDb();
                     instance.arImageSet = arImageUtils.loadedImagesFromDirectoryContents()
+                    instance.downloadComplete = true;
+                    instance.downloadError = false;
                 case let .failure(error):
                     print(error);
                     instance.appUpdateSuccess = false;
+                    instance.downloadComplete = false;
+                    instance.downloadError = true;
                 }
 //            }
         }

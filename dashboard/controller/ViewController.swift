@@ -22,6 +22,9 @@ class ViewController: UIViewController, MenuDelegate {
     
     @IBOutlet weak var tfsLogoWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var instructionConstraint: NSLayoutConstraint!
+   
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    var timer: Timer!;
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.showInitialWalkthrough()
@@ -46,6 +49,19 @@ class ViewController: UIViewController, MenuDelegate {
         
         tfsLogoWidthConstraint.constant =  view.frame.width > 500 ? 190 : 150
         
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.checkAppStatus), userInfo: nil, repeats: true)
+    }
+    
+    @objc
+    func checkAppStatus() {
+        
+        if Service.sharedInstance.downloadComplete {
+            // your code here
+            print("app ins loaded")
+            timer.invalidate();
+            loadingIndicator.isHidden = true
+        }
+        print("app still loading")
     }
     
     func adjustInstructionConstraint() {
