@@ -12,7 +12,7 @@ class FavouriteTableCell: UITableViewCell {
     var cellButton: FavouriteDeleteBtn!
     var cellLabel: UILabel!
 
-    init(frame: CGRect, title: String, id: Int, photo: String, video: String) {
+    init(frame: CGRect, title: String, id: Int, photo: String, video: String, folderName: String) {
         
         super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
 //        print(frame.width, "width of frame", self.frame.width)
@@ -20,7 +20,7 @@ class FavouriteTableCell: UITableViewCell {
         cellLabel.textColor = UIColor.red
         self.backgroundView?.backgroundColor = UIColor.white
         cellLabel.font = UIFont.systemFont(ofSize: 20)
-        cellButton = FavouriteDeleteBtn(name: title, id: id, photo: photo);
+        cellButton = FavouriteDeleteBtn(name: title, id: id, photo: photo, folderName: folderName);
         cellButton.frame =  CGRect(x: frame.width - 45, y: 10, width: 35, height: 25)
         cellButton.setImage(UIImage(named: "trash"), for: UIControl.State.normal)
         cellButton.imageView?.contentMode = .scaleAspectFit
@@ -41,10 +41,12 @@ class FavouriteDeleteBtn: UIButton {
     var name: String
     var id: Int
     var photo: String
-    required init(name: String, id: Int, photo: String) {
+    var folderName: String
+    required init(name: String, id: Int, photo: String, folderName: String) {
         self.name = name
         self.id = id
         self.photo = photo
+        self.folderName = folderName
         super.init(frame: .zero)
     }
     required init?(coder aDecoder: NSCoder) {
@@ -58,11 +60,13 @@ class FavouritesStruct {
     var link: String?
     var photo: String?
     var video: String?
-    init(id: Int, name: String?, link: String?,  photo: String?, video: String?) {
+    var folderName: String?
+    init(id: Int, name: String?, link: String?,  photo: String?, video: String?, folderName: String?) {
         self.id = id
         self.name = name
         self.link = link
         self.photo = photo
         self.video = video
+        self.folderName = folderName
     }
 }

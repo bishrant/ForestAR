@@ -9,7 +9,7 @@
 import UIKit
 import SQLite3
 
-var serverURL: String = "https://txfipdev.tfs.tamu.edu/ForestAR/"
+var serverURL: String = "https://txfipdev.tfs.tamu.edu/ForestAR/api/"
 
 class ViewController: UIViewController, MenuDelegate {
     internal var menuShowing = false
@@ -22,18 +22,13 @@ class ViewController: UIViewController, MenuDelegate {
     
     @IBOutlet weak var tfsLogoWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var instructionConstraint: NSLayoutConstraint!
-   
+    
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     var timer: Timer!;
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.showInitialWalkthrough()
-//        let service = ;
-        var t = Service.sharedInstance.getAppConfig();
-        print(t);
-//        if (!Service.sharedInstance.getAppUpdateSuccess()){
-//            print("Error updating app")
-//        }
+        //        self.showInitialWalkthrough()
+        Service.sharedInstance.triggerInit();
         TrailingConstraint.constant = self.view.frame.width;
         let gradientView = GradientView(frame: self.view.bounds)
         self.view.insertSubview(gradientView, at: 0)
@@ -54,10 +49,7 @@ class ViewController: UIViewController, MenuDelegate {
     
     @objc
     func checkAppStatus() {
-        
         if Service.sharedInstance.downloadComplete {
-            // your code here
-            print("app ins loaded")
             timer.invalidate();
             loadingIndicator.isHidden = true
         }
@@ -134,7 +126,7 @@ class ViewController: UIViewController, MenuDelegate {
     @IBAction func showARDashboard(_ sender: Any) {
         self.goToPage(storyboardName: "ARDashboard")
     }
-
+    
     private func toggleMenuFunc() {
         TrailingConstraint.constant = menuShowing ? self.sidemenu.frame.width : 0
         UIView.animate(withDuration: 0.2,
@@ -159,13 +151,12 @@ extension ViewController {
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if launchedBefore  {
             print("Not first launch.")
-
         } else {
             print("First launch, setting UserDefault.")
             let storyboard = UIStoryboard(name: "Tutorial", bundle: Bundle.main)
             let destination1 = storyboard.instantiateViewController(withIdentifier: "Tutorial") as! TutorialViewController
             navigationController?.pushViewController(destination1, animated: false)
-//            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            //            UserDefaults.standard.set(true, forKey: "launchedBefore")
         }
     }
 }

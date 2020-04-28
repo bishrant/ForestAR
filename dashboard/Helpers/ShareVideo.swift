@@ -22,7 +22,7 @@ class ShareVideo {
     public func getObjectsToShare(imageName: String, textToShare: String) -> [Any] {
         let imageUtils = ImageUtils()
         let bannerImage = imageUtils.getImageFromFileName(name: imageName)
-        let appIcon = UIImage(named: "play")
+//        let appIcon = UIImage(named: "play")
         let tfsWebsite = URL(string: "https://tfsweb.tamu.edu")!
         let txForestInfoWebsite = URL(string: "https://texasforestinfo.tamu.edu")!
         let objectsToShare = [textToShare, tfsWebsite, txForestInfoWebsite, bannerImage] as [Any]

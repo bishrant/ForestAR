@@ -11,16 +11,16 @@ import ARKit
 
 class Download {
     
-    func loadFileSync(url: URL, completion: @escaping (String?, Error?) -> Void) {
+    func loadFileSync(url: URL, folderName: String, completion: @escaping (String?, Error?) -> Void) {
         let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let destinationUrl = documentsUrl.appendingPathComponent(url.lastPathComponent)
+        let destinationUrl = documentsUrl.appendingPathComponent(folderName + "___" + url.lastPathComponent)
         
         if FileManager().fileExists(atPath: destinationUrl.path) {
 //            print("File already exists [\(destinationUrl.lastPathComponent)]" + destinationUrl.path, documentsUrl.path)
             completion(destinationUrl.path, nil)
         } else if let dataFromURL = NSData(contentsOf: url) {
             if dataFromURL.write(to: destinationUrl, atomically: true) {
-//                print("file saved [\(destinationUrl.path)]")
+                print("file saved [\(destinationUrl.path)]")
                 completion(destinationUrl.path, nil)
             } else {
                 print("error saving file")

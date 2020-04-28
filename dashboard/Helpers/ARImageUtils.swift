@@ -17,7 +17,7 @@ class ARImageUtils {
         var size: [Float] = [0, 0]
         if let images = appJSON?.images {
             for img in images {
-                if img.imageName == imageName {
+                if img.imageName == imageName.components(separatedBy: "___")[1] {
                     size = [img.physicalWidth, img.physicalHeight]
                 }
             }
@@ -66,7 +66,7 @@ class ARImageUtils {
                     //4. Create A Custom AR Reference Image With A Unique Name
                     let customARReferenceImage = ARReferenceImage(cgImage, orientation: CGImagePropertyOrientation.up, physicalWidth: CGFloat(imagePhysicalSize[0]))
                     
-                    customARReferenceImage.name = fileName.components(separatedBy: ".png")[0]
+                    customARReferenceImage.name = fileName //.components(separatedBy: ".png")[0]
                     
                     //4. Insert The Reference Image Into Our Set
                     customReferenceSet.insert(customARReferenceImage)

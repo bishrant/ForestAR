@@ -54,7 +54,7 @@ class JSONUtils {
         var imageItem: ARImageEntry!
         for img: ARImageEntry in json.images {
            // print(img.imageName)
-            if img.imageName  == (imageName + ".png") {
+            if img.imageName  == imageName.components(separatedBy: "___")[1] {
                 imageItem = img
                 break
             }

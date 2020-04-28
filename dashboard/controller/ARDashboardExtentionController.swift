@@ -74,14 +74,6 @@ extension ARDashboardController: MFMessageComposeViewControllerDelegate, MFMailC
          
          self.present(composeVC, animated: true, completion: nil)
      }
-     
-//     @IBAction func showShareSheet(_ sender: UIButton) {
-//            createShareActionBar(imageName: "tfsstar", description: "description")
-//     }
-//     
-     func showFb() {
-         print("show Fb")
-     }
     
     func shareFb() {
         let fbURLWeb: NSURL = NSURL(string: "https://www.facebook.com/sharer/sharer.php?u=http://texasforestinfo.tamu.edu/")!
@@ -131,21 +123,15 @@ extension ARDashboardController: MFMessageComposeViewControllerDelegate, MFMailC
         
         actionController.addAction(Action(ActionData(title: "  Message", image: UIImage(named: "email")!), style: .default, handler: { action in self.displayMessageInterface(message: message, imgName: imageName)}))
         actionController.addAction(Action(ActionData(title: "  Mail",  image: UIImage(named: "email")!), style: .default, handler: { action in self.displayMailInterface(message: message)}))
-        actionController.addAction(Action(ActionData(title: "  More"), style: .default, handler: { action in self.showShareSheet(actionController: actionController)}))
+        actionController.addAction(Action(ActionData(title: "  More"), style: .default, handler: { action in self.showShareSheet(actionController: actionController, message: message)}))
          present(actionController, animated: true, completion: nil)
         
     }
     
-    func showShareSheet(actionController: SpotifyActionController) {
-//        actionController.dismiss(completion: () -> Void) {
-//            print("The quick brown fox")
-////            completion()
-//        }
-//        actionController.dismiss(completion: print(4))
+    func showShareSheet(actionController: SpotifyActionController, message: String) {
         actionController.dismiss()
-        
-          let titleImg = UIImage(named: "tfsstar")!
-         let vc = UIActivityViewController(activityItems: ["Text to share some details", titleImg], applicationActivities: [])
+        let titleImg = UIImage(named: "tfsstar")!
+        let vc = UIActivityViewController(activityItems: [message, titleImg], applicationActivities: [])
          
         if let popoverController = vc.popoverPresentationController {
             popoverController.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
@@ -154,8 +140,4 @@ extension ARDashboardController: MFMessageComposeViewControllerDelegate, MFMailC
         }
         self.present(vc, animated: true, completion: nil)
      }
-    
-    func showShareUIFunc(completion: () -> ()) {
-        print(2)
-    }
 }

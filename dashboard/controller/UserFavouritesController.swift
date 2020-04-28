@@ -139,7 +139,7 @@ class UserFavouritesController: UIViewController, UIGestureRecognizerDelegate {
             v.removeFromSuperview()
         }
         for fav in self.favouritesList {
-            let myView = FavUIView(photoName: fav.photo!)
+            let myView = FavUIView(photoName: fav.photo!, folderName: fav.folderName!)
             
             stackView.addArrangedSubview(myView)
             myView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: 0).isActive = true
@@ -167,7 +167,7 @@ class UserFavouritesController: UIViewController, UIGestureRecognizerDelegate {
             let coverImageView = ScaledHeightImageView()
             coverImageView.frame.size.height = 100
             coverImageView.frame.size.width = 100
-            coverImageView.image = imageUtils.getImageFromFullFileName(name: fav.photo!)
+            coverImageView.image = imageUtils.getImageFromFullFileName(name: fav.photo!, folderName: fav.folderName!)
             coverImageView.contentMode = .scaleAspectFit // OR .scaleAspectFill
             coverImageView.clipsToBounds = true
             coverImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -184,7 +184,7 @@ class UserFavouritesController: UIViewController, UIGestureRecognizerDelegate {
             bodyText.lineBreakMode = .byWordWrapping
             horizonatlStackView.addArrangedSubview(bodyText)
             
-            let deleteBtn: UIButton = DeleteButton(index: fav.id, photoName: fav.photo!, inView: myView)
+            let deleteBtn: UIButton = DeleteButton(index: fav.id, photoName: fav.photo!, inView: myView, folderName: fav.folderName!)
             print(fav.photo!)
             deleteBtn.setTitle("Delete", for: .normal)
             deleteBtn.addTarget(self, action: #selector(deleteFav(_:)), for: UIControl.Event.touchUpInside)
@@ -221,6 +221,7 @@ class UserFavouritesController: UIViewController, UIGestureRecognizerDelegate {
         let storyboard = UIStoryboard(name: "VideoPlayer", bundle: Bundle.main)
         let destination1 = storyboard.instantiateViewController(withIdentifier: "VideoPlayer") as! VideoPlayerController
         destination1.photoName = pView.photoName!
+        destination1.folderName = pView.folderName!
         navigationController?.pushViewController(destination1, animated: true)
     }
     
@@ -231,7 +232,7 @@ class UserFavouritesController: UIViewController, UIGestureRecognizerDelegate {
             sender.inView.layer.opacity = 0
         }, completion: {finished in
             sender.inView.removeFromSuperview()
-            let deleteSuccess = db.deleteFavEntryByPhotoName(photoName: sender.photoName);
+            let deleteSuccess = db.deleteFavEntryByPhotoName(photoName: sender.photoName, folderName: sender.folderName);
             if deleteSuccess {
                 self.favouritesList = db.getFavourites();
                 self.getAllFavourites()
@@ -258,11 +259,13 @@ class UserFavouritesController: UIViewController, UIGestureRecognizerDelegate {
 class DeleteButton: UIButton {
     var index: Int
     var photoName: String
+    var folderName: String
     var inView: UIView
-    required init(index: Int, photoName: String, inView: UIView){
+    required init(index: Int, photoName: String, inView: UIView, folderName: String){
         self.index = index
         self.photoName = photoName
         self.inView = inView
+        self.folderName = folderName
         super.init(frame: .zero)
         backgroundColor = .red
         translatesAutoresizingMaskIntoConstraints = false
@@ -275,8 +278,10 @@ class DeleteButton: UIButton {
 
 class FavUIView: UIView {
     var photoName: String?
-    init(photoName: String) {
+    var folderName: String?
+    init(photoName: String, folderName: String) {
         self.photoName = photoName
+        self.folderName = folderName
         super.init(frame: CGRect.zero)
         backgroundColor = .white
     }

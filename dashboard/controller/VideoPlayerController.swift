@@ -20,7 +20,8 @@ class VideoPlayerController: UIViewController, WebViewDelegate {
     @IBOutlet weak var webViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var myWebView: MyWebView!
     
-    var photoName: String = "fpd.png"
+    var photoName: String!
+    var folderName: String!
     var player: AVPlayer = AVPlayer()
     var playerLayer: AVPlayerLayer!
     var avpController = AVPlayerViewController()
@@ -58,7 +59,7 @@ class VideoPlayerController: UIViewController, WebViewDelegate {
     
     @IBAction func openWebPage(_ sender: Any) {
         self.customVideoPlayer.pauseVideo()
-        let im = self.photoName.components(separatedBy: ".png")[0]
+        let im = self.folderName + "___" + self.photoName
          let currentJson: ARImageEntry = self.jsonUtils.getImageDetailsFromJSON(json: Service.sharedInstance.appConfiguration, imageName: im)
          self.myWebView.loadUrl(url: currentJson.url, title: currentJson.title)
          UIView.animate(withDuration: 1.0,

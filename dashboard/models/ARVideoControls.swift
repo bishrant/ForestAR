@@ -131,7 +131,8 @@ class ARVideoControls: UIView {
     func checkIfVideoIsFavourited(imageName: String) {
         var db: SqliteDatabase!
         db = SqliteDatabase()
-        if(db.getFavouritesCount(photoName: imageName + ".png") > 0) {
+        let imgSplit = imageName.components(separatedBy: "___")
+        if(db.getFavouritesCount(photoName: imgSplit[1], folderName: imgSplit[0]) > 0) {
             self.isVideoFavorited = true
             self.setBackgroundImage(button: self.favBtn, imageName: "favBtnActive")
         }

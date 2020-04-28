@@ -27,8 +27,8 @@ struct Service0 {
     public var appConfiguration: AppConfigJSON!
     private var db: SqliteDatabase!
     
-
-       
+    
+    
     func getAppUpdateSuccess() -> Bool {
         return appUpdateSuccess
     }
@@ -39,7 +39,7 @@ struct Service0 {
     
     func getAppConfiguration(finished: @escaping (_: AppConfigJSON?) -> Void){
         let session = URLSession.shared;
-        let url = URL(string:"https://txfipdev.tfs.tamu.edu/forestar/api/getimages")!;
+        let url = URL(string: serverURL + "getimages")!;
         let task = session.dataTask(with: url, completionHandler: {
             data, response, error in
             if error != nil {finished(nil); return; }
@@ -57,30 +57,30 @@ struct Service0 {
         self.appUpdateSuccess = appConfig == nil;
         
     }
-//    mutating func runInitializer() {
-//          self.getAppConfiguration(finished: {
-//              data in
-//              self.appUpdateSuccess = data == nil;
-//          });
-//    }
+    //    mutating func runInitializer() {
+    //          self.getAppConfiguration(finished: {
+    //              data in
+    //              self.appUpdateSuccess = data == nil;
+    //          });
+    //    }
     
     private init() {
         print("initializing singleton");
-
+        
         self.appUpdate = AppUpdate();
-        DataService();
-        
-
+//        DataService();
         
         
-//        runInitializer();
-//        self.appUpdateSuccess = self.appUpdate.checkAppUpdate()
-//        let arImageUtils: ARImageUtils = ARImageUtils()
-//        self.db = SqliteDatabase()
-//        db.initializeDb()
-//        self.arImageSet = arImageUtils.loadedImagesFromDirectoryContents()
-//        self.appVersion = self.appVersion + 1
-//        self.appConfiguration = self.appUpdate.getAppJSON()
+        
+        
+        //        runInitializer();
+        //        self.appUpdateSuccess = self.appUpdate.checkAppUpdate()
+        //        let arImageUtils: ARImageUtils = ARImageUtils()
+        //        self.db = SqliteDatabase()
+        //        db.initializeDb()
+        //        self.arImageSet = arImageUtils.loadedImagesFromDirectoryContents()
+        //        self.appVersion = self.appVersion + 1
+        //        self.appConfiguration = self.appUpdate.getAppJSON()
     }
 }
 
@@ -93,17 +93,16 @@ class DataService {
         } catch  {
             appConfig = nil;
         }
-//        print(appConfig);
         return appConfig;
     }
-
+    
     enum NetworkError: Error {
         case url
         case server
     }
-
+    
     func getConfigurationFromServer() -> Result<AppConfigJSON?, NetworkError> {
-        let path = "https://txfipdev.tfs.tamu.edu/forestar/api/getimages";
+        let path = serverURL+"getimages";
         guard let url = URL(string: path) else {
             return .failure(.url)
         }
@@ -134,9 +133,6 @@ class DataService {
             DispatchQueue.main.async {
                 switch result {
                 case let .success(data):
-                    print(data);
-                  
-                    
                     self.appService?.appConfiguration = data!;
                 case let .failure(error):
                     print(error);
@@ -144,6 +140,6 @@ class DataService {
             }
         }
     }
-
-
+    
+    
 }
