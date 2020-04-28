@@ -25,7 +25,7 @@ class ViewController: UIViewController, MenuDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.showInitialWalkthrough()
-        
+//        let service = ;
         if (!Service.sharedInstance.getAppUpdateSuccess()){
             print("Error updating app")
         }

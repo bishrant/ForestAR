@@ -1,0 +1,7 @@
+${PODS_ROOT}/Target Support Files/Pods-dashboard/Pods-dashboard-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Auk/Auk.framework
+${BUILT_PRODUCTS_DIR}/Elephant/Elephant.framework
+${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework
+${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework
+${BUILT_PRODUCTS_DIR}/XLActionController/XLActionController.framework
+${BUILT_PRODUCTS_DIR}/moa/moa.framework

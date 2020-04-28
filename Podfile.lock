@@ -1,0 +1,44 @@
+PODS:
+  - Auk (11.0.0):
+    - moa
+  - Elephant (0.1.0)
+  - moa (12.0.0)
+  - SQLite.swift (0.12.2):
+    - SQLite.swift/standard (= 0.12.2)
+  - SQLite.swift/standard (0.12.2)
+  - SwiftyGif (5.2.0)
+  - XLActionController (5.0.2):
+    - XLActionController/Core (= 5.0.2)
+  - XLActionController/Core (5.0.2)
+  - XLActionController/Spotify (5.0.2):
+    - XLActionController/Core
+
+DEPENDENCIES:
+  - Auk (~> 11.0)
+  - Elephant
+  - moa (~> 12.0)
+  - SQLite.swift (~> 0.12.0)
+  - SwiftyGif
+  - XLActionController
+  - XLActionController/Spotify
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Auk
+    - Elephant
+    - moa
+    - SQLite.swift
+    - SwiftyGif
+    - XLActionController
+
+SPEC CHECKSUMS:
+  Auk: 7cc533252e2caaaa36b2be19c0b799f6057c365a
+  Elephant: 66d92a5e621da1461fe44189dcbfdcabbd7358c4
+  moa: e2346f12de6c65bbca4d103950d45db9e46785ef
+  SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
+  SwiftyGif: b85c6b33a9411859d9e1db998b6a8214aea942df
+  XLActionController: f1f2226d2c6629db197d4a41f2da907085a4cb9d
+
+PODFILE CHECKSUM: 26afc3e0dad7b4e3a9a5c16b99d40b55703f2948
+
+COCOAPODS: 1.8.3

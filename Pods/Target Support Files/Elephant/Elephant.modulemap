@@ -1,0 +1,6 @@
+framework module Elephant {
+  umbrella header "Elephant-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -59,7 +59,7 @@ class VideoPlayerController: UIViewController, WebViewDelegate {
     @IBAction func openWebPage(_ sender: Any) {
         self.customVideoPlayer.pauseVideo()
         let im = self.photoName.components(separatedBy: ".png")[0]
-         let currentJson: JSONUtils.imagesEntry = self.jsonUtils.getImageDetailsFromJSON(json: Service.sharedInstance.appConfiguration, imageName: im)
+         let currentJson: ARImageEntry = self.jsonUtils.getImageDetailsFromJSON(json: Service.sharedInstance.appConfiguration, imageName: im)
          self.myWebView.loadUrl(url: currentJson.url, title: currentJson.title)
          UIView.animate(withDuration: 1.0,
                        delay: 0.0,

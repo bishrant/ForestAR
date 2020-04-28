@@ -168,28 +168,36 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
     func openShareUI() {
         self.playerLayer.player!.pause()
         self.videoControlsView.pauseFunc()
-        let shareVideoCls = ShareVideo(imageName:self.imageAnchor.referenceImage.name!, parentView: self.view )
-        let activityVC: UIActivityViewController = shareVideoCls.createShareUI()
-        
-        activityVC.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
-            if !completed {
-                self.animationUtils.showWithAnimation(myView: self.videoControlsView, delay: 0.4)
-                return
-            }
-        }
-        
-        if let popoverController = activityVC.popoverPresentationController {
-            popoverController.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
-            popoverController.sourceView = self.view
-            popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
-        }
-        self.present(activityVC, animated: true, completion: nil)
+        let sharingMsg = "Check out Forest AR. An augumented reality app developed by the Texas A&M Forest Service. #TFS #ForestAR"
+        createShareActionBar(imageName: self.imageAnchor.referenceImage.name!, message: sharingMsg)
+//        let shareVideoCls = ShareVideo(imageName:self.imageAnchor.referenceImage.name!, parentView: self.view )
+//        let activityVC: UIActivityViewController = shareVideoCls.createShareUI()
+//
+//        activityVC.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+//            if !completed {
+//                self.animationUtils.showWithAnimation(myView: self.videoControlsView, delay: 0.4)
+//                return
+//            }
+//        }
+//
+//        if let popoverController = activityVC.popoverPresentationController {
+//            popoverController.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
+//            popoverController.sourceView = self.view
+//            popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+//        }
+//        self.present(activityVC, animated: true, completion: nil)
+    }
+    
+    func openOldShareSheet() {
+        let titleImg = UIImage(named: "tfsstar")!
+                let vc = UIActivityViewController(activityItems: ["Text to share some details", titleImg], applicationActivities: [])
+               self.present(vc, animated: true, completion: nil)
     }
     
     func openLink() {
         self.playerLayer.player!.pause()
         self.videoControlsView.pauseFunc()
-        let currentJson: JSONUtils.imagesEntry = self.jsonUtils.getImageDetailsFromJSON(json: Service.sharedInstance.appConfiguration, imageName: self.imageAnchor!.referenceImage.name!)
+        let currentJson: ARImageEntry = self.jsonUtils.getImageDetailsFromJSON(json: Service.sharedInstance.appConfiguration, imageName: self.imageAnchor!.referenceImage.name!)
         self.myWebView.loadUrl(url: currentJson.url, title: currentJson.title)
         UIView.animate(withDuration: 2.0,
                        delay: 0.0,
@@ -326,7 +334,7 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         var db: SqliteDatabase!
         db = SqliteDatabase()
         let imageName = self.imageAnchor.referenceImage.name
-        let currentJson: JSONUtils.imagesEntry = self.jsonUtils.getImageDetailsFromJSON(json: Service.sharedInstance.appConfiguration, imageName: imageName!)
+        let currentJson: ARImageEntry = self.jsonUtils.getImageDetailsFromJSON(json: Service.sharedInstance.appConfiguration, imageName: imageName!)
         let toggleSuccess = db.toggleFavEntry(n: currentJson.title, l: currentJson.url, p: currentJson.imageName, v: currentJson.videoLink)
         if (!toggleSuccess) {
             print("Error")
