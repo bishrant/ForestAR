@@ -16,6 +16,7 @@
 		85103783237A1A4F00741F3F /* MyMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85103782237A1A4F00741F3F /* MyMenu.xib */; };
 		85103785237A1BD600741F3F /* MyMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85103784237A1BD600741F3F /* MyMenu.swift */; };
 		8516F89424577D8C008F886E /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516F89324577D8C008F886E /* AppConfig.swift */; };
+		8516F89624588F7B008F886E /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516F89524588F7B008F886E /* Singleton.swift */; };
 		851CA502236B1EF500C28D4B /* UserFavourites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 851CA501236B1EF500C28D4B /* UserFavourites.storyboard */; };
 		851CA504236B1F2A00C28D4B /* UserFavouritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851CA503236B1F2A00C28D4B /* UserFavouritesController.swift */; };
 		851CA506236B72F000C28D4B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851CA505236B72F000C28D4B /* Color.swift */; };
@@ -82,6 +83,7 @@
 		85103782237A1A4F00741F3F /* MyMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMenu.xib; sourceTree = "<group>"; };
 		85103784237A1BD600741F3F /* MyMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenu.swift; sourceTree = "<group>"; };
 		8516F89324577D8C008F886E /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		8516F89524588F7B008F886E /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		851CA501236B1EF500C28D4B /* UserFavourites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserFavourites.storyboard; sourceTree = "<group>"; };
 		851CA503236B1F2A00C28D4B /* UserFavouritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavouritesController.swift; sourceTree = "<group>"; };
 		851CA505236B72F000C28D4B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 			children = (
 				8558B3CA2360A05B00DA6119 /* AppUpdate.swift */,
 				8558B4572368E1F400DA6119 /* Service.swift */,
+				8516F89524588F7B008F886E /* Singleton.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				8558B3CB2360A05B00DA6119 /* JSONUtils.swift in Sources */,
 				85D0D1A723995B5F00DB6404 /* Spotify.swift in Sources */,
 				855637C8238332AB00F399CF /* TutorialViewController.swift in Sources */,
+				8516F89624588F7B008F886E /* Singleton.swift in Sources */,
 				8558B4532368C79A00DA6119 /* CameraControls.swift in Sources */,
 				855637F62384448600F399CF /* HelpViewController.swift in Sources */,
 				851CA506236B72F000C28D4B /* Color.swift in Sources */,

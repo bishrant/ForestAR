@@ -8,11 +8,19 @@
 
 import Foundation
 import ARKit
-
-struct Service {
+struct AppService {
+    static let sharedAppService: AppService = AppService();
+    public var config: AppConfigJSON!;
+    private init() {}
+    
+    public mutating func SetAppConfig(config: AppConfigJSON) {
+        self.config = config;
+    }
+}
+struct Service0 {
     private var appVersion: Int = 10
     private var appUpdate: AppUpdate!
-    static let sharedInstance = Service();
+    static let sharedInstance = Service0();
     static let dataService = DataService();
     private var appUpdateSuccess: Bool = true;
     private var arImageSet: Set<ARReferenceImage>!
@@ -60,8 +68,8 @@ struct Service {
         print("initializing singleton");
 
         self.appUpdate = AppUpdate();
-//        DataService();
-
+        DataService();
+        
 
         
         
@@ -78,18 +86,64 @@ struct Service {
 
 class DataService {
     var appService: Service!;
+    func parseJSON(jsonStr: Data) -> AppConfigJSON! {
+        var appConfig: AppConfigJSON!;
+        do {
+            appConfig = try JSONDecoder().decode(AppConfigJSON.self, from: jsonStr);
+        } catch  {
+            appConfig = nil;
+        }
+//        print(appConfig);
+        return appConfig;
+    }
+
+    enum NetworkError: Error {
+        case url
+        case server
+    }
+
+    func getConfigurationFromServer() -> Result<AppConfigJSON?, NetworkError> {
+        let path = "https://txfipdev.tfs.tamu.edu/forestar/api/getimages";
+        guard let url = URL(string: path) else {
+            return .failure(.url)
+        }
+        
+        var result: Result<AppConfigJSON?, NetworkError>!;
+        
+        let semaphore = DispatchSemaphore(value: 0);
+        
+        URLSession.shared.dataTask(with: url) {
+            (data, _, _) in
+            if let data = data {
+                print("got dataa", data);
+                let jsonData = self.parseJSON(jsonStr: data);
+                result = .success(jsonData)
+            } else {
+                result = .failure(.server)
+            }
+            semaphore.signal();
+        }.resume();
+        
+        _ = semaphore.wait(timeout: .distantFuture)
+        return result;
+    }
+    
     init() {
         DispatchQueue.global(qos: .utility).async {
-            let result = AppUpdate().getConfigurationFromServer();
+            let result = self.getConfigurationFromServer();
             DispatchQueue.main.async {
                 switch result {
                 case let .success(data):
-                    self.appService.appConfiguration = data;
+                    print(data);
+                  
+                    
+                    self.appService?.appConfiguration = data!;
                 case let .failure(error):
                     print(error);
                 }
             }
         }
     }
+
 
 }

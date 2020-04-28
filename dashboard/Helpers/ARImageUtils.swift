@@ -13,7 +13,7 @@ import ARKit
 class ARImageUtils {
     
     func getPhysicalSize(imageName: String) -> [Float] {
-        let appJSON = AppUpdate().getAppJSON()
+        let appJSON = Service.sharedInstance.getAppConfig()
         var size: [Float] = [0, 0]
         if let images = appJSON?.images {
             for img in images {

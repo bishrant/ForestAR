@@ -72,7 +72,7 @@ class AppUpdate {
     
     func getAppJSON() -> AppConfigJSON! {
         let jsonUtils = JSONUtils()
-        return jsonUtils.parseJSON(filename: "ForestARConfig", ext: "json")
+        return jsonUtils.parseJSON2(filename: "ForestARConfig", ext: "json")
     }
     
     func checkIfAppIsInstalled(name: String) -> Bool {
@@ -100,44 +100,7 @@ func getStuffFromServer(finished: @escaping (_ completion: AppConfigJSON?)->()) 
     return task;
 }
 
-func parseJSON(jsonStr: Data) -> AppConfigJSON! {
-    var appConfig: AppConfigJSON!;
-    do {
-        appConfig = try JSONDecoder().decode(AppConfigJSON.self, from: jsonStr);
-    } catch  {
-        appConfig = nil;
-    }
-    return appConfig;
-}
 
-enum NetworkError: Error {
-    case url
-    case server
-}
-
-func getConfigurationFromServer() -> Result<AppConfigJSON?, NetworkError> {
-    let path = "https://txfipdev.tfs.tamu.edu/forestar/api/getimages";
-    guard let url = URL(string: path) else {
-        return .failure(.url)
-    }
-    
-    var result: Result<AppConfigJSON?, NetworkError>!;
-    
-    let semaphore = DispatchSemaphore(value: 0);
-    
-    URLSession.shared.dataTask(with: url) {
-        (data, _, _) in
-        if let data = data {
-            result = .success(self.parseJSON(jsonStr: data))
-        } else {
-            result = .failure(.server)
-        }
-        semaphore.signal();
-    }.resume();
-    
-    _ = semaphore.wait(timeout: .distantFuture)
-    return result;
-}
 
 
 

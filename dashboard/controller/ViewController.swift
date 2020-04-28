@@ -26,9 +26,11 @@ class ViewController: UIViewController, MenuDelegate {
         super.viewDidLoad()
 //        self.showInitialWalkthrough()
 //        let service = ;
-        if (!Service.sharedInstance.getAppUpdateSuccess()){
-            print("Error updating app")
-        }
+        var t = Service.sharedInstance.getAppConfig();
+        print(t);
+//        if (!Service.sharedInstance.getAppUpdateSuccess()){
+//            print("Error updating app")
+//        }
         TrailingConstraint.constant = self.view.frame.width;
         let gradientView = GradientView(frame: self.view.bounds)
         self.view.insertSubview(gradientView, at: 0)

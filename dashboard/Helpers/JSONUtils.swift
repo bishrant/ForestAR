@@ -35,7 +35,7 @@ class JSONUtils {
 //        var lastUpdate:String
 //        var images: [imagesEntry]
 //    }
-    func parseJSON(filename: String, ext: String) -> AppConfigJSON? {
+    func parseJSON2(filename: String, ext: String) -> AppConfigJSON? {
         let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let fullFileName = documentsUrl.appendingPathComponent(filename + "." + ext)
 

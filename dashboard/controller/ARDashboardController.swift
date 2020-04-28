@@ -87,6 +87,7 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
     }
     
     func initSceneView() {
+        print("init sccene view")
         self.sceneViews = ARSCNView()
         self.sceneViews.frame = self.mainView.frame
         self.sceneViews.layer.zPosition = 50
@@ -219,7 +220,7 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         let imageName = imageAnchors.referenceImage.name
         let currentImgJson = self.jsonUtils.getImageDetailsFromJSON(json: Service.sharedInstance.appConfiguration, imageName: imageName!)
         //        print(UIDevice().identifierForVendor?.uuidString ?? "", "Device name")
-        self.setupVideo(videoURL: serverURL + currentImgJson.videoLink)
+        self.setupVideo(videoURL: serverURL + "api/public/" + currentImgJson.folderName + "/" + currentImgJson.videoLink)
         self.isVideoLoaded = true
     }
        
