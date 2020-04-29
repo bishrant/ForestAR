@@ -23,11 +23,13 @@ class ViewController: UIViewController, MenuDelegate {
     @IBOutlet weak var tfsLogoWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var instructionConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var startScanningBtn: UIButton!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     var timer: Timer!;
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        self.showInitialWalkthrough()
+        self.startScanningBtn.isEnabled = false;
+        self.showInitialWalkthrough()
         Service.sharedInstance.triggerInit();
         TrailingConstraint.constant = self.view.frame.width;
         let gradientView = GradientView(frame: self.view.bounds)
@@ -52,8 +54,10 @@ class ViewController: UIViewController, MenuDelegate {
         if Service.sharedInstance.downloadComplete {
             timer.invalidate();
             loadingIndicator.isHidden = true
+            self.startScanningBtn.isEnabled = true;
+        } else {
+            self.startScanningBtn.isEnabled = false;
         }
-        print("app still loading")
     }
     
     func adjustInstructionConstraint() {
@@ -156,7 +160,7 @@ extension ViewController {
             let storyboard = UIStoryboard(name: "Tutorial", bundle: Bundle.main)
             let destination1 = storyboard.instantiateViewController(withIdentifier: "Tutorial") as! TutorialViewController
             navigationController?.pushViewController(destination1, animated: false)
-            //            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
         }
     }
 }

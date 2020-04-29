@@ -12,9 +12,10 @@ import Auk
 class HelpViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var pictureLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
-    private let urls: String = Service.sharedInstance.serverURL
+    private var urls: String = Service.sharedInstance.serverURL
     var slides = [["label": "Welcome !, Press the camera icon", "image": "HelpImages/Help1.jpg"]]
     func initSlides() {
+        self.urls = self.urls+"/public/"
         self.slides = [["label": "Welcome to Forest AR!, Press the camera icon on the home screen to get started.", "image": self.urls + "HelpImages/Help1.jpg"],
                        
                        ["label": "Scan your anchor image just by pointing your camera at it.", "image": self.urls + "HelpImages/Help3.jpg"],

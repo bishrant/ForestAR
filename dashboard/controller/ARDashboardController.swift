@@ -41,7 +41,6 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
     private var playerLayer: AVPlayerLayer = AVPlayerLayer()
     private var videoUtils: VideoUtils = VideoUtils()
     private var imageUtils: ImageUtils = ImageUtils()
-    private var appUpdate: AppUpdate = AppUpdate()
     private var animationUtils: AnimationUtils = AnimationUtils()
     private var cameraControls: CameraControls = CameraControls()
     private var jsonUtils: JSONUtils = JSONUtils()

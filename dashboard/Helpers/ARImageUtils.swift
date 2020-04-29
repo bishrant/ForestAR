@@ -47,7 +47,7 @@ class ARImageUtils {
         do {
             let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsDirectory, includingPropertiesForKeys: nil, options: [])
             
-            let filteredContents = directoryContents.filter{ $0.pathExtension == "png" }
+            let filteredContents = directoryContents.filter{ $0.pathExtension == "png" || $0.pathExtension == "jpg" || $0.pathExtension == "jpeg" }
             
             filteredContents.forEach { (url) in
                 
@@ -66,7 +66,7 @@ class ARImageUtils {
                     //4. Create A Custom AR Reference Image With A Unique Name
                     let customARReferenceImage = ARReferenceImage(cgImage, orientation: CGImagePropertyOrientation.up, physicalWidth: CGFloat(imagePhysicalSize[0]))
                     
-                    customARReferenceImage.name = fileName //.components(separatedBy: ".png")[0]
+                    customARReferenceImage.name = fileName
                     
                     //4. Insert The Reference Image Into Our Set
                     customReferenceSet.insert(customARReferenceImage)

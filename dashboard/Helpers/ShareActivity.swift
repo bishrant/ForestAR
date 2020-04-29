@@ -19,7 +19,6 @@ class ShareActivity: UIActivity {
     private var platform: String
     private var message: String
     private var imageName: String
-    private var appUpdate: AppUpdate = AppUpdate()
     
     init(platform: String, message: String, imageName: String) {
         self.imageName = imageName
@@ -63,7 +62,7 @@ class ShareActivity: UIActivity {
             UIImageWriteToSavedPhotosAlbum(instaImage, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
             break
         case "twitter":
-            let appInstalled = appUpdate.checkIfAppIsInstalled(name: "twitter")
+            let appInstalled = Service.sharedInstance.checkIfAppIsInstalled(name: "twitter")
             self.message = self.message + " @TXForestService"
             let prefix = appInstalled ? "twitter://post?message=" : "https://twitter.com/intent/tweet?text="
             let fullUrl = prefix + self.message.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.alphanumerics)!

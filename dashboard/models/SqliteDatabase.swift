@@ -27,6 +27,19 @@ class SqliteDatabase {
         self.createFavTableIfNotExists()
     }
     
+    func getDetailsUsingImageName(imageName: String) -> ARImageEntry {
+        let config: AppConfigJSON = Service.sharedInstance.getAppConfig()
+        let imgSplit = imageName.components(separatedBy: "___")
+        var imgData: ARImageEntry!
+        for img in config.images {
+            if (img.folderName == imgSplit[0] && img.imageName == imgSplit[1]) {
+                imgData = img
+                break
+            }
+        }
+        return imgData
+    }
+    
     func createFavTableIfNotExists() {
         if sqlite3_exec(self.db, "CREATE TABLE IF NOT EXISTS Favourites (idpk INTEGER PRIMARY KEY AUTOINCREMENT, id INTEGER, title TEXT, imageName TEXT, url TEXT, videoLink TEXT, folderName TEXT, sharingText TEXT, description TEXT)", nil, nil, nil) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(self.db)!)

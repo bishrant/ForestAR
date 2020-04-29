@@ -14,9 +14,10 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var pictureLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
-    private let urls: String = Service.sharedInstance.serverURL
+    private var urls = Service.sharedInstance.serverURL
     var slides = [["label": "Welcome !, Press the camera icon", "image": "HelpImages/Help1.jpg"]]
     func initSlides() {
+        self.urls = self.urls+"/public/"
         self.slides =
             [["label": "Welcome to Forest AR, Let's get you started", "image": self.urls + "HelpImages/Help1.jpg"],
              ["label": "Use menu to access favorites, quick help and contact TFS", "image": self.urls + "HelpImages/Help2.jpg"],

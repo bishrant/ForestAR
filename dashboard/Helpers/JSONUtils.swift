@@ -9,32 +9,7 @@
 import Foundation
 
 class JSONUtils {
-    
-//    struct imagesEntry: Decodable {
-//        var id: Int
-//        var title: String
-//        var imageName: String
-//        var url: String
-//        var videoLink: String
-//        var physicalHeight: Float
-//        var physicalWidth: Float
-//        var updatedDate: String
-//        var sharingText: String
-//        var description: String
-//        var folderName: String
-//        var userEmail: String
-//    }
-//    struct ForestARConfig: Codable {
-//        var version:String
-//        var lastUpdate:String
-//        var images: [imagesEntry]
-//    }
-    
-//    struct ForestARConfigJSON: Decodable {
-//        var version:String
-//        var lastUpdate:String
-//        var images: [imagesEntry]
-//    }
+
     func parseJSON2(filename: String, ext: String) -> AppConfigJSON? {
         let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let fullFileName = documentsUrl.appendingPathComponent(filename + "." + ext)

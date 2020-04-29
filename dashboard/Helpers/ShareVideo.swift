@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import ARKit
+import LinkPresentation
 
 class ShareVideo {
     private var imageName: String
@@ -16,7 +17,7 @@ class ShareVideo {
     private var videoLink: String
     private var sharingText: String
     private var parentView: UIView
-    private var appUpdate: AppUpdate = AppUpdate()
+
     init(imageName: String, folderName: String, videoLink: String, sharingText: String, parentView: UIView) {
         self.imageName = imageName
         self.parentView = parentView
@@ -25,13 +26,14 @@ class ShareVideo {
         self.folderName = folderName
     }
     
+
     public func getObjectsToShare(imageName: String, textToShare: String) -> [Any] {
         let imageUtils = ImageUtils()
         let bannerImage = imageUtils.getImageFromFileNameOriginal(name: imageName, folderName: self.folderName)
 //        let appIcon = UIImage(named: "play")
         let tfsWebsite = URL(string: "https://tfsweb.tamu.edu")!
         let txForestInfoWebsite = URL(string: "https://texasforestinfo.tamu.edu")!
-        let objectsToShare = [bannerImage, textToShare, tfsWebsite, txForestInfoWebsite, bannerImage] as [Any]
+        let objectsToShare = [bannerImage, textToShare, tfsWebsite, txForestInfoWebsite] as [Any]
         return objectsToShare
     }
     
@@ -43,7 +45,7 @@ class ShareVideo {
         
         var activities:[ShareActivity] = [ShareActivity(platform:"facebook", message: textToShare, imageName: self.imageName),
                                           ShareActivity(platform:"twitter", message: textToShare, imageName: self.imageName)]
-        if appUpdate.checkIfAppIsInstalled(name: "instagram") {
+        if Service.sharedInstance.checkIfAppIsInstalled(name: "instagram") {
             activities.append(ShareActivity(platform:"instagram", message: textToShare, imageName: self.imageName))
         }
         let activityVC = UIActivityViewController(activityItems: activitiesItems, applicationActivities: activities)

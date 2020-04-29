@@ -166,6 +166,7 @@
                         <outlet property="instructionConstraint" destination="u4y-Vf-BEu" id="LSp-Qq-by1"/>
                         <outlet property="loadingIndicator" destination="fEL-gY-jRP" id="YCJ-Nh-AK1"/>
                         <outlet property="sidemenu" destination="Anw-kg-kub" id="ErU-Y1-DDy"/>
+                        <outlet property="startScanningBtn" destination="8wi-j7-Mfo" id="3Sh-MB-qkD"/>
                         <outlet property="tfsLogo" destination="TFL-24-I33" id="GxQ-v7-MEm"/>
                         <outlet property="tfsLogoWidthConstraint" destination="p6Q-6D-KwT" id="rbC-5V-ace"/>
                     </connections>

@@ -48,7 +48,6 @@
 		8558B3CB2360A05B00DA6119 /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3C72360A05B00DA6119 /* JSONUtils.swift */; };
 		8558B3CC2360A05B00DA6119 /* DownloadUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3C82360A05B00DA6119 /* DownloadUtils.swift */; };
 		8558B3CD2360A05B00DA6119 /* ARImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3C92360A05B00DA6119 /* ARImageUtils.swift */; };
-		8558B3CE2360A05B00DA6119 /* AppUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B3CA2360A05B00DA6119 /* AppUpdate.swift */; };
 		8558B3F82361DDC400DA6119 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8558B3F72361DDC300DA6119 /* GoogleService-Info.plist */; };
 		8558B425236340F000DA6119 /* VideoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B424236340F000DA6119 /* VideoUtils.swift */; };
 		8558B4272363959600DA6119 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B4262363959600DA6119 /* CustomSlider.swift */; };
@@ -57,7 +56,6 @@
 		8558B451236885BB00DA6119 /* ShareActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B450236885BB00DA6119 /* ShareActivity.swift */; };
 		8558B4532368C79A00DA6119 /* CameraControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B4522368C79A00DA6119 /* CameraControls.swift */; };
 		8558B4552368CE7500DA6119 /* AnimationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B4542368CE7500DA6119 /* AnimationUtils.swift */; };
-		8558B4582368E1F400DA6119 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B4572368E1F400DA6119 /* Service.swift */; };
 		857C87FB235A0C18005724C4 /* TreeID.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 857C87FA235A0C18005724C4 /* TreeID.sqlite */; };
 		85C83009237B430F00A78EF7 /* MenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C83008237B430F00A78EF7 /* MenuDelegate.swift */; };
 		85D0D1A22399588700DB6404 /* ARDashboardExtentionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D0D1A12399588700DB6404 /* ARDashboardExtentionController.swift */; };
@@ -118,7 +116,6 @@
 		8558B3C72360A05B00DA6119 /* JSONUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONUtils.swift; sourceTree = "<group>"; };
 		8558B3C82360A05B00DA6119 /* DownloadUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadUtils.swift; sourceTree = "<group>"; };
 		8558B3C92360A05B00DA6119 /* ARImageUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARImageUtils.swift; sourceTree = "<group>"; };
-		8558B3CA2360A05B00DA6119 /* AppUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUpdate.swift; sourceTree = "<group>"; };
 		8558B3F72361DDC300DA6119 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8558B3F923622BD000DA6119 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8558B424236340F000DA6119 /* VideoUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUtils.swift; sourceTree = "<group>"; };
@@ -128,7 +125,6 @@
 		8558B450236885BB00DA6119 /* ShareActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareActivity.swift; sourceTree = "<group>"; };
 		8558B4522368C79A00DA6119 /* CameraControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraControls.swift; sourceTree = "<group>"; };
 		8558B4542368CE7500DA6119 /* AnimationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationUtils.swift; sourceTree = "<group>"; };
-		8558B4572368E1F400DA6119 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		857C87FA235A0C18005724C4 /* TreeID.sqlite */ = {isa = PBXFileReference; lastKnownFileType = text; path = TreeID.sqlite; sourceTree = "<group>"; };
 		85C83008237B430F00A78EF7 /* MenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDelegate.swift; sourceTree = "<group>"; };
 		85D0D1A12399588700DB6404 /* ARDashboardExtentionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDashboardExtentionController.swift; sourceTree = "<group>"; };
@@ -271,8 +267,6 @@
 		8558B4562368E1D100DA6119 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				8558B3CA2360A05B00DA6119 /* AppUpdate.swift */,
-				8558B4572368E1F400DA6119 /* Service.swift */,
 				8516F89524588F7B008F886E /* Singleton.swift */,
 			);
 			path = Service;
@@ -347,6 +341,8 @@
 			dependencies = (
 			);
 			name = dashboard;
+			packageProductDependencies = (
+			);
 			productName = dashboard;
 			productReference = 85E16B952357BCE800907CFF /* ForestAR.app */;
 			productType = "com.apple.product-type.application";
@@ -375,6 +371,8 @@
 				Base,
 			);
 			mainGroup = 85E16B8C2357BCE800907CFF;
+			packageReferences = (
+			);
 			productRefGroup = 85E16B962357BCE800907CFF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -498,7 +496,6 @@
 				851CA50C236C6F1A00C28D4B /* GradientView.swift in Sources */,
 				85E16B9D2357BCE800907CFF /* ViewController.swift in Sources */,
 				85E16B992357BCE800907CFF /* AppDelegate.swift in Sources */,
-				8558B3CE2360A05B00DA6119 /* AppUpdate.swift in Sources */,
 				85E16B9B2357BCE800907CFF /* SceneDelegate.swift in Sources */,
 				8558B3CC2360A05B00DA6119 /* DownloadUtils.swift in Sources */,
 				85C83009237B430F00A78EF7 /* MenuDelegate.swift in Sources */,
@@ -519,7 +516,6 @@
 				8558B451236885BB00DA6119 /* ShareActivity.swift in Sources */,
 				8558B4552368CE7500DA6119 /* AnimationUtils.swift in Sources */,
 				8558B44D2368710300DA6119 /* ImageUtils.swift in Sources */,
-				8558B4582368E1F400DA6119 /* Service.swift in Sources */,
 				8510377D2378E5B200741F3F /* MyWebView.swift in Sources */,
 				8558B3A7235E01CA00DA6119 /* PlayFavVideoController.swift in Sources */,
 			);
@@ -669,14 +665,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 7W4WBCL2B3;
+				DEVELOPMENT_TEAM = 35BSYM8A6U;
 				INFOPLIST_FILE = dashboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tfs.forestarapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tfs.forestar;
 				PRODUCT_NAME = ForestAR;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -690,14 +686,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 7W4WBCL2B3;
+				DEVELOPMENT_TEAM = 35BSYM8A6U;
 				INFOPLIST_FILE = dashboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tfs.forestarapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tfs.forestar;
 				PRODUCT_NAME = ForestAR;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

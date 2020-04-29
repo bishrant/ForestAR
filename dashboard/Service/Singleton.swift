@@ -14,7 +14,6 @@ class Service {
     public var appConfiguration: AppConfigJSON!;
     public var serverURL: String = "https://txfipdev.tfs.tamu.edu/ForestAR/api/"
     private var arImageSet: Set<ARReferenceImage>!;
-    private var appUpdate: AppUpdate!
     private var appUpdateSuccess: Bool = true;
     let arImageUtils: ARImageUtils = ARImageUtils()
     private var db: SqliteDatabase!
@@ -28,10 +27,8 @@ class Service {
         let download: Download = Download()
         DispatchQueue.global(qos: .utility).async {
             let result = request.getConfigurationFromServer();
-            //            DispatchQueue.main.async {
             switch result {
             case let .success(data):
-                //                    print(data);
                 instance.appConfiguration = data!;
                 if let images = instance.appConfiguration?.images {
                     for i in images {
@@ -46,7 +43,6 @@ class Service {
                         }
                     }
                 } else {
-                    print("app upto date")
                     instance.appUpdateSuccess = true
                 }
                 instance.appUpdateSuccess = true;
@@ -60,7 +56,6 @@ class Service {
                 instance.downloadComplete = false;
                 instance.downloadError = true;
             }
-            //            }
         }
         return instance;
     }()
@@ -77,6 +72,13 @@ class Service {
     }
     
     func triggerInit() -> Void {}
+    
+    func checkIfAppIsInstalled(name: String) -> Bool {
+        let namePrefix = name + "://"
+        let namePrefixUrl: NSURL = NSURL(string: namePrefix)!
+        return UIApplication.shared.canOpenURL(namePrefixUrl as URL)
+    }
+    
 }
 
 
