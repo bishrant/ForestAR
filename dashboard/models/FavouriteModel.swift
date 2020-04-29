@@ -55,18 +55,24 @@ class FavouriteDeleteBtn: UIButton {
 }
 
 class FavouritesStruct {
+    var idpk: Int
     var id: Int
-    var name: String?
-    var link: String?
-    var photo: String?
-    var video: String?
+    var title: String?
+    var url: String?
+    var imageName: String?
+    var videoLink: String?
     var folderName: String?
-    init(id: Int, name: String?, link: String?,  photo: String?, video: String?, folderName: String?) {
+    var sharingText: String?
+    var description: String?
+    init(idpk: Int, id: Int, title: String?, url: String?,  imageName: String?, videoLink: String?, folderName: String?, sharingText: String?, description: String?) {
+        self.idpk = idpk
         self.id = id
-        self.name = name
-        self.link = link
-        self.photo = photo
-        self.video = video
+        self.title = title
+        self.url = url
+        self.imageName = imageName
+        self.videoLink = videoLink
         self.folderName = folderName
+        self.sharingText = sharingText
+        self.description = description
     }
 }

@@ -12,6 +12,7 @@ import ARKit;
 
 class Service {
     public var appConfiguration: AppConfigJSON!;
+    public var serverURL: String = "https://txfipdev.tfs.tamu.edu/ForestAR/api/"
     private var arImageSet: Set<ARReferenceImage>!;
     private var appUpdate: AppUpdate!
     private var appUpdateSuccess: Bool = true;
@@ -34,7 +35,7 @@ class Service {
                 instance.appConfiguration = data!;
                 if let images = instance.appConfiguration?.images {
                     for i in images {
-                        let url = serverURL + "public/" + i.folderName + "/" + i.imageName
+                        let url = Service.sharedInstance.serverURL + "public/" + i.folderName + "/" + i.imageName
                         download.loadFileSync(url: URL(string: url)!, folderName: i.folderName) { (path, error) in
                             if let er = error {
                                 print(er)
@@ -94,7 +95,7 @@ class Request {
         return appConfig;
     }
     func getConfigurationFromServer() -> Result<AppConfigJSON?, NetworkError> {
-        let path = serverURL + "getimages";
+        let path = Service.sharedInstance.serverURL + "getimages";
         guard let url = URL(string: path) else {
             return .failure(.url)
         }

@@ -28,7 +28,7 @@ class SqliteDatabase {
     }
     
     func createFavTableIfNotExists() {
-        if sqlite3_exec(self.db, "CREATE TABLE IF NOT EXISTS Favourites (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, link TEXT, photo TEXT, video TEXT, folderName TEXT)", nil, nil, nil) != SQLITE_OK {
+        if sqlite3_exec(self.db, "CREATE TABLE IF NOT EXISTS Favourites (idpk INTEGER PRIMARY KEY AUTOINCREMENT, id INTEGER, title TEXT, imageName TEXT, url TEXT, videoLink TEXT, folderName TEXT, sharingText TEXT, description TEXT)", nil, nil, nil) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(self.db)!)
             print("error creating table: \(errmsg)")
         } else {
@@ -48,12 +48,12 @@ class SqliteDatabase {
         return dbs
     }
     
-    func insertIntoFavTable(nameP: String, linkP: String, photoP: String, videoP: String, folderName: String) {
+    func insertIntoFavTable(id: Int, title: String, imageName: String, url: String, videoLink: String, folderName: String, sharingText: String, description: String) {
         var suc: Bool = false
           do {
               var db = self.getDb()
-              let stmt = try db!.prepare("INSERT INTO Favourites (name, link, photo, video, folderName) VALUES (?, ?, ?, ?, ?)")
-              try stmt.run([nameP, linkP, photoP, videoP, folderName])
+              let stmt = try db!.prepare("INSERT INTO Favourites (id, title, imageName, url, videoLink, folderName, sharingText, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?)")
+              try stmt.run([id, title, imageName, url, videoLink, folderName, sharingText, description])
               suc = true
               db = nil
           } catch {
@@ -62,23 +62,23 @@ class SqliteDatabase {
           print("result of insert", suc)
     }
     
-    func toggleFavEntry(n: String, l: String, p: String, v: String, folderName: String) -> Bool {
+    func toggleFavEntry(id: Int, title: String, imageName: String, url: String, videoLink: String, folderName: String, sharingText: String, description: String) -> Bool {
         var _success: Bool = false;
-        if(getFavouritesCount(photoName: p, folderName: folderName) < 1) {
-                self.insertIntoFavTable(nameP: n, linkP: l, photoP: p, videoP: v, folderName: folderName)
+        if(getFavouritesCount(imageName: imageName, folderName: folderName) < 1) {
+            self.insertIntoFavTable(id: id, title: title, imageName: imageName, url: url, videoLink: videoLink, folderName: folderName, sharingText: sharingText, description: description)
                 _success = true
             } else {
-                _success = self.deleteFavEntryByPhotoName(photoName: p, folderName: folderName)
+            _success = self.deleteFavEntryByPhotoName(id: id, imageName: imageName, folderName: folderName)
             }
         return _success
     }
     
-    func deleteFavEntryByPhotoName(photoName: String, folderName: String) -> Bool {
+    func deleteFavEntryByPhotoName(id: Int, imageName: String, folderName: String) -> Bool {
       var suc: Bool = false
         do {
             var db = self.getDb()
-            let stmt = try db!.prepare("delete from Favourites where photo = ? and folderName = ?")
-            try stmt.run([photoName, folderName])
+            let stmt = try db!.prepare("delete from Favourites where id =? and photo = ? and folderName = ?")
+            try stmt.run([id, imageName, folderName])
             suc = true
             db = nil
         } catch {
@@ -96,12 +96,12 @@ class SqliteDatabase {
         }
     }
     
-    func getFavouritesCount(photoName: String, folderName: String)  -> Int64 {
+    func getFavouritesCount(imageName: String, folderName: String)  -> Int64 {
         var rowcount: Int64 = 0
         do {
             var db = self.getDb()
-            let stmt = try db!.prepare("select count(*) from Favourites where photo = ? and folderName = ?")
-            rowcount = try stmt.scalar([photoName, folderName]) as! Int64
+            let stmt = try db!.prepare("select count(*) from Favourites where imageName = ? and folderName = ?")
+            rowcount = try stmt.scalar([imageName, folderName]) as! Int64
             db = nil
         } catch {
             print ("error in new lib")
@@ -109,12 +109,12 @@ class SqliteDatabase {
         return rowcount;
     }
     
-    func deleteFavEntry(id: Int32) -> Bool {
+    func deleteFavEntry(idpk: Int32) -> Bool {
         var suc: Bool = false
         do {
             var db = self.getDb()
-            let stmt = try db!.prepare("delete from Favourites where id = ?")
-            try stmt.run(id as? Binding)
+            let stmt = try db!.prepare("delete from Favourites where idpk = ?")
+            try stmt.run(idpk as? Binding)
             suc = true
             db = nil
         } catch {
@@ -124,26 +124,32 @@ class SqliteDatabase {
     }
     
     func getFavourites()  -> [FavouritesStruct] {
+        let idpk = Expression<Int?>("idpk")
         let id = Expression<Int?>("id")
-        let name = Expression<String?>("name")
-        let link = Expression<String?>("link")
-        let photo = Expression<String?>("photo")
-        let video = Expression<String?>("video")
+        let title = Expression<String?>("title")
+        let url = Expression<String?>("url")
+        let imageName = Expression<String?>("imageName")
+        let videoLink = Expression<String?>("videoLink")
         let folderName = Expression<String?>("folderName")
+        let sharingText = Expression<String?>("sharingText")
+        let description = Expression<String?>("description")
         var favouritesListPrivate = [FavouritesStruct] ()
         do {
             var db = self.getDb()
-            let Favs = Table("Favourites").order(name.asc)
+            let Favs = Table("Favourites").order(title.asc)
             try autoreleasepool{
                 for f in (try db?.prepare(Favs))! {
                     favouritesListPrivate.append(
                         FavouritesStruct(
+                            idpk: try f.get(idpk)!,
                             id: try f.get(id)!,
-                            name: try f.get(name)!,
-                            link: try f.get(link)!,
-                            photo: try f.get(photo)!,
-                            video: try f.get(video)!,
-                            folderName: try f.get(folderName)!
+                            title: try f.get(title)!,
+                            url: try f.get(url)!,
+                            imageName: try f.get(imageName)!,
+                            videoLink: try f.get(videoLink)!,
+                            folderName: try f.get(folderName)!,
+                            sharingText: try f.get(sharingText)!,
+                            description: try f.get(description)!
                     ))
                 }
             }

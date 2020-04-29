@@ -14,18 +14,24 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var pictureLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
-    let slides = [["label": "Welcome to Forest AR, Let's get you started", "image": serverURL + "HelpImages/Help1.jpg"],
-                  ["label": "Use menu to access favorites, quick help and contact TFS", "image": serverURL + "HelpImages/Help2.jpg"],
-                  ["label": "Camera icon from homepage takes you to the scanning pages. Scan your anchor image just by pointing your camera at it", "image": serverURL + "HelpImages/Help3.jpg"],
-                  ["label": "Your video will start to play right where the photo was. Use video controls to interact with it. Favorite a video so that you can easily come back at it later.", "image": serverURL + "HelpImages/Help4.jpg"],
-                  ["label": "If you have black spaces on top/bottom try rotating your device to view in full screen. Video is played full screen if the photo is not in view frame.", "image": serverURL + "HelpImages/Help7.jpg"],
-                  ["label": "Use link icon to open website of the tracked photograph", "image": serverURL + "HelpImages/Help5.jpg"],
-                  ["label": "You can share this image and app in your social media or any other medium that you choose", "image": serverURL + "HelpImages/Help6.jpg"],
-                  ["label": "You can access your favorites to easily get to your video and websites. Swipe from right to delete.", "image": serverURL + "HelpImages/Help8.jpg"]
-    ]
+    private let urls: String = Service.sharedInstance.serverURL
+    var slides = [["label": "Welcome !, Press the camera icon", "image": "HelpImages/Help1.jpg"]]
+    func initSlides() {
+        self.slides =
+            [["label": "Welcome to Forest AR, Let's get you started", "image": self.urls + "HelpImages/Help1.jpg"],
+             ["label": "Use menu to access favorites, quick help and contact TFS", "image": self.urls + "HelpImages/Help2.jpg"],
+             ["label": "Camera icon from homepage takes you to the scanning pages. Scan your anchor image just by pointing your camera at it", "image": self.urls + "HelpImages/Help3.jpg"],
+             ["label": "Your video will start to play right where the photo was. Use video controls to interact with it. Favorite a video so that you can easily come back at it later.", "image": self.urls + "HelpImages/Help4.jpg"],
+             ["label": "If you have black spaces on top/bottom try rotating your device to view in full screen. Video is played full screen if the photo is not in view frame.", "image": self.urls + "HelpImages/Help7.jpg"],
+             ["label": "Use link icon to open website of the tracked photograph", "image": self.urls + "HelpImages/Help5.jpg"],
+             ["label": "You can share this image and app in your social media or any other medium that you choose", "image": self.urls + "HelpImages/Help6.jpg"],
+             ["label": "You can access your favorites to easily get to your video and websites. Swipe from right to delete.", "image": self.urls + "HelpImages/Help8.jpg"]
+        ]
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.initSlides()
         skipBtn.title = "Skip"
         pictureLabel.text = self.slides[0]["label"]
         scrollView.delegate = self

@@ -205,7 +205,7 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         let imageName = imageAnchors.referenceImage.name
         let currentImgJson = self.jsonUtils.getImageDetailsFromJSON(json: Service.sharedInstance.appConfiguration, imageName: imageName!)
         //        print(UIDevice().identifierForVendor?.uuidString ?? "", "Device name")
-        self.setupVideo(videoURL: serverURL + "public/" + currentImgJson.folderName + "/" + currentImgJson.videoLink)
+        self.setupVideo(videoURL: Service.sharedInstance.serverURL + "public/" + currentImgJson.folderName + "/" + currentImgJson.videoLink)
         self.isVideoLoaded = true
     }
        
@@ -320,8 +320,8 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         var db: SqliteDatabase!
         db = SqliteDatabase()
         let imageName = self.imageAnchor.referenceImage.name
-        let currentJson: ARImageEntry = self.jsonUtils.getImageDetailsFromJSON(json: Service.sharedInstance.appConfiguration, imageName: imageName!)
-        let toggleSuccess = db.toggleFavEntry(n: currentJson.title, l: currentJson.url, p: currentJson.imageName, v: currentJson.videoLink, folderName: currentJson.folderName)
+        let dt: ARImageEntry = self.jsonUtils.getImageDetailsFromJSON(json: Service.sharedInstance.appConfiguration, imageName: imageName!)
+        let toggleSuccess = db.toggleFavEntry(id: dt.id, title: dt.title, imageName: dt.imageName, url: dt.url, videoLink: dt.videoLink, folderName: dt.folderName, sharingText: dt.sharingText, description: dt.description)
         if (!toggleSuccess) {
             print("Error")
         }

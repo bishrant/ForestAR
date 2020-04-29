@@ -9,7 +9,7 @@
 import UIKit
 import SQLite3
 
-var serverURL: String = "https://txfipdev.tfs.tamu.edu/ForestAR/api/"
+
 
 class ViewController: UIViewController, MenuDelegate {
     internal var menuShowing = false

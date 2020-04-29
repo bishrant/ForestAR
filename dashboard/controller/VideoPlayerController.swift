@@ -20,8 +20,10 @@ class VideoPlayerController: UIViewController, WebViewDelegate {
     @IBOutlet weak var webViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var myWebView: MyWebView!
     
-    var photoName: String!
+    var imageName: String!
     var folderName: String!
+    var videoLink: String!
+    var sharingText: String!
     var player: AVPlayer = AVPlayer()
     var playerLayer: AVPlayerLayer!
     var avpController = AVPlayerViewController()
@@ -59,7 +61,7 @@ class VideoPlayerController: UIViewController, WebViewDelegate {
     
     @IBAction func openWebPage(_ sender: Any) {
         self.customVideoPlayer.pauseVideo()
-        let im = self.folderName + "___" + self.photoName
+        let im = self.folderName + "___" + self.imageName
          let currentJson: ARImageEntry = self.jsonUtils.getImageDetailsFromJSON(json: Service.sharedInstance.appConfiguration, imageName: im)
          self.myWebView.loadUrl(url: currentJson.url, title: currentJson.title)
          UIView.animate(withDuration: 1.0,
@@ -78,7 +80,7 @@ class VideoPlayerController: UIViewController, WebViewDelegate {
     @IBAction func shareVideo(_ sender: Any) {
         self.customVideoPlayer.togglePlayPause()
         
-        let shareVideoCls = ShareVideo(imageName:self.photoName, parentView: self.view )
+        let shareVideoCls = ShareVideo(imageName:self.imageName, folderName: self.folderName, videoLink: self.videoLink, sharingText: self.sharingText, parentView: self.view )
         let activityVC: UIActivityViewController = shareVideoCls.createShareUI()
         self.present(activityVC, animated: true, completion: nil)
     }
@@ -100,8 +102,8 @@ class VideoPlayerController: UIViewController, WebViewDelegate {
     }
     
     func setupVideo() {
-        let im = self.photoName.components(separatedBy: ".png")[0]
-        let url = URL(string: serverURL + im+".mp4")
+        let urlString = Service.sharedInstance.serverURL + "public/" + self.folderName + "/" + self.videoLink;
+        let url = URL(string: urlString)
         self.player.replaceCurrentItem(with: AVPlayerItem(url: url!))
         self.player = AVPlayer(url: url!)
         self.playerLayer = AVPlayerLayer(player: player)

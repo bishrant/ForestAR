@@ -12,21 +12,27 @@ import Auk
 class HelpViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var pictureLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
-    let slides = [["label": "Welcome to Forest AR!, Press the camera icon on the home screen to get started.", "image": serverURL + "HelpImages/Help1.jpg"],
-                  
-                  ["label": "Scan your anchor image just by pointing your camera at it.", "image": serverURL + "HelpImages/Help3.jpg"],
-                  ["label": "Your video will play on top of the image. Use video controls to interact with it. Favorite a video so that you can easily come back to it later.", "image": serverURL + "HelpImages/Help4.jpg"],
-                  ["label": "If you have black spaces on top and bottom, try rotating your device to view the video in full screen. The video is automatically played in full screen if the photo is out of view.", "image": serverURL + "HelpImages/Help7.jpg"],
-                  ["label": "Tap the link icon to open the website associated with the image.", "image": serverURL + "HelpImages/Help5.jpg"],
-                  ["label": "You can share the image via social media or other sharing options on your device.", "image": serverURL + "HelpImages/Help6.jpg"],
-                  ["label": "Use the menu to access your favorites, how to guide, and contact information.", "image": serverURL + "HelpImages/Help2.jpg"],
-                  ["label": "Access your favorites to easily get to your videos and websites. Swipe left to remove a favorite.", "image": serverURL + "HelpImages/Help8.jpg"]
-    ]
+    private let urls: String = Service.sharedInstance.serverURL
+    var slides = [["label": "Welcome !, Press the camera icon", "image": "HelpImages/Help1.jpg"]]
+    func initSlides() {
+        self.slides = [["label": "Welcome to Forest AR!, Press the camera icon on the home screen to get started.", "image": self.urls + "HelpImages/Help1.jpg"],
+                       
+                       ["label": "Scan your anchor image just by pointing your camera at it.", "image": self.urls + "HelpImages/Help3.jpg"],
+                       ["label": "Your video will play on top of the image. Use video controls to interact with it. Favorite a video so that you can easily come back to it later.", "image": self.urls + "HelpImages/Help4.jpg"],
+                       ["label": "If you have black spaces on top and bottom, try rotating your device to view the video in full screen. The video is automatically played in full screen if the photo is out of view.", "image": self.urls + "HelpImages/Help7.jpg"],
+                       ["label": "Tap the link icon to open the website associated with the image.", "image": self.urls + "HelpImages/Help5.jpg"],
+                       ["label": "You can share the image via social media or other sharing options on your device.", "image": self.urls + "HelpImages/Help6.jpg"],
+                       ["label": "Use the menu to access your favorites, how to guide, and contact information.", "image": self.urls + "HelpImages/Help2.jpg"],
+                       ["label": "Access your favorites to easily get to your videos and websites. Swipe left to remove a favorite.", "image": self.urls + "HelpImages/Help8.jpg"]
+        ]
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.initSlides()
         let gradientView = GradientView(frame: self.view.bounds)
         self.view.insertSubview(gradientView, at: 0)
+        
         pictureLabel.text = self.slides[0]["label"]
         scrollView.delegate = self
         scrollView.auk.settings.pageControl.marginToScrollViewBottom = -25

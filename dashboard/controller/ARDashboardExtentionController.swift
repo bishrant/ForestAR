@@ -34,7 +34,7 @@ extension ARDashboardController: MFMessageComposeViewControllerDelegate, MFMailC
              if MFMessageComposeViewController.canSendAttachments() {
                 
                 DispatchQueue.main.async {
-                    if let data = try? Data(contentsOf: URL(string: serverURL + imgName + ".png")!) {
+                    if let data = try? Data(contentsOf: URL(string: Service.sharedInstance.serverURL + imgName + ".png")!) {
                               if let image = UIImage(data: data) {
                                                                      
                                     let dataImage =  image.pngData()

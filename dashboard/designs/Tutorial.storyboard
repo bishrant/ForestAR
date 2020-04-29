@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -38,12 +38,11 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="uWF-ae-K9L"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="UuP-XW-BZp"/>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" preservesSuperviewLayoutMargins="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="71f-a5-Mft">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" preservesSuperviewLayoutMargins="YES" text="tutorial" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="71f-a5-Mft">
                                 <rect key="frame" x="0.0" y="617" width="375" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="73" id="jaX-cR-WwK"/>
                                 </constraints>
-                                <mutableString key="text">serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"serverURL + "HelpImages/Help1.jpg"sdefsdfs</mutableString>
                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="17"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
