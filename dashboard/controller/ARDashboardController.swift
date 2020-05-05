@@ -210,8 +210,9 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
        
     func setupVideo(videoURL: String) {
         let videoPlayer  = AVPlayer(url: URL(string: videoURL)!)
-        videoPlayer.volume = 10
+        videoPlayer.volume = 0.6
         self.playerLayer.player = videoPlayer
+        self.playerLayer.player?.volume = 0.6
         
         DispatchQueue.main.async {
             self.playerLayer.frame = self.overlayView.bounds

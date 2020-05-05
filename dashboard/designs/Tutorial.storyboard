@@ -38,8 +38,8 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="uWF-ae-K9L"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="UuP-XW-BZp"/>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" preservesSuperviewLayoutMargins="YES" text="tutorial" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="71f-a5-Mft">
-                                <rect key="frame" x="0.0" y="617" width="375" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="tutorial" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="71f-a5-Mft">
+                                <rect key="frame" x="5" y="617" width="365" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="73" id="jaX-cR-WwK"/>
                                 </constraints>
@@ -50,12 +50,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="71f-a5-Mft" firstAttribute="width" secondItem="L2J-Dc-reT" secondAttribute="width" id="2QX-US-Owj"/>
-                            <constraint firstItem="71f-a5-Mft" firstAttribute="top" secondItem="zdK-T3-zsd" secondAttribute="bottom" constant="10" id="A6l-ah-ME3"/>
+                            <constraint firstItem="71f-a5-Mft" firstAttribute="width" secondItem="L2J-Dc-reT" secondAttribute="width" constant="-10" id="2QX-US-Owj"/>
+                            <constraint firstItem="71f-a5-Mft" firstAttribute="top" secondItem="zdK-T3-zsd" secondAttribute="bottom" constant="5" id="A6l-ah-ME3"/>
                             <constraint firstItem="71f-a5-Mft" firstAttribute="centerX" secondItem="VEx-ym-a6g" secondAttribute="centerX" id="GKj-DA-hlU"/>
-                            <constraint firstItem="zdK-T3-zsd" firstAttribute="top" secondItem="v7Q-JV-cnQ" secondAttribute="bottom" constant="20" id="HrL-W0-x5a"/>
+                            <constraint firstItem="zdK-T3-zsd" firstAttribute="top" secondItem="v7Q-JV-cnQ" secondAttribute="bottom" constant="2" id="HrL-W0-x5a"/>
                             <constraint firstItem="v7Q-JV-cnQ" firstAttribute="top" secondItem="L2J-Dc-reT" secondAttribute="top" id="IT4-a9-DiD"/>
-                            <constraint firstItem="zdK-T3-zsd" firstAttribute="leading" secondItem="L2J-Dc-reT" secondAttribute="leading" constant="10" id="NFg-PW-Eyc"/>
+                            <constraint firstItem="zdK-T3-zsd" firstAttribute="leading" secondItem="L2J-Dc-reT" secondAttribute="leading" constant="5" id="NFg-PW-Eyc"/>
                             <constraint firstItem="L2J-Dc-reT" firstAttribute="trailing" secondItem="zdK-T3-zsd" secondAttribute="trailing" constant="10" id="Wyq-5h-LjM"/>
                             <constraint firstItem="v7Q-JV-cnQ" firstAttribute="leading" secondItem="L2J-Dc-reT" secondAttribute="leading" id="e2p-OD-gdN"/>
                             <constraint firstItem="zdK-T3-zsd" firstAttribute="height" relation="lessThanOrEqual" secondItem="VEx-ym-a6g" secondAttribute="height" constant="-180" id="gqf-gS-d73"/>

@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:dashboard.xcodeproj">
+      location = "group:/Users/bishrant.adhikari/Documents/dashboard/ForestAR.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

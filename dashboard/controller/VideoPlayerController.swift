@@ -39,6 +39,7 @@ class VideoPlayerController: UIViewController, WebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        try! AVAudioSession.sharedInstance().setCategory(.playback)
         self.showHideControlsTask = DispatchWorkItem {
             self.toogleControlsWithAnimations(videoControlsView: self.videoControls)
         }
@@ -106,9 +107,11 @@ class VideoPlayerController: UIViewController, WebViewDelegate {
         let url = URL(string: urlString)
         self.player.replaceCurrentItem(with: AVPlayerItem(url: url!))
         self.player = AVPlayer(url: url!)
+        self.player.volume = 0.6
         self.playerLayer = AVPlayerLayer(player: player)
         self.playerLayer.frame = self.view.bounds
         self.playerLayer.zPosition = 10
+        
         self.view.layer.addSublayer(playerLayer)
         self.view.layer.zPosition = 10
         self.player.play()

@@ -36,6 +36,10 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
         skipBtn.title = "Skip"
         pictureLabel.text = self.slides[0]["label"]
         scrollView.delegate = self
+        scrollView.auk.settings.pageControl.marginToScrollViewBottom = -20
+        scrollView.auk.settings.pageControl.pageIndicatorTintColor = .gray
+        scrollView.auk.settings.pageControl.currentPageIndicatorTintColor = .cyan
+        scrollView.auk.settings.pageControl.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
         do { autoreleasepool{
             for s in slides {
                 scrollView.auk.show(url: s["image"]!)
