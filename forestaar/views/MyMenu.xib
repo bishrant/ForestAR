@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Segoe UI.ttf">
+            <string>SegoeUI</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyMenu" customModule="forestaar" customModuleProvider="target">
+            <connections>
+                <outlet property="sideMenuView" destination="8wR-Er-oua" id="apq-dO-UY3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="8wR-Er-oua" userLabel="SideMenu">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZG7-II-IIV" userLabel="CloseMenuBtn">
+                    <rect key="frame" x="344" y="56" width="40" height="35.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="JbQ-Lr-FR3"/>
+                        <constraint firstAttribute="width" constant="40" id="vYh-uA-Hf4"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" backgroundImage="xmark" catalog="system">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="closeMenu:" destination="-1" eventType="touchUpInside" id="OJ6-0e-b5s"/>
+                    </connections>
+                </button>
+                <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" alignment="bottom" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Yyl-dG-L7I">
+                    <rect key="frame" x="134.5" y="280" width="145" height="176"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Op-01-52l">
+                            <rect key="frame" x="0.0" y="0.0" width="145" height="52"/>
+                            <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="30"/>
+                            <state key="normal" title="HOME"/>
+                            <connections>
+                                <action selector="menuItemClicked:" destination="-1" eventType="touchUpInside" id="9bX-46-KDo"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncU-lU-IKh">
+                            <rect key="frame" x="0.0" y="62" width="145" height="52"/>
+                            <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="30"/>
+                            <state key="normal" title="FAVORITES"/>
+                            <connections>
+                                <action selector="menuItemClicked:" destination="-1" eventType="touchUpInside" id="rop-6c-zaC"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJ0-ZK-0dm">
+                            <rect key="frame" x="0.0" y="124" width="145" height="52"/>
+                            <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="30"/>
+                            <state key="normal" title="HOW TO"/>
+                            <connections>
+                                <action selector="menuItemClicked:" destination="-1" eventType="touchUpInside" id="Z7R-7u-tN9"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="4Op-01-52l" firstAttribute="width" secondItem="Yyl-dG-L7I" secondAttribute="width" id="n19-t0-imM"/>
+                        <constraint firstItem="ncU-lU-IKh" firstAttribute="width" secondItem="Yyl-dG-L7I" secondAttribute="width" id="p2F-1W-tVV"/>
+                        <constraint firstItem="vJ0-ZK-0dm" firstAttribute="width" secondItem="Yyl-dG-L7I" secondAttribute="width" id="q3e-Ba-MMH"/>
+                    </constraints>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleAspectFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Nwr-AJ-m8H" userLabel="Connect Menu">
+                    <rect key="frame" x="47" y="782" width="320" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sw0-mB-6gc">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="Cvk-Dk-n43"/>
+                                <constraint firstAttribute="width" constant="50" id="Tzl-1h-rpM"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="fD9-FA-r0e"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="ftu-JD-WPd"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="tfsstar"/>
+                            <connections>
+                                <action selector="goToTFSHome:" destination="-1" eventType="touchUpInside" id="y6t-h6-Npr"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ClT-Gj-P5u">
+                            <rect key="frame" x="67.5" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="tKm-FT-2p7"/>
+                                <constraint firstAttribute="height" constant="50" id="z7H-kT-GHv"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="email"/>
+                            <connections>
+                                <action selector="sendEmail:" destination="-1" eventType="touchUpInside" id="CpO-gk-L1a"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y96-0c-JZe">
+                            <rect key="frame" x="135" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="5G9-Zb-uyf"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="9VK-fk-XOu"/>
+                                <constraint firstAttribute="width" constant="50" id="nYW-1H-tyF"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="w0c-Ni-VWj"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="twitter"/>
+                            <connections>
+                                <action selector="gotoTFSTwitter:" destination="-1" eventType="touchUpInside" id="J1y-e2-u5Y"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BaX-oQ-4ET">
+                            <rect key="frame" x="202.5" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="4Fb-Bq-7Fu"/>
+                                <constraint firstAttribute="width" constant="50" id="9XL-wA-dDI"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="facebook"/>
+                            <connections>
+                                <action selector="goToTFSFacebook:" destination="-1" eventType="touchUpInside" id="g3O-TW-WKp"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="89G-8J-9Kp">
+                            <rect key="frame" x="270" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="Iji-aA-RwM"/>
+                                <constraint firstAttribute="height" constant="50" id="pCz-F0-8ng"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="instagram"/>
+                            <connections>
+                                <action selector="goToTFSInstagram:" destination="-1" eventType="touchUpInside" id="x8F-yM-cm6"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="A5r-jP-Nuh"/>
+                    </constraints>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONNECT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZM-KB-vhJ">
+                    <rect key="frame" x="153" y="730" width="108.5" height="32"/>
+                    <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="24"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="tintColor" red="0.92897909879999996" green="0.87621384859999996" blue="0.92811518910000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="HMh-wq-UL7" firstAttribute="top" secondItem="ZG7-II-IIV" secondAttribute="top" constant="-10" id="8mU-Jc-01I"/>
+                <constraint firstItem="Nwr-AJ-m8H" firstAttribute="centerX" secondItem="8wR-Er-oua" secondAttribute="centerX" id="9i8-tE-Mlz"/>
+                <constraint firstAttribute="trailingMargin" secondItem="ZG7-II-IIV" secondAttribute="trailing" constant="10" id="Hv9-6a-z0a"/>
+                <constraint firstItem="HMh-wq-UL7" firstAttribute="bottom" secondItem="Nwr-AJ-m8H" secondAttribute="bottom" constant="30" id="M4T-D4-hih"/>
+                <constraint firstItem="Nwr-AJ-m8H" firstAttribute="top" secondItem="zZM-KB-vhJ" secondAttribute="bottom" constant="20" id="fnK-Xf-6Ow"/>
+                <constraint firstItem="Yyl-dG-L7I" firstAttribute="centerY" secondItem="8wR-Er-oua" secondAttribute="centerY" constant="-80" id="gFM-CL-mrr"/>
+                <constraint firstItem="Yyl-dG-L7I" firstAttribute="centerX" secondItem="8wR-Er-oua" secondAttribute="centerX" id="idd-L2-uLO"/>
+                <constraint firstItem="zZM-KB-vhJ" firstAttribute="centerX" secondItem="8wR-Er-oua" secondAttribute="centerX" id="jXR-LN-ecB"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="HMh-wq-UL7"/>
+            <point key="canvasLocation" x="131.8840579710145" y="-492.1875"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="email" width="245" height="245"/>
+        <image name="facebook" width="245" height="245"/>
+        <image name="instagram" width="245" height="245"/>
+        <image name="tfsstar" width="245" height="250"/>
+        <image name="twitter" width="245" height="245"/>
+        <image name="xmark" catalog="system" width="64" height="56"/>
+    </resources>
+</document>
