@@ -89,7 +89,6 @@ class Request {
     }
     func parseJSON(jsonStr: Data) -> AppConfigJSON! {
         var appConfig: AppConfigJSON!;
-        let outputStr  = String(data: jsonStr, encoding: String.Encoding.utf8)!
         do {
             appConfig = try JSONDecoder().decode(AppConfigJSON.self, from: jsonStr);
         } catch  {
@@ -113,7 +112,6 @@ class Request {
             if let data = data {
                 print("got dataa", data);
                 let jsonData = self.parseJSON(jsonStr: data);
-                let c = "test"
                 result = .success(jsonData)
             } else {
                 result = .failure(.server)
