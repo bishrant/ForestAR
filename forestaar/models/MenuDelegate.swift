@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
 protocol MenuDelegate {
     func menuSelected(menuName: String)
     func menuClosed()
+    func shareClicked(sender: UIButton)
 }

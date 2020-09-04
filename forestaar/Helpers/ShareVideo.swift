@@ -37,7 +37,7 @@ class ShareVideo {
         return objectsToShare
     }
     
-    func createShareUI() -> UIActivityViewController {
+    func createShareUI(pView: UIView) -> UIActivityViewController {
         UIGraphicsBeginImageContext(self.parentView.frame.size)
         self.parentView.layer.render(in: UIGraphicsGetCurrentContext()!)
         let textToShare = self.sharingText + "  Check out Forest AR. An augumented reality app developed by the Texas A&M Forest Service. #TFS #forestaar"
@@ -51,7 +51,7 @@ class ShareVideo {
         let activityVC = UIActivityViewController(activityItems: activitiesItems, applicationActivities: activities)
         //Excluded Activities
         activityVC.excludedActivityTypes = getExcludedActivities()
-        activityVC.popoverPresentationController?.sourceView = self.parentView
+        activityVC.popoverPresentationController?.sourceView = pView;
         return activityVC
     }
 }

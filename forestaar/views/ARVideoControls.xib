@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ARVideoControls" customModule="forestaar" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ARVideoControls" customModule="ForestAR" customModuleProvider="target">
             <connections>
                 <outlet property="currentTimeLbl" destination="3jD-cg-vdX" id="Dye-gF-f2g"/>
                 <outlet property="favBtn" destination="2r4-rt-s6z" id="kon-g8-Zer"/>
@@ -42,7 +42,7 @@
                         <action selector="togglePlayPause:" destination="-1" eventType="touchUpInside" id="PQ5-jR-mDZ"/>
                     </connections>
                 </button>
-                <slider clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="mXl-P8-zfM" customClass="CustomSlider" customModule="forestaar" customModuleProvider="target">
+                <slider clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="mXl-P8-zfM" customClass="CustomSlider" customModule="ForestAR" customModuleProvider="target">
                     <rect key="frame" x="88" y="742" width="238" height="31"/>
                     <color key="tintColor" red="0.062745098040000002" green="0.92156862750000001" blue="0.98823529409999999" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                     <accessibility key="accessibilityConfiguration">
@@ -180,22 +180,22 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="wOX-KM-dIV" firstAttribute="top" secondItem="Weh-55-aHd" secondAttribute="top" constant="20" id="0i1-0W-mwc"/>
-                <constraint firstItem="Weh-55-aHd" firstAttribute="trailing" secondItem="0sa-SU-YwS" secondAttribute="trailing" constant="20" id="1rN-Hc-D00"/>
-                <constraint firstItem="mXl-P8-zfM" firstAttribute="centerY" secondItem="3jD-cg-vdX" secondAttribute="centerY" id="5vE-z8-Zhn"/>
-                <constraint firstItem="xEB-tG-zxT" firstAttribute="bottom" secondItem="mXl-P8-zfM" secondAttribute="bottom" constant="80" id="6zY-mf-qSl"/>
-                <constraint firstAttribute="trailingMargin" secondItem="mXl-P8-zfM" secondAttribute="trailing" constant="70" id="7w0-hL-EWF"/>
-                <constraint firstItem="mXl-P8-zfM" firstAttribute="leading" secondItem="6PE-c6-Ep3" secondAttribute="leadingMargin" constant="70" id="Asi-4P-WAk"/>
-                <constraint firstAttribute="bottomMargin" secondItem="xEB-tG-zxT" secondAttribute="bottom" constant="10" id="CGl-C3-Usy"/>
-                <constraint firstItem="BB8-Ih-E92" firstAttribute="centerX" secondItem="6PE-c6-Ep3" secondAttribute="centerX" id="D4r-vy-8Og"/>
-                <constraint firstItem="k5M-fj-dHY" firstAttribute="leading" secondItem="mXl-P8-zfM" secondAttribute="trailing" constant="8" id="EKm-ji-z8W"/>
-                <constraint firstItem="0sa-SU-YwS" firstAttribute="top" secondItem="Weh-55-aHd" secondAttribute="top" constant="20" id="HDR-mj-rW5"/>
-                <constraint firstItem="wOX-KM-dIV" firstAttribute="leading" secondItem="Weh-55-aHd" secondAttribute="leading" constant="20" id="Ihs-Zb-9Sw"/>
-                <constraint firstItem="mXl-P8-zfM" firstAttribute="centerX" secondItem="6PE-c6-Ep3" secondAttribute="centerX" id="Q7R-L0-4TQ"/>
-                <constraint firstItem="xEB-tG-zxT" firstAttribute="centerX" secondItem="6PE-c6-Ep3" secondAttribute="centerX" id="cUX-hW-IFq"/>
-                <constraint firstItem="mXl-P8-zfM" firstAttribute="centerY" secondItem="k5M-fj-dHY" secondAttribute="centerY" id="d26-lK-fdv"/>
-                <constraint firstItem="BB8-Ih-E92" firstAttribute="centerY" secondItem="6PE-c6-Ep3" secondAttribute="centerY" id="lWD-sN-wPL"/>
-                <constraint firstItem="mXl-P8-zfM" firstAttribute="leading" secondItem="3jD-cg-vdX" secondAttribute="trailing" constant="8" id="yqT-QU-PxI"/>
+                <constraint firstItem="wOX-KM-dIV" firstAttribute="top" secondItem="Weh-55-aHd" secondAttribute="top" constant="20" identifier="r2" id="0i1-0W-mwc"/>
+                <constraint firstItem="Weh-55-aHd" firstAttribute="trailing" secondItem="0sa-SU-YwS" secondAttribute="trailing" constant="20" identifier="r1" id="1rN-Hc-D00"/>
+                <constraint firstItem="mXl-P8-zfM" firstAttribute="centerY" secondItem="3jD-cg-vdX" secondAttribute="centerY" identifier="r7" id="5vE-z8-Zhn"/>
+                <constraint firstItem="xEB-tG-zxT" firstAttribute="bottom" secondItem="mXl-P8-zfM" secondAttribute="bottom" constant="80" identifier="r13" id="6zY-mf-qSl"/>
+                <constraint firstAttribute="trailingMargin" secondItem="mXl-P8-zfM" secondAttribute="trailing" constant="70" identifier="r8" id="7w0-hL-EWF"/>
+                <constraint firstItem="mXl-P8-zfM" firstAttribute="leading" secondItem="6PE-c6-Ep3" secondAttribute="leadingMargin" constant="70" identifier="r9" id="Asi-4P-WAk"/>
+                <constraint firstAttribute="bottomMargin" secondItem="xEB-tG-zxT" secondAttribute="bottom" constant="10" identifier="r14" id="CGl-C3-Usy"/>
+                <constraint firstItem="BB8-Ih-E92" firstAttribute="centerX" secondItem="6PE-c6-Ep3" secondAttribute="centerX" identifier="r5" id="D4r-vy-8Og"/>
+                <constraint firstItem="k5M-fj-dHY" firstAttribute="leading" secondItem="mXl-P8-zfM" secondAttribute="trailing" constant="8" identifier="r16" id="EKm-ji-z8W"/>
+                <constraint firstItem="0sa-SU-YwS" firstAttribute="top" secondItem="Weh-55-aHd" secondAttribute="top" constant="20" identifier="r4" id="HDR-mj-rW5"/>
+                <constraint firstItem="wOX-KM-dIV" firstAttribute="leading" secondItem="Weh-55-aHd" secondAttribute="leading" constant="20" identifier="r3" id="Ihs-Zb-9Sw"/>
+                <constraint firstItem="mXl-P8-zfM" firstAttribute="centerX" secondItem="6PE-c6-Ep3" secondAttribute="centerX" identifier="r10" id="Q7R-L0-4TQ"/>
+                <constraint firstItem="xEB-tG-zxT" firstAttribute="centerX" secondItem="6PE-c6-Ep3" secondAttribute="centerX" identifier="r15" id="cUX-hW-IFq"/>
+                <constraint firstItem="mXl-P8-zfM" firstAttribute="centerY" secondItem="k5M-fj-dHY" secondAttribute="centerY" identifier="r11" id="d26-lK-fdv"/>
+                <constraint firstItem="BB8-Ih-E92" firstAttribute="centerY" secondItem="6PE-c6-Ep3" secondAttribute="centerY" identifier="r6" id="lWD-sN-wPL"/>
+                <constraint firstItem="mXl-P8-zfM" firstAttribute="leading" secondItem="3jD-cg-vdX" secondAttribute="trailing" constant="8" identifier="r12" id="yqT-QU-PxI"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Weh-55-aHd"/>
             <userDefinedRuntimeAttributes>

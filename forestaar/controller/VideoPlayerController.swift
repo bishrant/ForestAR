@@ -31,6 +31,7 @@ class VideoPlayerController: UIViewController, WebViewDelegate {
     var jsonUtils: JSONUtils = JSONUtils()
     var customWebV: UIView = UIView()
     var customWebView: WKWebView = WKWebView()
+    var currentJson: ARImageEntry!;
     
     private var showHideControlsTask: DispatchWorkItem?
     private var stringUtils: StringUtils = StringUtils()
@@ -43,7 +44,9 @@ class VideoPlayerController: UIViewController, WebViewDelegate {
         self.showHideControlsTask = DispatchWorkItem {
             self.toogleControlsWithAnimations(videoControlsView: self.videoControls)
         }
-        self.setupVideo()
+        self.setupVideo();
+        let im = self.folderName + "___" + self.imageName
+        self.currentJson = self.jsonUtils.getImageDetailsFromJSON(json: Service.sharedInstance.appConfiguration, imageName: im)
         self.view.isUserInteractionEnabled = true
         initWebViewBtns()
         self.myWebView.webViewDelegate = self
@@ -62,9 +65,7 @@ class VideoPlayerController: UIViewController, WebViewDelegate {
     
     @IBAction func openWebPage(_ sender: Any) {
         self.customVideoPlayer.pauseVideo()
-        let im = self.folderName + "___" + self.imageName
-         let currentJson: ARImageEntry = self.jsonUtils.getImageDetailsFromJSON(json: Service.sharedInstance.appConfiguration, imageName: im)
-         self.myWebView.loadUrl(url: currentJson.url, title: currentJson.title)
+        self.myWebView.loadUrl(url: currentJson.url, title: self.currentJson.title)
          UIView.animate(withDuration: 1.0,
                        delay: 0.0,
                        options: [],
@@ -79,11 +80,21 @@ class VideoPlayerController: UIViewController, WebViewDelegate {
     }
     
     @IBAction func shareVideo(_ sender: Any) {
-        self.customVideoPlayer.togglePlayPause()
+        self.customVideoPlayer.pauseVideo();
+        favCreateShareActionBar(imageName: self.imageName, message: self.sharingText, folderName: self.folderName, title: self.currentJson!.title)
         
-        let shareVideoCls = ShareVideo(imageName:self.imageName, folderName: self.folderName, videoLink: self.videoLink, sharingText: self.sharingText, parentView: self.view )
-        let activityVC: UIActivityViewController = shareVideoCls.createShareUI()
-        self.present(activityVC, animated: true, completion: nil)
+        
+//        let shareVideoCls = ShareVideo(imageName:self.imageName, folderName: self.folderName, videoLink: self.videoLink, sharingText: self.sharingText, parentView: self.view )
+//        let activityVC: UIActivityViewController = shareVideoCls.createShareUI(pView: self.view);
+//        activityVC.view.autoresizingMask = [.flexibleHeight, .flexibleBottomMargin];
+//        self.view.autoresizingMask = [.flexibleHeight]
+//        let items = [URL(string: "https://www.apple.com")!]
+//        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+//        ac.popoverPresentationController?.sourceView = self.view;
+//        self.present(ac, animated: true)
+
+        
+//        self.present(activityVC, animated: true, completion: nil)
     }
     func startObserving() {
         self.observationVideoPlay =
@@ -186,4 +197,12 @@ class VideoPlayerController: UIViewController, WebViewDelegate {
         }
     }
     
+}
+
+extension NSLayoutConstraint {
+
+    override public var description: String {
+        let id = identifier ?? ""
+        return "id: \(id), constant: \(constant)" //you may print whatever you want here
+    }
 }

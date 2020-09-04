@@ -9,12 +9,8 @@
 import UIKit
 import SQLite3
 
-
-
-class ViewController: UIViewController, MenuDelegate {
-    internal var menuShowing = false
+class ViewController: UIViewController {
     internal var imageViewBackground: UIImageView!
-    @IBOutlet weak var sidemenu: MyMenu!
     @IBOutlet weak var LeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var tfsLogo: UIImageView!
     @IBOutlet weak var MenuBtn: UIButton!
@@ -38,7 +34,6 @@ class ViewController: UIViewController, MenuDelegate {
         self.imageViewBackground = self.getBackground()
         self.view.addSubview(imageViewBackground)
         self.view.sendSubviewToBack(imageViewBackground)
-        self.sidemenu.delegate = self
         
         self.setupLogoClick()
         self.adjustInstructionConstraint()
@@ -64,30 +59,6 @@ class ViewController: UIViewController, MenuDelegate {
         self.instructionConstraint.constant = UIDevice.current.orientation.isLandscape ? -10 : -30
     }
     
-    func menuSelected(menuName: String) {
-        let storyboardId: String
-        if (menuName == "HOME") {
-            navigationController?.popViewController(animated: true)
-        } else {
-            switch menuName {
-            case "FAVORITES":
-                storyboardId = "UserFavourites"
-                break
-            case "HOW TO":
-                storyboardId = "Help"
-                break
-            default:
-                storyboardId = "HOME"
-            }
-            self.goToPage(storyboardName: storyboardId)
-        }
-        toggleMenuFunc()
-    }
-    
-    func menuClosed() {
-        toggleMenuFunc()
-    }
-    
     @objc func goToTFSHome(){
         guard let url = URL(string: "https://tfsweb.tamu.edu") else { return }
         UIApplication.shared.open(url)
@@ -99,21 +70,12 @@ class ViewController: UIViewController, MenuDelegate {
         tfsLogo.addGestureRecognizer(tapGestureRecognizer)
     }
     
-    func goToPage(storyboardName: String) {
-        let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
-        let destination = storyboard.instantiateViewController(withIdentifier: storyboardName)
-        navigationController?.pushViewController(destination, animated: true)
-    }
-    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         coordinator.animate(alongsideTransition: { (context) in
         }) { (context) in
             self.imageViewBackground.frame.size = size
-            //    self.sidemenu.isHidden = true
             self.TrailingConstraint.constant = self.TrailingConstraint.constant == 0 ? 0: self.view.frame.width
-            //     self.sidemenu.frame.size = size
-            //   self.sidemenu.isHidden = false
             self.adjustInstructionConstraint()
         }
     }
@@ -131,24 +93,28 @@ class ViewController: UIViewController, MenuDelegate {
         self.goToPage(storyboardName: "ARDashboard")
     }
     
-    private func toggleMenuFunc() {
-        TrailingConstraint.constant = menuShowing ? self.sidemenu.frame.width : 0
-        UIView.animate(withDuration: 0.2,
-                       delay: 0,
-                       options: .curveEaseIn,
-                       animations: {
-                        self.sidemenu.isHidden = self.menuShowing ? true : false
-                        self.view.layoutIfNeeded()
-        });
-        menuShowing = !menuShowing
-        MenuBtn.isHidden  = !MenuBtn.isHidden
+    func goToPage(storyboardName: String) {
+        let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
+        let destination = storyboard.instantiateViewController(withIdentifier: storyboardName)
+        navigationController?.pushViewController(destination, animated: true)
     }
-    @IBAction func toggleMenu(_ sender: Any) {
+    
+    private func toggleMenuFunc() {
+        let menuController = MenuViewController();
+        menuController.frame = self.view.frame;
+        menuController.view.layoutIfNeeded();
+        navigationController?.pushViewController(menuController, animated: true)
+    }
+    
+    
+    @IBAction func toggleMenu(_ sender: UIButton) {
         toggleMenuFunc();
     }
     
     @IBAction func goToHome(_ sender: UIStoryboardSegue) {}
 }
+
+
 
 extension ViewController {
     func showInitialWalkthrough() {
@@ -164,3 +130,4 @@ extension ViewController {
         }
     }
 }
+

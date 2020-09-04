@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,7 +12,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyMenu" customModule="forestaar" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyMenu" customModule="ForestAR" customModuleProvider="target">
             <connections>
                 <outlet property="sideMenuView" destination="8wR-Er-oua" id="apq-dO-UY3"/>
             </connections>
@@ -88,8 +88,21 @@
                                 <action selector="goToTFSHome:" destination="-1" eventType="touchUpInside" id="y6t-h6-Npr"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwl-bG-fOa">
+                            <rect key="frame" x="54" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="5Fi-Oh-0eh"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="lgl-sD-PC4"/>
+                                <constraint firstAttribute="width" constant="50" id="oOC-3W-gmP"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="uT3-AC-qEA"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="shareBtn"/>
+                            <connections>
+                                <action selector="shareWithSender:" destination="-1" eventType="touchUpInside" id="Yeu-hN-1TP"/>
+                            </connections>
+                        </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ClT-Gj-P5u">
-                            <rect key="frame" x="67.5" y="0.0" width="50" height="50"/>
+                            <rect key="frame" x="108" y="0.0" width="50" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="tKm-FT-2p7"/>
                                 <constraint firstAttribute="height" constant="50" id="z7H-kT-GHv"/>
@@ -100,7 +113,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y96-0c-JZe">
-                            <rect key="frame" x="135" y="0.0" width="50" height="50"/>
+                            <rect key="frame" x="162" y="0.0" width="50" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="5G9-Zb-uyf"/>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="9VK-fk-XOu"/>
@@ -113,7 +126,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BaX-oQ-4ET">
-                            <rect key="frame" x="202.5" y="0.0" width="50" height="50"/>
+                            <rect key="frame" x="216" y="0.0" width="50" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="4Fb-Bq-7Fu"/>
                                 <constraint firstAttribute="width" constant="50" id="9XL-wA-dDI"/>
@@ -166,8 +179,9 @@
         <image name="email" width="245" height="245"/>
         <image name="facebook" width="245" height="245"/>
         <image name="instagram" width="245" height="245"/>
+        <image name="shareBtn" width="245" height="245"/>
         <image name="tfsstar" width="245" height="250"/>
         <image name="twitter" width="245" height="245"/>
-        <image name="xmark" catalog="system" width="64" height="56"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
     </resources>
 </document>

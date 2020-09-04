@@ -44,6 +44,9 @@ class MyMenu: UIView {
         self.insertSubview(gradientViewForMenu, at: 0)
 
     }
+    @IBAction func share(sender:UIButton){
+        delegate?.shareClicked(sender: sender);
+    }
     
     @IBAction func sendEmail(_ sender: Any) {
         let email = "bishrant.adhikari@tfs.tamu.edu"

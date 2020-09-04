@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NGL-gJ-1QA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NGL-gJ-1QA">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -15,12 +15,12 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="forestaar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ForestAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Begin by identifying scan-enabled photos. Press the camera icon to start scanning." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I40-hc-OcN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Begin by identifying scan-enabled images. Press the camera icon to start scanning." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I40-hc-OcN">
                                 <rect key="frame" x="30" y="536" width="315" height="38.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -131,7 +131,7 @@
                                     <action selector="toggleMenu:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sjE-lc-TRl"/>
                                 </connections>
                             </button>
-                            <view hidden="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Anw-kg-kub" userLabel="SideMenu" customClass="MyMenu" customModule="forestaar" customModuleProvider="target">
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Anw-kg-kub" userLabel="SideMenu" customClass="MyMenu" customModule="ForestAR" customModuleProvider="target">
                                 <rect key="frame" x="20" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.92897909879999996" green="0.87621384859999996" blue="0.92811518910000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -165,7 +165,6 @@
                         <outlet property="TrailingConstraint" destination="WXK-sF-Nns" id="tDm-mc-xEk"/>
                         <outlet property="instructionConstraint" destination="u4y-Vf-BEu" id="LSp-Qq-by1"/>
                         <outlet property="loadingIndicator" destination="fEL-gY-jRP" id="YCJ-Nh-AK1"/>
-                        <outlet property="sidemenu" destination="Anw-kg-kub" id="ErU-Y1-DDy"/>
                         <outlet property="startScanningBtn" destination="8wi-j7-Mfo" id="3Sh-MB-qkD"/>
                         <outlet property="tfsLogo" destination="TFL-24-I33" id="GxQ-v7-MEm"/>
                         <outlet property="tfsLogoWidthConstraint" destination="p6Q-6D-KwT" id="rbC-5V-ace"/>
@@ -178,7 +177,7 @@
         <!--Dashboard Controller-->
         <scene sceneID="ccR-gm-jhc">
             <objects>
-                <viewController storyboardIdentifier="ARDashboard" id="CDZ-Bk-zs7" customClass="ARDashboardController" customModule="forestaar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ARDashboard" id="CDZ-Bk-zs7" customClass="ARDashboardController" customModule="ForestAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cv8-29-uIu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -192,7 +191,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uwe-mu-Hey" userLabel="VideoControlsView" customClass="ARVideoControls" customModule="forestaar" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uwe-mu-Hey" userLabel="VideoControlsView" customClass="ARVideoControls" customModule="ForestAR" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -284,7 +283,7 @@
                                     <constraint firstItem="9WK-ed-Ue7" firstAttribute="top" secondItem="7V2-5N-lQl" secondAttribute="top" constant="30" id="wxR-IA-Poz"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JX2-bp-seh" customClass="MyWebView" customModule="forestaar" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JX2-bp-seh" customClass="MyWebView" customModule="ForestAR" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>

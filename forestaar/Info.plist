@@ -33,7 +33,7 @@
 	<key>NSMainStoryboardFile</key>
 	<string>Help</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This app needs permission to store temporary photos of images scanned by you in your library to enable offline support.</string>
+	<string>This app needs permission to store temporary images scanned by you in your library to enable offline support.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Segoe UI Bold.ttf</string>

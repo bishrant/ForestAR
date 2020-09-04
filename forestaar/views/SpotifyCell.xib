@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -14,7 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ncW-Un-nCl" customClass="SpotifyCell" customModule="Example" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ncW-Un-nCl" customClass="SpotifyCell" customModule="ForestAR" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="476" height="74"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -24,8 +23,8 @@
                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ftB-Jh-Uxu">
                         <rect key="frame" x="15" y="10" width="54" height="54"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="54" id="Ae9-UB-M6n"/>
-                            <constraint firstAttribute="height" constant="54" id="WGB-t0-cRR"/>
+                            <constraint firstAttribute="width" constant="54" identifier="i1" id="Ae9-UB-M6n"/>
+                            <constraint firstAttribute="height" constant="54" identifier="i2" id="WGB-t0-cRR"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save album" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8o-Ub-adM">
@@ -38,20 +37,20 @@
                         <rect key="frame" x="15" y="73" width="461" height="1"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="1" id="Su2-gr-DZ0"/>
+                            <constraint firstAttribute="height" constant="1" identifier="hh" id="Su2-gr-DZ0"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="FAc-dM-C2b" secondAttribute="bottom" id="0UO-ds-Qmz"/>
-                <constraint firstItem="FAc-dM-C2b" firstAttribute="leading" secondItem="ncW-Un-nCl" secondAttribute="leading" constant="15" id="MCA-7e-tWK"/>
-                <constraint firstItem="K8o-Ub-adM" firstAttribute="leading" secondItem="ftB-Jh-Uxu" secondAttribute="trailing" id="hG2-Fx-3FA"/>
-                <constraint firstAttribute="trailing" secondItem="FAc-dM-C2b" secondAttribute="trailing" id="icf-CP-la2"/>
-                <constraint firstItem="ftB-Jh-Uxu" firstAttribute="centerY" secondItem="ncW-Un-nCl" secondAttribute="centerY" id="os0-d6-gnG"/>
-                <constraint firstItem="K8o-Ub-adM" firstAttribute="centerY" secondItem="ncW-Un-nCl" secondAttribute="centerY" id="v3h-71-sh3"/>
-                <constraint firstItem="ftB-Jh-Uxu" firstAttribute="leading" secondItem="ncW-Un-nCl" secondAttribute="leading" constant="15" id="vfd-F5-zsW"/>
-                <constraint firstItem="K8o-Ub-adM" firstAttribute="leading" secondItem="ncW-Un-nCl" secondAttribute="leading" constant="70" id="yJp-HV-JBb"/>
+                <constraint firstAttribute="bottom" secondItem="FAc-dM-C2b" secondAttribute="bottom" identifier="aa6" id="0UO-ds-Qmz"/>
+                <constraint firstItem="FAc-dM-C2b" firstAttribute="leading" secondItem="ncW-Un-nCl" secondAttribute="leading" constant="15" identifier="aa7" id="MCA-7e-tWK"/>
+                <constraint firstItem="K8o-Ub-adM" firstAttribute="leading" secondItem="ftB-Jh-Uxu" secondAttribute="trailing" identifier="aa3" id="hG2-Fx-3FA"/>
+                <constraint firstAttribute="trailing" secondItem="FAc-dM-C2b" secondAttribute="trailing" identifier="aa9" id="icf-CP-la2"/>
+                <constraint firstItem="ftB-Jh-Uxu" firstAttribute="centerY" secondItem="ncW-Un-nCl" secondAttribute="centerY" identifier="aa1" id="os0-d6-gnG"/>
+                <constraint firstItem="K8o-Ub-adM" firstAttribute="centerY" secondItem="ncW-Un-nCl" secondAttribute="centerY" identifier="aa4" id="v3h-71-sh3"/>
+                <constraint firstItem="ftB-Jh-Uxu" firstAttribute="leading" secondItem="ncW-Un-nCl" secondAttribute="leading" constant="15" identifier="aa2" id="vfd-F5-zsW"/>
+                <constraint firstItem="K8o-Ub-adM" firstAttribute="leading" secondItem="ncW-Un-nCl" secondAttribute="leading" constant="70" identifier="aa5" id="yJp-HV-JBb"/>
             </constraints>
             <size key="customSize" width="476" height="68"/>
             <variation key="default">

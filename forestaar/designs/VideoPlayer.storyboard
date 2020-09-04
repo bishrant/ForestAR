@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,7 +10,7 @@
         <!--Video Player Controller-->
         <scene sceneID="kCc-AN-WOl">
             <objects>
-                <viewController storyboardIdentifier="VideoPlayer" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xd8-bn-t7y" customClass="VideoPlayerController" customModule="forestaar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VideoPlayer" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xd8-bn-t7y" customClass="VideoPlayerController" customModule="ForestAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uSn-rV-7HH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,7 +42,7 @@
                                             <action selector="togglePlayPause:" destination="xd8-bn-t7y" eventType="touchUpInside" id="Sax-WH-Zeb"/>
                                         </connections>
                                     </button>
-                                    <slider clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4NZ-P6-r5Y" customClass="CustomSlider" customModule="forestaar" customModuleProvider="target">
+                                    <slider clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4NZ-P6-r5Y" customClass="CustomSlider" customModule="ForestAR" customModuleProvider="target">
                                         <rect key="frame" x="68" y="723" width="278" height="31"/>
                                         <color key="tintColor" red="0.062745098040000002" green="0.92156862750000001" blue="0.98823529409999999" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
@@ -109,8 +109,8 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="ARq-6p-cA3"/>
-                                            <constraint firstAttribute="width" constant="150" id="sUy-Y8-NPL"/>
+                                            <constraint firstAttribute="height" constant="60" identifier="p1" id="ARq-6p-cA3"/>
+                                            <constraint firstAttribute="width" constant="150" identifier="p2" id="sUy-Y8-NPL"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.zPosition">
@@ -130,11 +130,11 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sud-pG-K2W">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sud-pG-K2W" userLabel="BackBtn">
                                         <rect key="frame" x="20" y="9.5" width="25" height="31.5"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="25" id="PwE-g5-f28"/>
-                                            <constraint firstAttribute="height" constant="35" id="nTO-ct-LFO"/>
+                                            <constraint firstAttribute="width" constant="25" identifier="b1" id="PwE-g5-f28"/>
+                                            <constraint firstAttribute="height" constant="35" identifier="b2" id="nTO-ct-LFO"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" backgroundImage="chevron.left" catalog="system"/>
@@ -150,19 +150,19 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="sud-pG-K2W" firstAttribute="centerY" secondItem="f0C-oc-M2m" secondAttribute="top" constant="20" id="2vD-ob-DEG"/>
-                                    <constraint firstItem="Pqj-Nv-GK8" firstAttribute="centerX" secondItem="un2-y1-R1R" secondAttribute="centerX" id="2xr-q1-ShP"/>
-                                    <constraint firstItem="f0C-oc-M2m" firstAttribute="trailing" secondItem="FBj-bJ-tdJ" secondAttribute="trailing" constant="15" id="3Mg-9m-kgs"/>
-                                    <constraint firstItem="4Ho-Vr-oth" firstAttribute="leading" secondItem="f0C-oc-M2m" secondAttribute="leading" constant="15" id="4hu-0A-da9"/>
-                                    <constraint firstItem="Pqj-Nv-GK8" firstAttribute="centerY" secondItem="un2-y1-R1R" secondAttribute="centerY" id="9NE-nQ-UAC"/>
-                                    <constraint firstItem="4NZ-P6-r5Y" firstAttribute="leading" secondItem="f0C-oc-M2m" secondAttribute="leading" constant="70" id="9zu-P6-RIS"/>
-                                    <constraint firstItem="4NZ-P6-r5Y" firstAttribute="centerY" secondItem="4Ho-Vr-oth" secondAttribute="centerY" id="A6D-TM-G9K"/>
-                                    <constraint firstItem="f0C-oc-M2m" firstAttribute="trailing" secondItem="4NZ-P6-r5Y" secondAttribute="trailing" constant="70" id="BVy-bp-oMK"/>
-                                    <constraint firstItem="sud-pG-K2W" firstAttribute="leading" secondItem="f0C-oc-M2m" secondAttribute="leading" constant="20" id="Cxa-oc-Dox"/>
-                                    <constraint firstItem="l2m-2Y-Dqz" firstAttribute="centerX" secondItem="un2-y1-R1R" secondAttribute="centerX" id="JXf-b5-mYF"/>
-                                    <constraint firstItem="l2m-2Y-Dqz" firstAttribute="top" secondItem="4NZ-P6-r5Y" secondAttribute="bottom" constant="10" id="PUa-MB-wgR"/>
-                                    <constraint firstAttribute="bottom" secondItem="l2m-2Y-Dqz" secondAttribute="bottom" id="bOf-du-TIX"/>
-                                    <constraint firstItem="4NZ-P6-r5Y" firstAttribute="centerY" secondItem="FBj-bJ-tdJ" secondAttribute="centerY" id="yDJ-FN-agv"/>
+                                    <constraint firstItem="sud-pG-K2W" firstAttribute="centerY" secondItem="f0C-oc-M2m" secondAttribute="top" constant="20" identifier="3" id="2vD-ob-DEG"/>
+                                    <constraint firstItem="Pqj-Nv-GK8" firstAttribute="centerX" secondItem="un2-y1-R1R" secondAttribute="centerX" identifier="5" id="2xr-q1-ShP"/>
+                                    <constraint firstItem="f0C-oc-M2m" firstAttribute="trailing" secondItem="FBj-bJ-tdJ" secondAttribute="trailing" constant="15" identifier="s1" id="3Mg-9m-kgs"/>
+                                    <constraint firstItem="4Ho-Vr-oth" firstAttribute="leading" secondItem="f0C-oc-M2m" secondAttribute="leading" constant="15" identifier="10" id="4hu-0A-da9"/>
+                                    <constraint firstItem="Pqj-Nv-GK8" firstAttribute="centerY" secondItem="un2-y1-R1R" secondAttribute="centerY" identifier="6" id="9NE-nQ-UAC"/>
+                                    <constraint firstItem="4NZ-P6-r5Y" firstAttribute="leading" secondItem="f0C-oc-M2m" secondAttribute="leading" constant="70" identifier="7" id="9zu-P6-RIS"/>
+                                    <constraint firstItem="4NZ-P6-r5Y" firstAttribute="centerY" secondItem="4Ho-Vr-oth" secondAttribute="centerY" identifier="8" id="A6D-TM-G9K"/>
+                                    <constraint firstItem="f0C-oc-M2m" firstAttribute="trailing" secondItem="4NZ-P6-r5Y" secondAttribute="trailing" constant="70" identifier="s2" id="BVy-bp-oMK"/>
+                                    <constraint firstItem="sud-pG-K2W" firstAttribute="leading" secondItem="f0C-oc-M2m" secondAttribute="leading" constant="20" identifier="4" id="Cxa-oc-Dox"/>
+                                    <constraint firstItem="l2m-2Y-Dqz" firstAttribute="centerX" secondItem="un2-y1-R1R" secondAttribute="centerX" identifier="11" id="JXf-b5-mYF"/>
+                                    <constraint firstItem="l2m-2Y-Dqz" firstAttribute="top" secondItem="4NZ-P6-r5Y" secondAttribute="bottom" constant="10" identifier="12" id="PUa-MB-wgR"/>
+                                    <constraint firstAttribute="bottom" secondItem="l2m-2Y-Dqz" secondAttribute="bottom" identifier="13" id="bOf-du-TIX"/>
+                                    <constraint firstItem="4NZ-P6-r5Y" firstAttribute="centerY" secondItem="FBj-bJ-tdJ" secondAttribute="centerY" identifier="9" id="yDJ-FN-agv"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="f0C-oc-M2m"/>
                                 <userDefinedRuntimeAttributes>
@@ -171,7 +171,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMV-b3-yDy" customClass="MyWebView" customModule="forestaar" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMV-b3-yDy" customClass="MyWebView" customModule="ForestAR" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -183,10 +183,10 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="UMV-b3-yDy" firstAttribute="centerX" secondItem="uSn-rV-7HH" secondAttribute="centerX" id="1zg-Ql-fzg"/>
-                            <constraint firstItem="UMV-b3-yDy" firstAttribute="height" secondItem="uSn-rV-7HH" secondAttribute="height" id="YXe-up-esz"/>
-                            <constraint firstItem="UMV-b3-yDy" firstAttribute="width" secondItem="uSn-rV-7HH" secondAttribute="width" id="ZZw-ik-9tB"/>
-                            <constraint firstAttribute="bottom" secondItem="UMV-b3-yDy" secondAttribute="bottom" id="iy4-sS-aRK"/>
+                            <constraint firstItem="UMV-b3-yDy" firstAttribute="centerX" secondItem="uSn-rV-7HH" secondAttribute="centerX" identifier="a1" id="1zg-Ql-fzg"/>
+                            <constraint firstItem="UMV-b3-yDy" firstAttribute="height" secondItem="uSn-rV-7HH" secondAttribute="height" identifier="a2" id="YXe-up-esz"/>
+                            <constraint firstItem="UMV-b3-yDy" firstAttribute="width" secondItem="uSn-rV-7HH" secondAttribute="width" identifier="a3" id="ZZw-ik-9tB"/>
+                            <constraint firstAttribute="bottom" secondItem="UMV-b3-yDy" secondAttribute="bottom" identifier="a4" id="iy4-sS-aRK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="a8b-s6-10R"/>
                     </view>
@@ -206,7 +206,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.left" catalog="system" width="48" height="64"/>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="linkBtn" width="245" height="245"/>
         <image name="pause" width="230" height="270"/>
         <image name="shareBtn" width="245" height="245"/>
