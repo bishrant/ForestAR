@@ -49,7 +49,7 @@ class MyMenu: UIView {
     }
     
     @IBAction func sendEmail(_ sender: Any) {
-        let email = "bishrant.adhikari@tfs.tamu.edu"
+        let email = "forestar@tfs.tamu.edu"
         if let url = URL(string: "mailto:\(email)") {
           if #available(iOS 10.0, *) {
             UIApplication.shared.open(url)
@@ -65,7 +65,10 @@ class MyMenu: UIView {
         self.goToLink(link: "https://twitter.com/TXForestService")
     }
     @IBAction func goToTFSFacebook(_ sender: Any) {
-        self.goToLink(link: "https://www.facebook.com/texasforestservice/")
+        let appInstalled = Service.sharedInstance.checkIfAppIsInstalled(name: "fb")
+        let _url = appInstalled ? "fb://page/?id=283145907175":"https://www.facebook.com/texasforestservice/"
+        guard let url = URL(string: _url) else {return};
+        UIApplication.shared.open(url);
     }
     @IBAction func goToTFSInstagram(_ sender: Any) {
         self.goToLink(link: "https://www.instagram.com/texasforestservice/")

@@ -40,7 +40,7 @@ class ShareVideo {
     func createShareUI(pView: UIView) -> UIActivityViewController {
         UIGraphicsBeginImageContext(self.parentView.frame.size)
         self.parentView.layer.render(in: UIGraphicsGetCurrentContext()!)
-        let textToShare = self.sharingText + "  Check out Forest AR. An augumented reality app developed by the Texas A&M Forest Service. #TFS #forestaar"
+        let textToShare = self.sharingText
         let activitiesItems = getObjectsToShare(imageName: imageName, textToShare: textToShare)
         
         var activities:[ShareActivity] = [ShareActivity(platform:"facebook", message: textToShare, imageName: self.imageName),

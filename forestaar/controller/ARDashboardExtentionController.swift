@@ -25,42 +25,110 @@ extension ARDashboardController: MFMessageComposeViewControllerDelegate, MFMailC
         _ = navigationController?.popViewController(animated: true)
     }
     
+    func showMsg() {
+        let composeViewController = MFMessageComposeViewController()
+        composeViewController.messageComposeDelegate = self;
+//        composeViewController.messageComposeDelegate = self
+        composeViewController.messageComposeDelegate = self;
+        composeViewController.body = "TEST"
+//        self.present(msgVC, animated: true);
+        self.present(composeViewController, animated: true, completion: nil)
+    }
     
     func displayMessageInterface(message: String, imgName: String) {
-        if MFMessageComposeViewController.canSendText() {
-            let composeViewController = MFMessageComposeViewController()
-            composeViewController.messageComposeDelegate = self
-            composeViewController.body = message
-            
-            if MFMessageComposeViewController.canSendAttachments() {
-                
-                DispatchQueue.main.async {
-                    let imgSplit = imgName.components(separatedBy: "___")
-                    let imgURL = URL(string: Service.sharedInstance.serverURL + "public/" + imgSplit[0] + "/" + imgSplit[1])
-                    if let data = try? Data(contentsOf: imgURL!) {
-                        if let image = UIImage(data: data) {
-                            
-                            let dataImage =  image.pngData()
-                            guard dataImage != nil else {
-                                return
-                            }
-                            composeViewController.addAttachmentData(dataImage!, typeIdentifier: "image/" + imgURL!.pathExtension , filename: imgSplit[1])
-                        }
-                        self.present(composeViewController, animated: true)
-                        
-                    }
-                }
-                
+        let composeViewController = MFMessageComposeViewController()
+//        composeViewController.messageComposeDelegate = self
+        composeViewController.messageComposeDelegate = self;
+        composeViewController.body = message
+//        self.present(msgVC, animated: true);
+        self.present(composeViewController, animated: true, completion: nil)
+//        return;
+
+//
+//        return;
+//        self.showAlert()//(onView: self.view);
+//        if MFMessageComposeViewController.canSendText() {
+//            let composeViewController = MFMessageComposeViewController()
+//            composeViewController.messageComposeDelegate = self
+//            composeViewController.body = message
+//            self.present(composeViewController, animated: true);
+////            if MFMessageComposeViewController.canSendAttachments() {
+////
+////                DispatchQueue.main.async {
+////
+////                    let imgSplit = imgName.components(separatedBy: "___")
+////                    let imgURL = URL(string: Service.sharedInstance.serverURL + "public/" + imgSplit[0] + "/" + imgSplit[1])
+////                    if let data = try? Data(contentsOf: imgURL!) {
+////                        if let image = UIImage(data: data) {
+////
+////                            let dataImage =  image.pngData()
+////                            guard dataImage != nil else {
+////                                return
+////                            }
+////                            composeViewController.addAttachmentData(dataImage!, typeIdentifier: "image/" + imgURL!.pathExtension , filename: imgSplit[1])
+////                        }
+////
+////
+////                    }
+////                }
+////
+////            }
+//
+//        } else {
+//            print("Can't send messages.")
+//        }
+    }
+    
+    func logImageScan(imageName: String) {
+        DispatchQueue.global(qos: .background).async {
+            let uuid = UIDevice.current.identifierForVendor?.uuidString;
+            let url = Service.sharedInstance.serverURL + "updateScanLog";
+            guard let serviceURL = URL(string: url) else {return}
+            let session = URLSession.shared
+            let parameters = [
+                "imageName" : imageName,
+                "deviceID": uuid
+            ]
+            var request = URLRequest(url: serviceURL)
+            request.httpMethod = "POST"
+            request.setValue("Application/JSON", forHTTPHeaderField: "Content-Type")
+            do {
+                request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+            } catch let error {
+                print(error.localizedDescription)
             }
             
-        } else {
-            print("Can't send messages.")
+            //create dataTask using the session object to send data to the server
+            let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+                
+                guard error == nil else {
+                    return
+                }
+                
+                guard let data = data else {
+                    return
+                }
+                
+                do {
+                    //create json object from data
+                    if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                        print(json)
+                    }
+                } catch let error {
+                    print(error.localizedDescription)
+                }
+            })
+            task.resume()
         }
+        
     }
     
     func displayMailInterface(message: String, imageName: String) {
         if !MFMailComposeViewController.canSendMail() {
-            print("Mail services are not available")
+            let alert = UIAlertController(title: "Unable to compose mail", message: "It looks like your mail client is not configured yet. Please setup at least one email account to share ForestAR anchor details via email.", preferredStyle: .alert)
+            print("Mail services are not available");
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            present(alert, animated: true)
             return
         }
         let sql = SqliteDatabase()
@@ -112,8 +180,9 @@ extension ARDashboardController: MFMessageComposeViewControllerDelegate, MFMailC
         let appURL = NSURL(string: fullUrl)!
         UIApplication.shared.open(appURL as URL)
     }
-    
+
     func createShareActionBar(imageName: String, message: String) {
+//        self.test();
         let actionController = SpotifyActionController()
         let titleImg = UIImage(named: "tfsstar")!
         
@@ -125,7 +194,19 @@ extension ARDashboardController: MFMessageComposeViewControllerDelegate, MFMailC
             actionController.addAction(Action(ActionData(title: "  Instagram", image: UIImage(named: "instagram")!), style: .default, handler: { action in }))
         }
         
-        actionController.addAction(Action(ActionData(title: "  Message", image: UIImage(named: "email")!), style: .default, handler: { action in self.displayMessageInterface(message: message, imgName: imageName)}))
+        actionController.addAction(Action(
+            
+            ActionData(title: "  Message", image: UIImage(named: "message")!), style: .default,
+            handler: {action in
+                print("message");
+//                self.showMsg();
+//                self.test();
+                                            
+//                                            action in
+                self.displayMessageInterface(message: message, imgName: imageName)
+            
+        }
+        ))
         actionController.addAction(Action(ActionData(title: "  Mail",  image: UIImage(named: "email")!), style: .default, handler: { action in self.displayMailInterface(message: message, imageName: imageName)}))
         actionController.addAction(Action(ActionData(title: "  More"), style: .default, handler: { action in self.showShareSheet(actionController: actionController, message: message)}))
         present(actionController, animated: true, completion: nil)

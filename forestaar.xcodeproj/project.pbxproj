@@ -57,6 +57,7 @@
 		8558B451236885BB00DA6119 /* ShareActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B450236885BB00DA6119 /* ShareActivity.swift */; };
 		8558B4532368C79A00DA6119 /* CameraControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B4522368C79A00DA6119 /* CameraControls.swift */; };
 		8558B4552368CE7500DA6119 /* AnimationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558B4542368CE7500DA6119 /* AnimationUtils.swift */; };
+		855DBF19251A521E004C842F /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855DBF18251A521E004C842F /* Loading.swift */; };
 		857C87FB235A0C18005724C4 /* TreeID.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 857C87FA235A0C18005724C4 /* TreeID.sqlite */; };
 		858DFAEB2502C437006C58F6 /* forestar.png in Resources */ = {isa = PBXBuildFile; fileRef = 858DFAEA2502C437006C58F6 /* forestar.png */; };
 		85C83009237B430F00A78EF7 /* MenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C83008237B430F00A78EF7 /* MenuDelegate.swift */; };
@@ -96,6 +97,7 @@
 		851CA512236C8DAD00C28D4B /* VideoPlayer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VideoPlayer.storyboard; sourceTree = "<group>"; };
 		851CA514236C8DEC00C28D4B /* VideoPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerController.swift; sourceTree = "<group>"; };
 		852B03FE24F993DE00984BE9 /* VideoPlayerControllerEntension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerControllerEntension.swift; sourceTree = "<group>"; };
+		85390E41252503AF0041F786 /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		853FE8DE237C6E7000665404 /* ARVideoControls.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ARVideoControls.xib; sourceTree = "<group>"; };
 		853FE8E0237C6EA100665404 /* ARVideoControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVideoControls.swift; sourceTree = "<group>"; };
 		853FE8E2237C701C00665404 /* ARVideoControlsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVideoControlsDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		8558B450236885BB00DA6119 /* ShareActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareActivity.swift; sourceTree = "<group>"; };
 		8558B4522368C79A00DA6119 /* CameraControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraControls.swift; sourceTree = "<group>"; };
 		8558B4542368CE7500DA6119 /* AnimationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationUtils.swift; sourceTree = "<group>"; };
+		855DBF18251A521E004C842F /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		857C87FA235A0C18005724C4 /* TreeID.sqlite */ = {isa = PBXFileReference; lastKnownFileType = text; path = TreeID.sqlite; sourceTree = "<group>"; };
 		858DFAE425029EDE006C58F6 /* treeid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treeid.png; sourceTree = "<group>"; };
 		858DFAEA2502C437006C58F6 /* forestar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forestar.png; sourceTree = "<group>"; };
@@ -211,8 +214,8 @@
 			children = (
 				85E16B9C2357BCE800907CFF /* ViewController.swift */,
 				8558B3A6235E01CA00DA6119 /* PlayFavVideoController.swift */,
-				8558B3BC236095EA00DA6119 /* ARDashboardController.swift */,
 				852B03FE24F993DE00984BE9 /* VideoPlayerControllerEntension.swift */,
+				8558B3BC236095EA00DA6119 /* ARDashboardController.swift */,
 				851CA503236B1F2A00C28D4B /* UserFavouritesController.swift */,
 				851CA514236C8DEC00C28D4B /* VideoPlayerController.swift */,
 				855637F52384448600F399CF /* HelpViewController.swift */,
@@ -220,6 +223,7 @@
 				855637EF2383558500F399CF /* LaunchScreenController.swift */,
 				85D0D1A12399588700DB6404 /* ARDashboardExtentionController.swift */,
 				8549F4A725027DA8000ABA66 /* MenuViewController.swift */,
+				855DBF18251A521E004C842F /* Loading.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -240,6 +244,7 @@
 		8558B3BE2360986000DA6119 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				85390E41252503AF0041F786 /* SQLite.framework */,
 				8558B3C4236098A300DA6119 /* ARKit.framework */,
 				8558B3BF2360986000DA6119 /* SceneKit.framework */,
 				DCFBBE0425F1909761C37EFE /* Pods_dashboard.framework */,
@@ -360,7 +365,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1110;
-				LastUpgradeCheck = 1110;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Adhikari, Bishrant";
 				TargetAttributes = {
 					85E16B942357BCE800907CFF = {
@@ -497,6 +502,7 @@
 				852B03FF24F993DE00984BE9 /* VideoPlayerControllerEntension.swift in Sources */,
 				855637F62384448600F399CF /* HelpViewController.swift in Sources */,
 				851CA506236B72F000C28D4B /* Color.swift in Sources */,
+				855DBF19251A521E004C842F /* Loading.swift in Sources */,
 				855637C52382FEEA00F399CF /* WebViewDelegate.swift in Sources */,
 				8558B3BD236095EA00DA6119 /* ARDashboardController.swift in Sources */,
 				8558B425236340F000DA6119 /* VideoUtils.swift in Sources */,
@@ -577,6 +583,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -637,6 +644,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -672,7 +680,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 35BSYM8A6U;
 				INFOPLIST_FILE = forestaar/Info.plist;
@@ -696,7 +704,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 35BSYM8A6U;
 				INFOPLIST_FILE = forestaar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyWebView" customModule="forestaar" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyWebView" customModule="ForestAR" customModuleProvider="target">
             <connections>
                 <outlet property="closeWebViewBtn" destination="Gx2-WC-gmy" id="i2h-qt-YhB"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="5Bb-cg-vlr"/>
@@ -34,7 +35,7 @@
                     </textAttributes>
                     <items>
                         <navigationItem title="Title" id="DZK-Wy-9Xf">
-                            <barButtonItem key="leftBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="7mJ-Ub-HfB">
+                            <barButtonItem key="leftBarButtonItem" title="Item" image="square.and.arrow.up" catalog="system" id="7mJ-Ub-HfB">
                                 <connections>
                                     <action selector="reloadWebPage:" destination="-1" id="07g-3G-KlE"/>
                                 </connections>
@@ -56,9 +57,10 @@
                     </wkWebViewConfiguration>
                 </wkWebView>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="U7A-sN-trn">
-                    <rect key="frame" x="0.0" y="90" width="414" height="2"/>
+                    <rect key="frame" x="0.0" y="90" width="414" height="4"/>
                 </progressView>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="0.0" green="0.91372549020000005" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="dEA-jI-b09" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="4PT-eZ-bPY"/>
@@ -72,12 +74,11 @@
                 <constraint firstItem="U7A-sN-trn" firstAttribute="top" secondItem="dEA-jI-b09" secondAttribute="bottom" constant="2" id="sjP-Ty-1gx"/>
                 <constraint firstAttribute="bottom" secondItem="35B-J1-JDU" secondAttribute="bottom" id="xch-Mv-U9o"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="137.68115942028987" y="98.4375"/>
         </view>
     </objects>
     <resources>
-        <image name="arrow.clockwise" catalog="system" width="56" height="64"/>
-        <image name="xmark" catalog="system" width="64" height="56"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
     </resources>
 </document>

@@ -171,6 +171,9 @@ open class SpotifyActionController: ActionController<SpotifyCell, ActionData, Sp
         settings.cancelView.backgroundColor = .white
         settings.cancelView.titleColor = .black
         settings.cancelView.title = "Cancel"
+        settings.animation.dismiss.duration = 0
+        settings.animation.dismiss.damping = 0
+        settings.animation.present.duration = 0.1
         
         cellSpec = .nibFile(nibName: "SpotifyCell", bundle: Bundle(for: SpotifyCell.self), height: { _ in 60 })
         headerSpec = .cellClass( height: { _ in 84 })

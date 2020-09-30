@@ -113,7 +113,15 @@ extension VideoPlayerController: MFMessageComposeViewControllerDelegate, MFMailC
         let appURL = NSURL(string: fullUrl)!
         UIApplication.shared.open(appURL as URL)
     }
-    
+    func showMsg() {
+        let composeViewController = MFMessageComposeViewController()
+//        composeViewController.messageComposeDelegate = self
+        composeViewController.messageComposeDelegate = self;
+        composeViewController.body = "TEST"
+//        self.present(msgVC, animated: true);
+        self.present(composeViewController, animated: false, completion: nil)
+    }
+
     func favCreateShareActionBar(imageName: String, message: String, folderName: String, title: String) {
         let actionController = SpotifyActionController()
         let titleImg = UIImage(named: "tfsstar")!
@@ -126,7 +134,12 @@ extension VideoPlayerController: MFMessageComposeViewControllerDelegate, MFMailC
             actionController.addAction(Action(ActionData(title: "  Instagram", image: UIImage(named: "instagram")!), style: .default, handler: { action in }))
         }
         
-        actionController.addAction(Action(ActionData(title: "  Message", image: UIImage(named: "email")!), style: .default, handler: { action in self.displayMessageInterface(message: message, imageName: imageName, folderName: folderName, title: title)}))
+        actionController.addAction(Action(ActionData(title: "  Message", image: UIImage(named: "message")!), style: .default, handler: { action in
+                                            
+                                            self.showMsg();
+//                                            self.displayMessageInterface(message: message, imageName: imageName, folderName: folderName, title: title)
+            
+        }))
         actionController.addAction(Action(ActionData(title: "  Mail",  image: UIImage(named: "email")!), style: .default, handler: { action in self.displayMailInterface(message: message, imageName: imageName, folderName: folderName, title: title)}))
         actionController.addAction(Action(ActionData(title: "  More"), style: .default, handler: { action in self.showShareSheet(actionController: actionController, message: message)}))
         present(actionController, animated: true, completion: nil)

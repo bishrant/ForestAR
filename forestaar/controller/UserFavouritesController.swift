@@ -160,7 +160,7 @@ class UserFavouritesController: UIViewController, UIGestureRecognizerDelegate {
                 horizonatlStackView.rightAnchor.constraint(equalTo: myView.rightAnchor),
             ])
             
-            horizonatlStackView.backgroundColor = .green
+//            horizonatlStackView.backgroundColor = .green
             
             let imageUtils = ImageUtils()
             //            let img = UIImage(named: "350")
@@ -252,7 +252,7 @@ class UserFavouritesController: UIViewController, UIGestureRecognizerDelegate {
         horizontalStackView.distribution = .fill
         horizontalStackView.alignment = .fill
         horizontalStackView.spacing = 10
-        horizontalStackView.backgroundColor = .purple
+//        horizontalStackView.backgroundColor = .purple
         return horizontalStackView
     }
     

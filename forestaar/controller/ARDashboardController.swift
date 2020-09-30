@@ -9,6 +9,7 @@
 import UIKit
 import ARKit
 import SceneKit
+import MessageUI
 
 extension StringProtocol {
     var firstUppercased: String {
@@ -47,8 +48,9 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
     private var stringUtils: StringUtils = StringUtils()
     private var timeObserver: Any!
     
+    let msgVC = MFMessageComposeViewController()
     let updateQueue = DispatchQueue(label: Bundle.main.bundleIdentifier! +
-        ".serialSceneKitQueue")
+                                        ".serialSceneKitQueue")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +63,8 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         
         self.videoControlsView.videoSlider.addTarget(self, action: #selector(sliderValChanged), for: UIControl.Event.valueChanged)
         
-        self.videoControlsView.videoPlayingFlashBtn.addTarget(self, action: #selector(toggleFlash(_:)), for: UIControl.Event.touchDown)
+        self.videoControlsView.videoPlayingFlashBtn.addTarget(self, action: #selector(toggleFlash(_:)), for: UIControl.Event.touchDown);
+        
     }
     
     @objc func sliderValChanged() {
@@ -71,14 +74,14 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
     
     @objc func videoSliderTapped(gestureRecognizer: UIGestureRecognizer) {
         let pointTapped: CGPoint = gestureRecognizer.location(in: self.videoControlsView.videoSlider.superview)
-
+        
         let positionOfSlider: CGPoint = self.videoControlsView.videoSlider.frame.origin
         let widthOfSlider: CGFloat =  self.videoControlsView.videoSlider.frame.size.width
         let newValue = ((pointTapped.x - positionOfSlider.x) * CGFloat( self.videoControlsView.videoSlider.maximumValue) / widthOfSlider)
-
+        
         self.videoControlsView.videoSlider.setValue(Float(newValue), animated: true)
         self.videoControlsView.sliderChanged()
-     }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -127,7 +130,7 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         } else {
             return nil
         }
-
+        
         
         
     }
@@ -147,7 +150,14 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         UIView.animate(withDuration: 1.0,
                        animations: {
                         self.webViewBottomConstraint.constant = -1 * self.view.frame.height
-        })
+                       })
+    }
+    
+    @objc func shareURL(title: String, url: URL) {
+        let objectsToShare: [Any] = [title, url]
+        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        activityVC.excludedActivityTypes = [.airDrop, .addToReadingList]
+        present(activityVC, animated: true, completion: nil)
     }
     
     @IBAction func toggleFlash(_ sender: UIButton) {
@@ -169,14 +179,14 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         self.playerLayer.player!.pause()
         self.videoControlsView.pauseFunc()
         let currentJson: ARImageEntry = self.jsonUtils.getImageDetailsFromJSON(json: Service.sharedInstance.appConfiguration, imageName: self.imageAnchor!.referenceImage.name!)
-        let sharingMsg = currentJson.sharingText + "  Check out Forest AR. An augumented reality app developed by the Texas A&M Forest Service. #TFS #forestaar"
+        let sharingMsg = currentJson.sharingText
         createShareActionBar(imageName: self.imageAnchor.referenceImage.name!, message: sharingMsg)
     }
     
     func openOldShareSheet() {
         let titleImg = UIImage(named: "tfsstar")!
-                let vc = UIActivityViewController(activityItems: ["Text to share some details", titleImg], applicationActivities: [])
-               self.present(vc, animated: true, completion: nil)
+        let vc = UIActivityViewController(activityItems: ["Text to share some details", titleImg], applicationActivities: [])
+        self.present(vc, animated: true, completion: nil)
     }
     
     func openLink() {
@@ -190,7 +200,7 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
                        animations: {
                         self.myWebView.isHidden = false
                         self.webViewBottomConstraint.constant = 0
-        })
+                       })
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -207,7 +217,7 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
         self.setupVideo(videoURL: Service.sharedInstance.serverURL + "public/" + currentImgJson.folderName + "/" + currentImgJson.videoLink)
         self.isVideoLoaded = true
     }
-       
+    
     func setupVideo(videoURL: String) {
         let videoPlayer  = AVPlayer(url: URL(string: videoURL)!)
         videoPlayer.volume = 0.6
@@ -227,11 +237,11 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
             self.videoPlayerNode = self.videoUtils.createVideoPlayerNode(videoPlayer: self.playerLayer.player!, spriteKitScene: spriteKitScene)
             let gesture1 = UITapGestureRecognizer(target: self, action:  #selector(self.togglePlaybackControlsVisibility))
             self.videoControlsView.addGestureRecognizer(gesture1)
-                       
+            
             spriteKitScene.addChild(self.videoPlayerNode!)
             spriteKitScene.name = "spriteKitScene"
-//            let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.togglePlaybackControlsVisibility))
-           // self.overlayView.addGestureRecognizer(gesture)
+            //            let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.togglePlaybackControlsVisibility))
+            // self.overlayView.addGestureRecognizer(gesture)
             self.videoHolder = self.videoUtils.createVideoHolderOverImage(referenceImage: self.imageAnchor.referenceImage, spriteKitScene: spriteKitScene)
             
             self.videoPlayerNode?.play()
@@ -307,6 +317,8 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
                 
                 // @todo send to analytics server for countinng the number of times an image has been recognized by the app
                 self.imageAnchor?.setValue(imageAnchors.referenceImage.name, forKey: "name")
+                
+                logImageScan(imageName: imageAnchors.referenceImage.name!);
                 self.addVideoToAnchor(imageAnchors: self.imageAnchor)
                 self.animationUtils.hideWithAnimation(myView: self.scanningActiveView, delay: 0.5)
                 self.animationUtils.showWithAnimation(myView: self.videoControlsView, delay: 0.4)
@@ -416,6 +428,14 @@ class ARDashboardController: UIViewController, ARSCNViewDelegate , ARVideoContro
     func goToHome() {
         navigationController?.popToRootViewController(animated: true)
         closeVideo()
+    }
+    
+    func test() {
+        let app = UIApplication.shared.delegate as? AppDelegate;
+        let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: .alert)
+        app?.window?.inputViewController?.present(alert, animated: false, completion: nil);
+        //        app?.window?.rootViewController?.present(alert, animated: false, completion: nil);
+        
     }
     
 }

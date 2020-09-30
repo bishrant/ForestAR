@@ -59,6 +59,14 @@ class VideoPlayerController: UIViewController, WebViewDelegate {
         })
     }
     
+    @objc func shareURL(title: String, url: URL) {
+        let objectsToShare: [Any] = [title, url]
+        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        activityVC.excludedActivityTypes = [.airDrop, .addToReadingList]
+        present(activityVC, animated: true, completion: nil)        
+    }
+    
+    
     func initWebViewBtns() {
         self.webViewBottomConstraint.constant = -1 * self.view.frame.height
     }

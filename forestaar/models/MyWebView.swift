@@ -17,6 +17,7 @@ class MyWebView: UIView , WKNavigationDelegate, WKUIDelegate{
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var webView: WKWebView!
     var webViewDelegate: WebViewDelegate!
+    var webviewURL: URL!;
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.commonInit()
@@ -45,6 +46,7 @@ class MyWebView: UIView , WKNavigationDelegate, WKUIDelegate{
     
     func loadUrl(url: String, title: String) {
         let urlObj = URL(string: url)
+        self.webviewURL = urlObj;
         self.webViewTitle.title = title
         webView.load(URLRequest(url: urlObj!))
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
@@ -59,6 +61,9 @@ class MyWebView: UIView , WKNavigationDelegate, WKUIDelegate{
     
 
     @IBAction func reloadWebPage(_ sender: Any) {
-        self.webView.reload()
+        self.webViewDelegate.shareURL(title: self.webViewTitle.title!, url: self.webviewURL)
+       
     }
+//        self.webView.reload()
+    
 }

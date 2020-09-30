@@ -10,4 +10,5 @@ import Foundation
 
 protocol WebViewDelegate {
     func closeWebView()
+    func shareURL(title: String, url: URL)
 }
