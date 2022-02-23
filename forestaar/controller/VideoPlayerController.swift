@@ -59,10 +59,11 @@ class VideoPlayerController: UIViewController, WebViewDelegate {
         })
     }
     
-    @objc func shareURL(title: String, url: URL) {
+    @objc func shareURL(title: String, url: URL, sourceItem: UIBarButtonItem) {
         let objectsToShare: [Any] = [title, url]
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
         activityVC.excludedActivityTypes = [.airDrop, .addToReadingList]
+        activityVC.popoverPresentationController?.barButtonItem = sourceItem
         present(activityVC, animated: true, completion: nil)        
     }
     

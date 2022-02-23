@@ -60,8 +60,10 @@ class MyWebView: UIView , WKNavigationDelegate, WKUIDelegate{
     }
     
 
-    @IBAction func reloadWebPage(_ sender: Any) {
-        self.webViewDelegate.shareURL(title: self.webViewTitle.title!, url: self.webviewURL)
+    @IBAction func reloadWebPage(_ sender: UIBarButtonItem) {
+//        webView.removeObserver(self, forKeyPath: "estimatedProgress")
+//        webView.stopLoading()
+        self.webViewDelegate.shareURL(title: self.webViewTitle.title!, url: self.webviewURL, sourceItem: sender)
        
     }
 //        self.webView.reload()
